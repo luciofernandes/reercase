@@ -1,0 +1,38 @@
+"initializing ECore2GMF".println();
+
+-- Find the compartment figure
+var tableAttributesCompartmentFigure = GmfGraph!Rectangle.all.
+    selectOne(r|r.name = 'TableAttributesCompartmentFigure');
+
+tableAttributesCompartmentFigure.layout = new GmfGraph!StackLayout;
+
+removeBorder('AttributeFigure');
+removeBorder('AttributeUniqueKeyFigure');
+addBoldFontLabel('TableLabelFigure');
+addBoldFontLabel('RelationshipLabelLabel');
+
+operation addBoldFontLabel(nameLabelFigure : String ) {
+	// Add bold font to actionLabel
+	var actionLabel = GmfGraph!Label.all.
+		selectOne(l|l.name= nameLabelFigure);
+	actionLabel.font = new GmfGraph!BasicFont;
+	actionLabel.font.style = GmfGraph!FontStyle#BOLD;
+}
+
+operation removeBorder(nameAttributeFigure : String) {
+	-- Find the attribute figure
+	var attributeFigure = GmfGraph!Rectangle.all.
+	    selectOne(r|r.name = nameAttributeFigure);
+	
+	-- ... delete its border
+	delete attributeFigure.border;
+	
+	-- ... set its outline to false
+	attributeFigure.outline = false;
+	
+	-- ... and add a preferred size to it
+	var preferredSize = new GmfGraph!Dimension;
+	preferredSize.dx = 100;
+	preferredSize.dy = 16;
+	attributeFigure.preferredSize = preferredSize;
+}

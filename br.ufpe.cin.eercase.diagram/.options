@@ -1,0 +1,7 @@
+# Tracing options for the br.ufpe.cin.eercase.diagram plug-in
+
+# Common issues
+br.ufpe.cin.eercase.diagram/debug=false
+
+# Visual IDs
+br.ufpe.cin.eercase.diagram/debug/visualID=false
