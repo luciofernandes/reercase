@@ -7,10 +7,10 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated reermm -->
+      <!-- @generated rmm -->
       <package
-            uri="reer"
-            class="reer.ReerPackage"/>
+            uri="rmm"
+            class="rmm.RmmPackage"/>
    </extension>
 
 </plugin>

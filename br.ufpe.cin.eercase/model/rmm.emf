@@ -1,0 +1,122 @@
+@namespace(uri="rmm", prefix="rmm")
+package rmm;
+
+@gmf.diagram(foo="bar", rcp="false", onefile="true", diagram.extension="rmm")
+class Schema {
+  val Table[*] table;
+  val Assertion[*] assertion;
+  val Domain[*] domain;
+}
+
+@gmf.node(label="name", figure="rectangle")
+class Table {
+  attr String name;
+  attr String description;
+
+  @gmf.compartment(layout="list", collapsible="false", width="5")
+  val Attribute[*] attributes;
+
+  @gmf.compartment(layout="list", collapsible="false", width="1", incoming="false")
+  val Constraint[*] constraints;
+ 
+}
+
+@gmf.node(label="name")
+class Assertion {
+  attr String name;
+  attr String description;
+  attr String condition;
+}
+
+@gmf.node(label="name", figure="rectangle")
+class Domain {
+  attr String name;
+  attr String description;
+  attr String defaultValue;
+  attr boolean isNotNull = false;
+  attr BaseType dataType;
+ 
+  @gmf.compartment(layout="list", collapsible="false", width="1", incoming="false")
+  val Check[*] constraintCheckDomain;
+ 
+}
+
+
+@gmf.node(label="name,dataType", figure="rectangle", label.icon="false", label.pattern="{0}:{1}")
+class Attribute {
+  attr String name;
+  attr BaseType dataType;
+  attr Float size;
+  attr String defaultValue;
+  attr boolean isNotNull = false;
+  attr String description; 
+  ref Domain domain; 
+}
+
+
+@gmf.link(label="name", source="source", target="target", style="solid", 
+    width="1", source.decoration="arrow", incoming="true")
+class Relationship {
+  attr String name;
+  attr OperationRestrictionIntegrity update;
+  attr OperationRestrictionIntegrity delete; 	 
+  ref PrimaryKey source;
+  ref ForeignKey target;
+}
+
+@gmf.node(label="ID,name", figure="rectangle", label.icon="false", border.width="0", label.pattern="{0}:{1}")
+abstract class Constraint
+{
+  attr String ID;
+  attr String name;
+  attr String description;	
+}
+
+class PrimaryKey extends Constraint {
+  val Relationship[*] relationship;
+  ref Attribute[*] attributes;
+}
+
+class UniqueKey extends Constraint {
+ ref Attribute[*] attributes;
+}
+
+class ForeignKey extends Constraint {
+  val Relationship[*] relationship;
+  ref Attribute[*] attributes;
+}
+
+class Check extends Constraint {
+  attr String condition;
+}
+
+class Trigger extends Constraint {
+  attr String  body;
+  attr String condition;
+  attr boolean insert;
+  attr boolean update;
+  attr boolean delete;
+  attr DataTypeExecution execution;
+}
+
+enum DataTypeExecution {
+	AFTER = 0;
+	BEFORE = 1;
+}
+
+enum BaseType {
+  STRING = 0;
+  BOOLEAN = 1;
+  TIMESTAMP = 2;
+  FLOAT = 3;
+  INTEGER = 4;
+  CBLOB = 5;
+  BLOB = 6;
+}
+
+enum OperationRestrictionIntegrity {
+	CASCADE = 0;
+	RESTRICT =1;
+	NULL = 2;
+	DEFAULT = 3;
+}

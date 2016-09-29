@@ -118,6 +118,52 @@ public class ReerItemProviderAdapterFactory extends ReerAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link reer.RestricaoSemantica} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestricaoSemanticaItemProvider restricaoSemanticaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reer.RestricaoSemantica}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestricaoSemanticaAdapter() {
+		if (restricaoSemanticaItemProvider == null) {
+			restricaoSemanticaItemProvider = new RestricaoSemanticaItemProvider(this);
+		}
+
+		return restricaoSemanticaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reer.Dominio} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DominioItemProvider dominioItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reer.Dominio}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDominioAdapter() {
+		if (dominioItemProvider == null) {
+			dominioItemProvider = new DominioItemProvider(this);
+		}
+
+		return dominioItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link reer.Column} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,6 +379,8 @@ public class ReerItemProviderAdapterFactory extends ReerAdapterFactory implement
 	public void dispose() {
 		if (schemaItemProvider != null) schemaItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (restricaoSemanticaItemProvider != null) restricaoSemanticaItemProvider.dispose();
+		if (dominioItemProvider != null) dominioItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (attributeUniqueKeyItemProvider != null) attributeUniqueKeyItemProvider.dispose();

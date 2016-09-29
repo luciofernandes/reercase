@@ -7,13 +7,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="eer"/>
+      <fileTypes type="text" extension="rmm"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="eer"
+         type="rmm"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -21,14 +21,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="reer.diagram.part.ReerDiagramEditorID"
+         id="rmm.diagram.part.RmmDiagramEditorID"
          name="%editorName"
-         icon="icons/obj16/ReerDiagramFile.gif"
-         extensions="eer"
+         icon="icons/obj16/RmmDiagramFile.gif"
+         extensions="rmm"
          default="true"
-         class="reer.diagram.part.ReerDiagramEditor"
-         matchingStrategy="reer.diagram.part.ReerMatchingStrategy"
-         contributorClass="reer.diagram.part.ReerDiagramActionBarContributor">
+         class="rmm.diagram.part.RmmDiagramEditor"
+         matchingStrategy="rmm.diagram.part.RmmMatchingStrategy"
+         contributorClass="rmm.diagram.part.RmmDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -36,7 +36,7 @@
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
-         id="reer.diagram.ui.diagramContext"
+         id="rmm.diagram.ui.diagramContext"
          name="%context.name"
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
@@ -46,10 +46,10 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/ReerDiagramFile.gif"
+  	     icon="icons/obj16/RmmDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="reer.diagram.part.ReerCreationWizard"
-  	     id="reer.diagram.part.ReerCreationWizardID">
+  	     class="rmm.diagram.part.RmmCreationWizard"
+  	     id="rmm.diagram.part.RmmCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -58,11 +58,11 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="br.ufpe.cin.eercase.diagram.InitDiagram"
-            nameFilter="*.reer"
+            nameFilter="*.rmm"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="reer.diagram.part.ReerInitDiagramFileAction"
+               class="rmm.diagram.part.RmmInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="br.ufpe.cin.eercase.diagram.InitDiagramAction">
@@ -74,9 +74,9 @@
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
-         id="ReerPresentation">
+         id="RmmPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="reer.diagram.part.ReerDiagramEditorID">
+         <ViewId id="rmm.diagram.part.RmmDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -91,9 +91,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
-         id="ReerPresentationPrint">
+         id="RmmPresentationPrint">
          <Priority name="Lowest"/>
-         <ViewId id="reer.diagram.part.ReerDiagramEditorID">
+         <ViewId id="rmm.diagram.part.RmmDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="print"/>
             </ElementType>
@@ -101,9 +101,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="ReerPresentationIDE">
+         id="RmmPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="reer.diagram.part.ReerDiagramEditorID">
+         <ViewId id="rmm.diagram.part.RmmDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -111,9 +111,9 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
-            id="ReerRender">
+            id="RmmRender">
          <Priority name="Lowest"/>
-         <ViewId id="reer.diagram.part.ReerDiagramEditorID">
+         <ViewId id="rmm.diagram.part.RmmDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -126,13 +126,13 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="reer.diagram.providers.ReerMarkerNavigationProvider">
+      <MarkerNavigationProvider class="rmm.diagram.providers.RmmMarkerNavigationProvider">
          <MarkerType name="br.ufpe.cin.eercase.diagram.diagnostic"/>
          <Priority name="Lowest"/>
       </MarkerNavigationProvider>
    </extension>
 
-   <extension id="diagnostic" name="Reer Plugin problems" point="org.eclipse.core.resources.markers">
+   <extension id="diagnostic" name="Rmm Plugin problems" point="org.eclipse.core.resources.markers">
       <?gmfgen generated="true"?>
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
@@ -141,7 +141,7 @@
 
    <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="reer.diagram.providers.ReerValidationDecoratorProvider">
+      <decoratorProvider class="rmm.diagram.providers.RmmValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
@@ -150,7 +150,7 @@
 
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
-      <initializer class="reer.diagram.preferences.DiagramPreferenceInitializer"/>
+      <initializer class="rmm.diagram.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
@@ -158,31 +158,31 @@
       <page
             id="br.ufpe.cin.eercase.diagram.general"
             name="%prefpage.br.ufpe.cin.eercase.diagram.general"
-            class="reer.diagram.preferences.DiagramGeneralPreferencePage">
+            class="rmm.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="br.ufpe.cin.eercase.diagram.appearance"
             name="%prefpage.br.ufpe.cin.eercase.diagram.appearance"
             category="br.ufpe.cin.eercase.diagram.general"
-            class="reer.diagram.preferences.DiagramAppearancePreferencePage">
+            class="rmm.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="br.ufpe.cin.eercase.diagram.connections"
             name="%prefpage.br.ufpe.cin.eercase.diagram.connections"
             category="br.ufpe.cin.eercase.diagram.general"
-            class="reer.diagram.preferences.DiagramConnectionsPreferencePage">
+            class="rmm.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="br.ufpe.cin.eercase.diagram.printing"
             name="%prefpage.br.ufpe.cin.eercase.diagram.printing"
             category="br.ufpe.cin.eercase.diagram.general"
-            class="reer.diagram.preferences.DiagramPrintingPreferencePage">
+            class="rmm.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="br.ufpe.cin.eercase.diagram.rulersAndGrid"
             name="%prefpage.br.ufpe.cin.eercase.diagram.rulersAndGrid"
             category="br.ufpe.cin.eercase.diagram.general"
-            class="reer.diagram.preferences.DiagramRulersAndGridPreferencePage">
+            class="rmm.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
 
@@ -190,7 +190,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="br.ufpe.cin.eercase.diagram"
-            labelProvider="reer.diagram.sheet.ReerSheetLabelProvider">
+            labelProvider="rmm.diagram.sheet.RmmSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -241,46 +241,46 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="reer.diagram.sheet.ReerPropertySection">
+            class="rmm.diagram.sheet.RmmPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+            <input type="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="reer.diagram.providers.ReerViewProvider">
+      <viewProvider class="rmm.diagram.providers.RmmViewProvider">
          <Priority name="Lowest"/>
          <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
-            <method name="getType()" value="reer"/>
+            <method name="getType()" value="rmm"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Reer"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Rmm"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2004,2007,2008,3022,3023,3024,3025,3026,3006,3021"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4003"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="reer.diagram.providers.ReerEditPartProvider">
+      <editpartProvider class="rmm.diagram.providers.RmmEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
-            <method name="getType()" value="Reer"/>
+            <method name="getType()" value="Rmm"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002,3003"/>
+            <method name="getType()" value="2004,2007,2008,3022,3023,3024,3025,3026,3006,3021"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001"/>
+            <method name="getType()" value="4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5004,5001,5002,5003"/>
+            <method name="getType()" value="5012,5018,5019,5030,5031,5032,5033,5034,5009,5029"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002"/>
+            <method name="getType()" value="7004,7005,7006"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -289,30 +289,60 @@
    
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="reer.diagram.providers.assistants.ReerModelingAssistantProviderOfSchemaEditPart">
+      <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfSchemaEditPart">
          <Priority name="Lowest"/>
-         <object class="reer.diagram.edit.parts.SchemaEditPart" id="Schema_1000"/>
+         <object class="rmm.diagram.edit.parts.SchemaEditPart" id="Schema_1000"/>
          <context elements="Schema_1000"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="reer.diagram.providers.assistants.ReerModelingAssistantProviderOfTableEditPart">
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfTableEditPart">
          <Priority name="Lowest"/>
-         <object class="reer.diagram.edit.parts.TableEditPart" id="Table_2001"/>
-         <context elements="Table_2001"/>
+         <object class="rmm.diagram.edit.parts.TableEditPart" id="Table_2004"/>
+         <context elements="Table_2004"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="reer.diagram.providers.assistants.ReerModelingAssistantProviderOfAttributeEditPart">
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfAssertionEditPart">
          <Priority name="Lowest"/>
-         <object class="reer.diagram.edit.parts.AttributeEditPart" id="Attribute_3001"/>
-         <context elements="Attribute_3001"/>
+         <object class="rmm.diagram.edit.parts.AssertionEditPart" id="Assertion_2007"/>
+         <context elements="Assertion_2007"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="reer.diagram.providers.assistants.ReerModelingAssistantProviderOfAttributeUniqueKeyEditPart">
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfDomainEditPart">
          <Priority name="Lowest"/>
-         <object class="reer.diagram.edit.parts.AttributeUniqueKeyEditPart" id="AttributeUniqueKey_3002"/>
-         <context elements="AttributeUniqueKey_3002"/>
+         <object class="rmm.diagram.edit.parts.DomainEditPart" id="Domain_2008"/>
+         <context elements="Domain_2008"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="reer.diagram.providers.assistants.ReerModelingAssistantProviderOfAnnotationEditPart">
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfPrimaryKeyEditPart">
          <Priority name="Lowest"/>
-         <object class="reer.diagram.edit.parts.AnnotationEditPart" id="Annotation_3003"/>
-         <context elements="Annotation_3003"/>
+         <object class="rmm.diagram.edit.parts.PrimaryKeyEditPart" id="PrimaryKey_3022"/>
+         <context elements="PrimaryKey_3022"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfUniqueKeyEditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.UniqueKeyEditPart" id="UniqueKey_3023"/>
+         <context elements="UniqueKey_3023"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfForeignKeyEditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.ForeignKeyEditPart" id="ForeignKey_3024"/>
+         <context elements="ForeignKey_3024"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfCheckEditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.CheckEditPart" id="Check_3025"/>
+         <context elements="Check_3025"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfTriggerEditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.TriggerEditPart" id="Trigger_3026"/>
+         <context elements="Trigger_3026"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfAttributeEditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.AttributeEditPart" id="Attribute_3006"/>
+         <context elements="Attribute_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="rmm.diagram.providers.assistants.RmmModelingAssistantProviderOfCheck2EditPart">
+         <Priority name="Lowest"/>
+         <object class="rmm.diagram.edit.parts.Check2EditPart" id="Check_3021"/>
+         <context elements="Check_3021"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -320,24 +350,24 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="reer.diagram.providers.ReerIconProvider">
+      <IconProvider class="rmm.diagram.providers.RmmIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="reer.diagram.providers.ReerParserProvider">
+      <ParserProvider class="rmm.diagram.providers.RmmParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
       <?gmfgen generated="true"?>
-      <decoratorProvider class="reer.diagram.providers.ReerShortcutsDecoratorProvider">
+      <decoratorProvider class="rmm.diagram.providers.RmmShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2001"/>
+            <method name="getType()" value="2004,2007,2008"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -345,65 +375,133 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="reer">
+      <metamodel nsURI="rmm">
          <metamodelType
                id="br.ufpe.cin.eercase.diagram.Schema_1000"
                name="%metatype.name.Schema_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Schema"
-               edithelper="reer.diagram.edit.helpers.SchemaEditHelper">
+               edithelper="rmm.diagram.edit.helpers.SchemaEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="reer">
+      <metamodel nsURI="rmm">
          <metamodelType
-               id="br.ufpe.cin.eercase.diagram.Table_2001"
-               name="%metatype.name.Table_2001"
+               id="br.ufpe.cin.eercase.diagram.Table_2004"
+               name="%metatype.name.Table_2004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Table"
-               edithelper="reer.diagram.edit.helpers.TableEditHelper">
-            <param name="semanticHint" value="2001"/>
+               edithelper="rmm.diagram.edit.helpers.TableEditHelper">
+            <param name="semanticHint" value="2004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="reer">
+      <metamodel nsURI="rmm">
          <metamodelType
-               id="br.ufpe.cin.eercase.diagram.Attribute_3001"
-               name="%metatype.name.Attribute_3001"
+               id="br.ufpe.cin.eercase.diagram.Assertion_2007"
+               name="%metatype.name.Assertion_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Assertion"
+               edithelper="rmm.diagram.edit.helpers.AssertionEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.Domain_2008"
+               name="%metatype.name.Domain_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Domain"
+               edithelper="rmm.diagram.edit.helpers.DomainEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.PrimaryKey_3022"
+               name="%metatype.name.PrimaryKey_3022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PrimaryKey"
+               edithelper="rmm.diagram.edit.helpers.PrimaryKeyEditHelper">
+            <param name="semanticHint" value="3022"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.UniqueKey_3023"
+               name="%metatype.name.UniqueKey_3023"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="UniqueKey"
+               edithelper="rmm.diagram.edit.helpers.UniqueKeyEditHelper">
+            <param name="semanticHint" value="3023"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.ForeignKey_3024"
+               name="%metatype.name.ForeignKey_3024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ForeignKey"
+               edithelper="rmm.diagram.edit.helpers.ForeignKeyEditHelper">
+            <param name="semanticHint" value="3024"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.Check_3025"
+               name="%metatype.name.Check_3025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Check"
+               edithelper="rmm.diagram.edit.helpers.CheckEditHelper">
+            <param name="semanticHint" value="3025"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.Trigger_3026"
+               name="%metatype.name.Trigger_3026"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Trigger"
+               edithelper="rmm.diagram.edit.helpers.TriggerEditHelper">
+            <param name="semanticHint" value="3026"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <metamodelType
+               id="br.ufpe.cin.eercase.diagram.Attribute_3006"
+               name="%metatype.name.Attribute_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Attribute"
-               edithelper="reer.diagram.edit.helpers.AttributeEditHelper">
-            <param name="semanticHint" value="3001"/>
+               edithelper="rmm.diagram.edit.helpers.AttributeEditHelper">
+            <param name="semanticHint" value="3006"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="reer">
-         <metamodelType
-               id="br.ufpe.cin.eercase.diagram.AttributeUniqueKey_3002"
-               name="%metatype.name.AttributeUniqueKey_3002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AttributeUniqueKey"
-               edithelper="reer.diagram.edit.helpers.AttributeUniqueKeyEditHelper">
-            <param name="semanticHint" value="3002"/>
-         </metamodelType>
+      <metamodel nsURI="rmm">
+         <specializationType
+               id="br.ufpe.cin.eercase.diagram.Check_3021"
+               name="%metatype.name.Check_3021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="br.ufpe.cin.eercase.diagram.Check_3025"/>
+            <param name="semanticHint" value="3021"/>
+         </specializationType>
       </metamodel>
-      <metamodel nsURI="reer">
+      <metamodel nsURI="rmm">
          <metamodelType
-               id="br.ufpe.cin.eercase.diagram.Annotation_3003"
-               name="%metatype.name.Annotation_3003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Annotation"
-               edithelper="reer.diagram.edit.helpers.AnnotationEditHelper">
-            <param name="semanticHint" value="3003"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="reer">
-         <metamodelType
-               id="br.ufpe.cin.eercase.diagram.Relationship_4001"
-               name="%metatype.name.Relationship_4001"
+               id="br.ufpe.cin.eercase.diagram.Relationship_4002"
+               name="%metatype.name.Relationship_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Relationship"
-               edithelper="reer.diagram.edit.helpers.RelationshipEditHelper">
-            <param name="semanticHint" value="4001"/>
+               edithelper="rmm.diagram.edit.helpers.RelationshipEditHelper">
+            <param name="semanticHint" value="4002"/>
          </metamodelType>
+      </metamodel>
+      <metamodel nsURI="rmm">
+         <specializationType
+               id="br.ufpe.cin.eercase.diagram.Relationship_4003"
+               name="%metatype.name.Relationship_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="br.ufpe.cin.eercase.diagram.Relationship_4002"/>
+            <param name="semanticHint" value="4003"/>
+         </specializationType>
       </metamodel>
    </extension>
 
@@ -418,11 +516,18 @@
       </clientContext> 
       <binding context="br.ufpe.cin.eercase.diagram.TypeContext">
          <elementType ref="br.ufpe.cin.eercase.diagram.Schema_1000"/>
-         <elementType ref="br.ufpe.cin.eercase.diagram.Table_2001"/>
-         <elementType ref="br.ufpe.cin.eercase.diagram.Attribute_3001"/>
-         <elementType ref="br.ufpe.cin.eercase.diagram.AttributeUniqueKey_3002"/>
-         <elementType ref="br.ufpe.cin.eercase.diagram.Annotation_3003"/>
-         <elementType ref="br.ufpe.cin.eercase.diagram.Relationship_4001"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Table_2004"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Assertion_2007"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Domain_2008"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.PrimaryKey_3022"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.UniqueKey_3023"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.ForeignKey_3024"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Check_3025"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Trigger_3026"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Attribute_3006"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Check_3021"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Relationship_4002"/>
+         <elementType ref="br.ufpe.cin.eercase.diagram.Relationship_4003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -433,7 +538,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="br.ufpe.cin.eercase.diagram"
            properties="isURIEditorInput"
-           class="reer.diagram.part.ReerUriEditorInputTester">
+           class="rmm.diagram.part.RmmUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -444,7 +549,7 @@
            type="org.eclipse.gmf.runtime.notation.View"
            namespace="br.ufpe.cin.eercase.diagram"
            properties="isShortcut"
-           class="reer.diagram.part.ReerShortcutPropertyTester">
+           class="rmm.diagram.part.RmmShortcutPropertyTester">
        </propertyTester>
    </extension>
 
@@ -470,17 +575,17 @@
             id="br.ufpe.cin.eercase.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="reer.diagram.navigator.ReerNavigatorContentProvider" 
-            labelProvider="reer.diagram.navigator.ReerNavigatorLabelProvider"
-            icon="icons/obj16/ReerDiagramFile.gif"
+            contentProvider="rmm.diagram.navigator.RmmNavigatorContentProvider" 
+            labelProvider="rmm.diagram.navigator.RmmNavigatorLabelProvider"
+            icon="icons/obj16/RmmDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="eer"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rmm"/>
                </and>
-               <instanceof value="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+               <instanceof value="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="br.ufpe.cin.eercase.diagram.isShortcut"/>
            	   </adapt>
@@ -488,7 +593,7 @@
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+         	   <instanceof value="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="br.ufpe.cin.eercase.diagram.isShortcut"/>
            	   </adapt>
@@ -496,14 +601,14 @@
          </possibleChildren>
          <commonSorter 
                id="br.ufpe.cin.eercase.diagram.navigatorSorter" 
-               class="reer.diagram.navigator.ReerNavigatorSorter">
+               class="rmm.diagram.navigator.RmmNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="eer"/>
+        	         <test property="org.eclipse.core.resources.extension" value="rmm"/>
                   </and>
-                  <instanceof value="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+                  <instanceof value="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -512,29 +617,29 @@
             id="br.ufpe.cin.eercase.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="reer.diagram.navigator.ReerDomainNavigatorContentProvider" 
-            labelProvider="reer.diagram.navigator.ReerDomainNavigatorLabelProvider"
-            icon="icons/obj16/ReerDiagramFile.gif"
+            contentProvider="rmm.diagram.navigator.RmmDomainNavigatorContentProvider" 
+            labelProvider="rmm.diagram.navigator.RmmDomainNavigatorLabelProvider"
+            icon="icons/obj16/RmmDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="reer"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rmm"/>
                </and>
-               <instanceof value="reer.diagram.navigator.ReerDomainNavigatorItem"/>
+               <instanceof value="rmm.diagram.navigator.RmmDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="reer.diagram.navigator.ReerDomainNavigatorItem"/>
+            <instanceof value="rmm.diagram.navigator.RmmDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="br.ufpe.cin.eercase.diagram.navigatorActionProvider"
-            class="reer.diagram.navigator.ReerNavigatorActionProvider">
+            class="rmm.diagram.navigator.RmmNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+               <instanceof value="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
            	      <test property="br.ufpe.cin.eercase.diagram.isShortcut"/>
            	   </adapt>
@@ -547,7 +652,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="br.ufpe.cin.eercase.diagram.navigatorLinkHelper"
-            class="reer.diagram.navigator.ReerNavigatorLinkHelper">
+            class="rmm.diagram.navigator.RmmNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -555,7 +660,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="reer.diagram.navigator.ReerAbstractNavigatorItem"/>
+            <instanceof value="rmm.diagram.navigator.RmmAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -563,17 +668,17 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="reer.diagram.part.ReerDiagramUpdateCommand"
+         defaultHandler="rmm.diagram.part.RmmDiagramUpdateCommand"
          description="%update.diagram.description"
-         id="reer.diagram.updateDiagram"
+         id="rmm.diagram.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
    <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
-         commandId="reer.diagram.updateDiagram"
-         contextId="reer.diagram.ui.diagramContext"
+         commandId="rmm.diagram.updateDiagram"
+         contextId="rmm.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
@@ -588,9 +693,9 @@
          <command commandId="br.ufpe.cin.eercase.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="reer.diagram.part.ReerDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="rmm.diagram.part.RmmDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="reer.diagram.edit.parts.SchemaEditPart"/>
+                     <instanceof value="rmm.diagram.edit.parts.SchemaEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>
@@ -600,11 +705,11 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="reer.diagram.part.ReerDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="rmm.diagram.part.RmmDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="br.ufpe.cin.eercase.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="reer.diagram.part.ReerDiagramEditorID"
-         defaultHandler="reer.diagram.part.LoadResourceAction"/>
+         categoryId="rmm.diagram.part.RmmDiagramEditorID"
+         defaultHandler="rmm.diagram.part.LoadResourceAction"/>
    </extension>
 
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">

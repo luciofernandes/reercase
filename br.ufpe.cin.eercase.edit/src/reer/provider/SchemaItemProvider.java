@@ -78,6 +78,8 @@ public class SchemaItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ReerPackage.Literals.SCHEMA__TABLE);
+			childrenFeatures.add(ReerPackage.Literals.SCHEMA__RESTRICAO_SEMANTICA);
+			childrenFeatures.add(ReerPackage.Literals.SCHEMA__DOMINIO);
 		}
 		return childrenFeatures;
 	}
@@ -131,6 +133,8 @@ public class SchemaItemProvider
 
 		switch (notification.getFeatureID(Schema.class)) {
 			case ReerPackage.SCHEMA__TABLE:
+			case ReerPackage.SCHEMA__RESTRICAO_SEMANTICA:
+			case ReerPackage.SCHEMA__DOMINIO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,6 +156,16 @@ public class SchemaItemProvider
 			(createChildParameter
 				(ReerPackage.Literals.SCHEMA__TABLE,
 				 ReerFactory.eINSTANCE.createTable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReerPackage.Literals.SCHEMA__RESTRICAO_SEMANTICA,
+				 ReerFactory.eINSTANCE.createRestricaoSemantica()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReerPackage.Literals.SCHEMA__DOMINIO,
+				 ReerFactory.eINSTANCE.createDominio()));
 	}
 
 	/**
