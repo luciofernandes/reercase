@@ -1,0 +1,37 @@
+context Table {
+
+  constraint HasName {
+
+      check : self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+   }
+
+  constraint HasAttributes {
+
+      check :  not self.attributes.isEmpty()
+
+      message : 'Unattributes ' + self.eClass().name + ' not allowed'
+   }
+
+  constraint HasConstraint {
+
+      check : not self.constraints.isEmpty() 
+
+      message : 'Unconstraints ' + self.eClass().name + ' not allowed'
+   }
+      
+   constraint NoTableWithSameName {
+		guard : self.satisfies('HasName')
+		check : not (Table.allInstances.select(t|t.name = self.name)->size() <> 1)
+		message : '(RG03) An table must have a  unique name in the diagram,\n because tables with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
+		fix {
+			title : 'Change the name of the Table.'
+			do {
+				var nome : String;
+				nome = UserInput.prompt('Enter the new name:');
+				if (nome.isDefined()) self.name := nome;
+			}
+		}
+	}
+}
