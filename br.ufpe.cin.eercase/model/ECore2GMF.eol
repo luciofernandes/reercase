@@ -8,7 +8,7 @@ tableAttributesCompartmentFigure.layout = new GmfGraph!StackLayout;
 
 removeBorder('AttributeFigure');
 addBoldFontLabel('TableLabelFigure');
-addBoldFontLabel('RelationshipLabelLabel');
+//addBoldFontLabel('RelationshipLabelLabel');
 
 -- Find the constraint compartment figure
 var tableConstraintCompartmentFigure = GmfGraph!Rectangle.all.
@@ -19,6 +19,11 @@ removeBorder('UniqueKeyFigure');
 removeBorder('ForeignKeyFigure');
 removeBorder('CheckFigure');
 removeBorder('TriggerFigure');
+//removeBorder('RelationshipLabelLabel');
+
+//configuration RelationshipLink labels
+//var relationshipLink = ECore!EClass.all.selectOne(c|c.name = 'Relationship');
+//relationshipLink.createLinkLabel('name');
 
 operation addBoldFontLabel(nameLabelFigure : String ) {
 	// Add bold font to actionLabel
@@ -43,3 +48,54 @@ operation removeBorder(nameAttributeFigure : String) {
 	attributeFigure.preferredSize = preferredSize;
 }
 
+
+operation ECore!EClass createLinkLabel(attribute:String) {
+
+  var labelName = self.name + 'Name';
+   
+  -- Create the figure descriptor and the label
+  var labelFigureDescriptor = createFigureDescriptor(labelName + 'Figure');
+  var label = new GmfGraph!Label;
+  label.name = labelName;
+  label.text = '';
+  labelFigureDescriptor.actualFigure = label;
+  
+  -- Create the diagram label
+  var diagramLabel = new GmfGraph!DiagramLabel;
+  diagramLabel.figure = labelFigureDescriptor;
+  diagramLabel.name = labelName;
+  diagramLabel.elementIcon = false;
+  
+  
+  GmfGraph!Canvas.all.first().labels.add(diagramLabel);
+  
+  -- Specify if the label will be placed at the beginning/end of the link
+  var alignmentFacet = new GmfGraph!AlignmentFacet;
+  alignmentFacet.alignment = GmfGraph!Alignment#CENTER;
+ 
+  diagramLabel.facets.add(alignmentFacet);
+  
+  -- Specify how far the label should be from the line
+  var labelOffsetFacet = new GmfGraph!LabelOffsetFacet;
+  labelOffsetFacet.x = 5;
+  labelOffsetFacet.y = 5;
+  diagramLabel.facets.add(labelOffsetFacet);
+  
+  -- Create the label/attribute mapping in the .gmfmap model
+  var featureLabelMapping = new GmfMap!FeatureLabelMapping;
+  featureLabelMapping.diagramLabel = diagramLabel;
+  
+  //featureLabelMapping.features.add(self.eAllStructuralFeatures.selectOne(sf|sf.name = attribute));
+  featureLabelMapping.features.add(self.eAllStructuralFeatures.selectOne(sf|sf.name = "update"));
+  featureLabelMapping.features.add(self.eAllStructuralFeatures.selectOne(sf|sf.name = "delete"));
+  featureLabelMapping.readOnly = true;
+  var linkMapping = GmfMap!LinkMapping.all.selectOne(lm|lm.domainMetaElement = self);
+  linkMapping.labelMappings.add(featureLabelMapping);  
+}
+
+operation createFigureDescriptor(name : String) {
+  var figureDescriptor = new GmfGraph!FigureDescriptor;
+  figureDescriptor.name = name;
+  GmfGraph!FigureGallery.all.first().descriptors.add(figureDescriptor);
+  return figureDescriptor;
+}

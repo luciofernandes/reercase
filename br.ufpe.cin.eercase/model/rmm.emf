@@ -54,8 +54,7 @@ class Attribute {
 }
 
 
-@gmf.link(label="name", source="source", target="target", style="solid", 
-    width="1", source.decoration="arrow", incoming="true")
+@gmf.link(label="name", source="source", target="target", style="dot", width="2")
 class Relationship {
   attr String name;
   attr OperationRestrictionIntegrity update;
