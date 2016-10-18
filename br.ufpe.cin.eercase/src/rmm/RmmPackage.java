@@ -625,22 +625,13 @@ public interface RmmPackage extends EPackage {
 	int FOREIGN_KEY__DESCRIPTION = CONSTRAINT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Relationship</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREIGN_KEY__RELATIONSHIP = CONSTRAINT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 1;
+	int FOREIGN_KEY__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
@@ -649,7 +640,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
+	int FOREIGN_KEY_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link rmm.impl.CheckImpl <em>Check</em>}' class.
@@ -1312,17 +1303,6 @@ public interface RmmPackage extends EPackage {
 	EClass getForeignKey();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link rmm.ForeignKey#getRelationship <em>Relationship</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Relationship</em>'.
-	 * @see rmm.ForeignKey#getRelationship()
-	 * @see #getForeignKey()
-	 * @generated
-	 */
-	EReference getForeignKey_Relationship();
-
-	/**
 	 * Returns the meta object for the reference list '{@link rmm.ForeignKey#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1853,14 +1833,6 @@ public interface RmmPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FOREIGN_KEY = eINSTANCE.getForeignKey();
-
-		/**
-		 * The meta object literal for the '<em><b>Relationship</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FOREIGN_KEY__RELATIONSHIP = eINSTANCE.getForeignKey_Relationship();
 
 		/**
 		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.

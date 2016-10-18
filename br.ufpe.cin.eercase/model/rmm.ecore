@@ -87,12 +87,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relationship">
     <eAnnotations source="gmf.link">
-      <details key="label" value="name"/>
+      <details key="label" value="name,update,delete"/>
+      <details key="label.pattern" value="{0}(U:{1}/D:{2})"/>
       <details key="source" value="source"/>
       <details key="target" value="target"/>
+      <details key="source.decoration" value="arrow"/>
       <details key="style" value="solid"/>
       <details key="width" value="1"/>
-      <details key="source.decoration" value="arrow"/>
       <details key="incoming" value="true"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -124,8 +125,6 @@
         eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForeignKey" eSuperTypes="#//Constraint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relationship" upperBound="-1"
-        eType="#//Relationship" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute"/>
   </eClassifiers>

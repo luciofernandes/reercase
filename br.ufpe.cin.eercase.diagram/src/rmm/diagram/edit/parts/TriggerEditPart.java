@@ -321,7 +321,6 @@ public class TriggerEditPart extends ShapeNodeEditPart {
 				this.add(fFigureTriggerLabelFigure);
 			}
 
-
 		}
 
 		/**

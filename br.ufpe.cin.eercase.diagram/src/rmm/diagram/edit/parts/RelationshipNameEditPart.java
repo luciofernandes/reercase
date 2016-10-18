@@ -64,7 +64,7 @@ public class RelationshipNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6003;
+	public static final int VISUAL_ID = 6004;
 
 	/**
 	 * @generated
@@ -327,7 +327,7 @@ public class RelationshipNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RmmParserProvider
 					.getParser(
-							RmmElementTypes.Relationship_4003,
+							RmmElementTypes.Relationship_4002,
 							getParserElement(),
 							RmmVisualIDRegistry
 									.getType(rmm.diagram.edit.parts.RelationshipNameEditPart.VISUAL_ID));
@@ -547,7 +547,7 @@ public class RelationshipNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return (View) getModel();
+		return getPrimaryView();
 	}
 
 	/**
@@ -645,18 +645,8 @@ public class RelationshipNameEditPart extends LabelEditPart implements
 		 */
 		public RelationshipLabelFigure() {
 			this.setText("Relationship");
-
-			this.setFont(THIS_FONT);
-
 		}
 
 	}
-
-	/**
-	 * @generated
-	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
-			.getDefault().getSystemFont().getFontData()[0].getName(), 9,
-			SWT.BOLD);
 
 }

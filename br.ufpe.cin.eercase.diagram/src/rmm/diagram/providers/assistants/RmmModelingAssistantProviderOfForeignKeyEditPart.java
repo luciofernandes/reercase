@@ -34,9 +34,8 @@ public class RmmModelingAssistantProviderOfForeignKeyEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnTarget(ForeignKeyEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(2);
+		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(RmmElementTypes.Relationship_4002);
-		types.add(RmmElementTypes.Relationship_4003);
 		return types;
 	}
 
@@ -59,8 +58,6 @@ public class RmmModelingAssistantProviderOfForeignKeyEditPart extends
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == RmmElementTypes.Relationship_4002) {
-			types.add(RmmElementTypes.PrimaryKey_3022);
-		} else if (relationshipType == RmmElementTypes.Relationship_4003) {
 			types.add(RmmElementTypes.PrimaryKey_3022);
 		}
 		return types;

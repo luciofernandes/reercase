@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: reer.tests
+Export-Package: rmm.tests
 Require-Bundle: org.eclipse.core.runtime,
  br.ufpe.cin.eercase;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

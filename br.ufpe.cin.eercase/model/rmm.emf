@@ -54,7 +54,7 @@ class Attribute {
 }
 
 
-@gmf.link(label="name", source="source", target="target", style="dot", width="2")
+@gmf.link(label="name,update,delete", label.pattern="{0}(U:{1}/D:{2})", source="source", target="target", source.decoration="arrow", style="solid", width="1", incoming="true")
 class Relationship {
   attr String name;
   attr OperationRestrictionIntegrity update;
@@ -81,7 +81,7 @@ class UniqueKey extends Constraint {
 }
 
 class ForeignKey extends Constraint {
-  val Relationship[*] relationship;
+  
   ref Attribute[*] attributes;
 }
 

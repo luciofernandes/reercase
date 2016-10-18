@@ -10,6 +10,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
@@ -34,6 +35,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
@@ -47,6 +49,12 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import rmm.Attribute;
+import rmm.Constraint;
+import rmm.ForeignKey;
+import rmm.PrimaryKey;
+import rmm.Table;
+import rmm.UniqueKey;
 import rmm.diagram.edit.policies.RmmTextSelectionEditPolicy;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
@@ -122,9 +130,57 @@ public class AttributeNameDataTypeEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
+		Attribute attribute = ((Attribute) ((Node) this
+				.getModel()).getElement());
+		// Muda estilo para negrito em caso de NotNull
+		if (attribute.isIsNotNull()) { 
+			figure.setFont(AttributeEditPart.FontBold);
+		} else {
+			figure.setFont(AttributeEditPart.FontNormal);
+		}		
+		String siglaConstraint = new String("");
+		Table table = ((Table) ((Node) this.getParent().getParent().getModel()).getElement());
+		EList<Constraint> constraints = table.getConstraints();
+		for (Constraint constraint : constraints) {
+
+			if (constraint instanceof ForeignKey){
+				ForeignKey  foreignKey = (ForeignKey)constraint;
+				if (foreignKey.getAttributes().contains(attribute))
+				{
+					if (!siglaConstraint.isEmpty()){
+						siglaConstraint += ",";
+					}					
+					siglaConstraint += foreignKey.getID();
+				}
+			}
+			if (constraint instanceof PrimaryKey){
+				PrimaryKey  foreignKey = (PrimaryKey)constraint;
+				if (foreignKey.getAttributes().contains(attribute))
+				{
+					if (!siglaConstraint.isEmpty()){
+						siglaConstraint += ",";
+					}					
+					siglaConstraint += foreignKey.getID();
+				}
+			}	
+			if (constraint instanceof UniqueKey){
+				UniqueKey  foreignKey = (UniqueKey)constraint;
+				if (foreignKey.getAttributes().contains(attribute))
+				{
+					if (!siglaConstraint.isEmpty()){
+						siglaConstraint += ",";
+					}					
+					siglaConstraint += foreignKey.getID();
+				}
+			}			
+		}
+		if (!siglaConstraint.isEmpty()){
+			text = text + "(" + siglaConstraint + ")";
+			
+		}	
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
 		} else if (figure instanceof Label) {

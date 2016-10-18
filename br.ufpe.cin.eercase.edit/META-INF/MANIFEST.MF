@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: br.ufpe.cin.eercase.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: reer.provider.ReerEditPlugin$Implementation
+Bundle-Activator: rmm.provider.RmmEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: reer.provider
+Export-Package: rmm.provider
 Require-Bundle: org.eclipse.core.runtime,
  br.ufpe.cin.eercase;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

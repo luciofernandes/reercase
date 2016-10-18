@@ -602,17 +602,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getForeignKey_Relationship() {
-		return (EReference)foreignKeyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getForeignKey_Attributes() {
-		return (EReference)foreignKeyEClass.getEStructuralFeatures().get(1);
+		return (EReference)foreignKeyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -804,7 +795,6 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEReference(uniqueKeyEClass, UNIQUE_KEY__ATTRIBUTES);
 
 		foreignKeyEClass = createEClass(FOREIGN_KEY);
-		createEReference(foreignKeyEClass, FOREIGN_KEY__RELATIONSHIP);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__ATTRIBUTES);
 
 		checkEClass = createEClass(CHECK);
@@ -912,7 +902,6 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEReference(getUniqueKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, UniqueKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getForeignKey_Relationship(), this.getRelationship(), null, "relationship", null, 0, -1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForeignKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(checkEClass, Check.class, "Check", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1076,12 +1065,13 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		  (relationshipEClass, 
 		   source, 
 		   new String[] {
-			 "label", "name",
+			 "label", "name,update,delete",
+			 "label.pattern", "{0}(U:{1}/D:{2})",
 			 "source", "source",
 			 "target", "target",
+			 "source.decoration", "arrow",
 			 "style", "solid",
 			 "width", "1",
-			 "source.decoration", "arrow",
 			 "incoming", "true"
 		   });
 	}
