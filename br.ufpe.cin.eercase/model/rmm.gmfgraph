@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="rmm">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="RelationshipFigureSourceDecoration"/>
+    <descriptors name="TableFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TableFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TableLabelFigure" text="Table">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="TableAttributesCompartmentFigure" outline="false">
+          <layout xsi:type="gmfgraph:StackLayout"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="TableConstraintsCompartmentFigure" outline="false">
+          <layout xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors accessor="getFigureTableLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getTableAttributesCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors accessor="getTableConstraintsCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="AssertionFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="AssertionFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="AssertionLabelFigure" text="Assertion"/>
+      </actualFigure>
+      <accessors accessor="getFigureAssertionLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DomainFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DomainFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="DomainLabelFigure" text="Domain">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="DomainConstraintCheckDomainCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureDomainLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getDomainConstraintCheckDomainCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="AttributeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="AttributeFigure" outline="false">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="AttributeLabelFigure" text="Attribute"/>
+      </actualFigure>
+      <accessors accessor="getFigureAttributeLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="PrimaryKeyFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="PrimaryKeyFigure" outline="false" lineWidth="0">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="PrimaryKeyLabelFigure" text="PrimaryKey"/>
+      </actualFigure>
+      <accessors accessor="getFigurePrimaryKeyLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="UniqueKeyFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="UniqueKeyFigure" outline="false" lineWidth="0">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="UniqueKeyLabelFigure" text="UniqueKey"/>
+      </actualFigure>
+      <accessors accessor="getFigureUniqueKeyLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="ForeignKeyFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ForeignKeyFigure" outline="false" lineWidth="0">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="ForeignKeyLabelFigure" text="ForeignKey"/>
+      </actualFigure>
+      <accessors accessor="getFigureForeignKeyLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="CheckFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="CheckFigure" outline="false" lineWidth="0">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="CheckLabelFigure" text="Check"/>
+      </actualFigure>
+      <accessors accessor="getFigureCheckLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TriggerFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TriggerFigure" outline="false" lineWidth="0">
+        <preferredSize dx="150" dy="16"/>
+        <children xsi:type="gmfgraph:Label" name="TriggerLabelFigure" text="Trigger"/>
+      </actualFigure>
+      <accessors accessor="getFigureTriggerLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="RelationshipFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RelationshipFigure" sourceDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors name="RelationshipLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="RelationshipLabelLabel" text="Relationship"/>
+    </descriptors>
+  </figures>
+  <nodes name="Table" figure="TableFigure"/>
+  <nodes name="Assertion" figure="AssertionFigure"/>
+  <nodes name="Domain" figure="DomainFigure"/>
+  <nodes name="Attribute" figure="AttributeFigure"/>
+  <nodes name="PrimaryKey" figure="PrimaryKeyFigure"/>
+  <nodes name="UniqueKey" figure="UniqueKeyFigure"/>
+  <nodes name="ForeignKey" figure="ForeignKeyFigure"/>
+  <nodes name="Check" figure="CheckFigure"/>
+  <nodes name="Trigger" figure="TriggerFigure"/>
+  <connections name="Relationship" figure="RelationshipFigure"/>
+  <compartments name="TableAttributesCompartment" figure="TableFigure" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="TableConstraintsCompartment" figure="TableFigure" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <compartments name="DomainConstraintCheckDomainCompartment" figure="DomainFigure" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="TableLabel" figure="TableFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="AssertionLabel" figure="AssertionFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="DomainLabel" figure="DomainFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="AttributeLabel" figure="AttributeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="PrimaryKeyLabel" figure="PrimaryKeyFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="UniqueKeyLabel" figure="UniqueKeyFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="ForeignKeyLabel" figure="ForeignKeyFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="CheckLabel" figure="CheckFigure" elementIcon="false" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="TriggerLabel" figure="TriggerFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="RelationshipLabel" figure="RelationshipLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>

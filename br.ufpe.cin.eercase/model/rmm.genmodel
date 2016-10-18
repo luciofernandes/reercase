@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/br.ufpe.cin.eercase/src" modelPluginID="br.ufpe.cin.eercase"
+    modelName="Rmm" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>rmm.emf</foreignModel>
+  <genPackages prefix="Rmm" disposableProviderFactory="true" ecorePackage="rmm.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rmm.ecore#//DataTypeExecution">
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//DataTypeExecution/AFTER"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//DataTypeExecution/BEFORE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rmm.ecore#//BaseType">
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/TIMESTAMP"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/CBLOB"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//BaseType/BLOB"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rmm.ecore#//OperationRestrictionIntegrity">
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//OperationRestrictionIntegrity/CASCADE"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//OperationRestrictionIntegrity/RESTRICT"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//OperationRestrictionIntegrity/NULL"/>
+      <genEnumLiterals ecoreEnumLiteral="rmm.ecore#//OperationRestrictionIntegrity/DEFAULT"/>
+    </genEnums>
+    <genClasses ecoreClass="rmm.ecore#//Schema">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Schema/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Schema/assertion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Schema/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Table/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Table/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Table/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Table/constraints"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Assertion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Assertion/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Assertion/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Assertion/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Domain">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Domain/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Domain/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Domain/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Domain/isNotNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Domain/dataType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//Domain/constraintCheckDomain"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/isNotNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Attribute/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//Attribute/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Relationship">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Relationship/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Relationship/update"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Relationship/delete"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//Relationship/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//Relationship/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rmm.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Constraint/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Constraint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Constraint/description"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//PrimaryKey">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rmm.ecore#//PrimaryKey/relationship"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//PrimaryKey/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//UniqueKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//UniqueKey/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//ForeignKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rmm.ecore#//ForeignKey/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Check">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Check/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="rmm.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/insert"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/update"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/delete"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rmm.ecore#//Trigger/execution"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
