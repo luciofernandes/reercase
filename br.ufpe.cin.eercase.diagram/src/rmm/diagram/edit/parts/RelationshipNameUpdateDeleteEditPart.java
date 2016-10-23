@@ -132,8 +132,6 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
-
-
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getText();
 		} else if (figure instanceof Label) {

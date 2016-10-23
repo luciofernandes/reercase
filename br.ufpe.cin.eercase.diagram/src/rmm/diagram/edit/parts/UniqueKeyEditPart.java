@@ -10,6 +10,8 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -255,6 +257,36 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 				.getType(UniqueKeyIDNameEditPart.VISUAL_ID));
 	}
 
+	/**
+	 * @generated not
+	 * @author Lucio
+	 * @since 12/03/2016 Interceptar o evento de mudar o tipo do atributo e faz
+	 *        com que o atributo seja redesenhado.
+	 */
+	protected void handleNotificationEvent(Notification event) {
+		if ((event.getEventType() == Notification.ADD) ||
+				(event.getEventType() == Notification.REMOVE) ||
+				(event.getEventType() == Notification.REMOVE_MANY) ||
+				(event.getEventType() == Notification.ADD_MANY)){
+			TableTableAttributesCompartmentEditPart e = (TableTableAttributesCompartmentEditPart)this.getParent().getParent().getChildren().get(1);
+			List<AttributeEditPart> att = e.getChildren();
+			for (AttributeEditPart attributeEditPart : att) {
+				attributeEditPart.addNotify();
+			}
+
+			getPrimaryShape().repaint();
+					
+		}
+		if (event.getNotifier() == getModel()
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
+						.equals(event.getFeature())) {
+			handleMajorSemanticChange();
+		} else {
+			super.handleNotificationEvent(event);
+		}
+	}
+
+	
 	/**
 	 * @generated
 	 */

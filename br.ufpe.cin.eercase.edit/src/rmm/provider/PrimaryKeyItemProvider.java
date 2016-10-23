@@ -82,7 +82,13 @@ public class PrimaryKeyItemProvider extends ConstraintItemProvider {
 					PrimaryKey primaryKey = (PrimaryKey) object;												
 					Table table = (Table) primaryKey.eContainer(); // Retrieve the classroom students					
 					List<Attribute> attributes = new ArrayList<Attribute>(); // Copy the students to a temporary list
-					attributes.addAll(table.getAttributes());
+					//Inclui somente atributos com not null
+					for (Attribute attribute : table.getAttributes()) {
+						if (attribute.isIsNotNull())
+						{
+							attributes.add(attribute);
+						}
+					}
 					attributes.remove(object); // Removes the student himself from the available friends
 					// Sorts the result
 					Collections.sort(attributes, new Comparator<Attribute>() {
