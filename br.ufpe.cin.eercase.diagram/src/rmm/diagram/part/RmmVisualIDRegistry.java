@@ -12,6 +12,8 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import rmm.RmmPackage;
 import rmm.Schema;
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
+import rmm.diagram.edit.parts.AlternateKeyIDNameEditPart;
 import rmm.diagram.edit.parts.AssertionEditPart;
 import rmm.diagram.edit.parts.AssertionNameEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
@@ -27,6 +29,7 @@ import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.ForeignKeyIDNameEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyIDNameEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.RelationshipNameEditPart;
 import rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart;
@@ -37,8 +40,6 @@ import rmm.diagram.edit.parts.TableTableAttributesCompartmentEditPart;
 import rmm.diagram.edit.parts.TableTableConstraintsCompartmentEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
 import rmm.diagram.edit.parts.TriggerIDNameEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
-import rmm.diagram.edit.parts.UniqueKeyIDNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -172,9 +173,9 @@ public class RmmVisualIDRegistry {
 					domainElement.eClass())) {
 				return PrimaryKeyEditPart.VISUAL_ID;
 			}
-			if (RmmPackage.eINSTANCE.getUniqueKey().isSuperTypeOf(
+			if (RmmPackage.eINSTANCE.getAlternateKey().isSuperTypeOf(
 					domainElement.eClass())) {
-				return UniqueKeyEditPart.VISUAL_ID;
+				return AlternateKeyEditPart.VISUAL_ID;
 			}
 			if (RmmPackage.eINSTANCE.getForeignKey().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -261,8 +262,8 @@ public class RmmVisualIDRegistry {
 				return true;
 			}
 			break;
-		case UniqueKeyEditPart.VISUAL_ID:
-			if (UniqueKeyIDNameEditPart.VISUAL_ID == nodeVisualID) {
+		case AlternateKeyEditPart.VISUAL_ID:
+			if (AlternateKeyIDNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -300,7 +301,7 @@ public class RmmVisualIDRegistry {
 			if (PrimaryKeyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (UniqueKeyEditPart.VISUAL_ID == nodeVisualID) {
+			if (AlternateKeyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ForeignKeyEditPart.VISUAL_ID == nodeVisualID) {
@@ -318,7 +319,7 @@ public class RmmVisualIDRegistry {
 				return true;
 			}
 			break;
-		case RelationshipEditPart.VISUAL_ID:
+		case Relationship2EditPart.VISUAL_ID:
 			if (RelationshipNameUpdateDeleteEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -337,6 +338,10 @@ public class RmmVisualIDRegistry {
 		if (RmmPackage.eINSTANCE.getRelationship().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationshipEditPart.VISUAL_ID;
+		}
+		if (RmmPackage.eINSTANCE.getRelationship().isSuperTypeOf(
+				domainElement.eClass())) {
+			return Relationship2EditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -390,10 +395,10 @@ public class RmmVisualIDRegistry {
 		case AttributeEditPart.VISUAL_ID:
 		case Check2EditPart.VISUAL_ID:
 		case PrimaryKeyEditPart.VISUAL_ID:
-		case UniqueKeyEditPart.VISUAL_ID:
 		case ForeignKeyEditPart.VISUAL_ID:
 		case CheckEditPart.VISUAL_ID:
 		case TriggerEditPart.VISUAL_ID:
+		case AlternateKeyEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

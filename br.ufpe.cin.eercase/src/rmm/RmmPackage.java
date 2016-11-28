@@ -67,13 +67,22 @@ public interface RmmPackage extends EPackage {
 	int SCHEMA = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Table</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__TABLE = 0;
+	int SCHEMA__TABLE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Assertion</b></em>' containment reference list.
@@ -82,7 +91,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ASSERTION = 1;
+	int SCHEMA__ASSERTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Domain</b></em>' containment reference list.
@@ -91,7 +100,16 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DOMAIN = 2;
+	int SCHEMA__DOMAIN = 3;
+
+	/**
+	 * The feature id for the '<em><b>Relationship</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__RELATIONSHIP = 4;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -100,7 +118,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = 3;
+	int SCHEMA_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link rmm.impl.TableImpl <em>Table</em>}' class.
@@ -533,14 +551,14 @@ public interface RmmPackage extends EPackage {
 	int PRIMARY_KEY_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link rmm.impl.UniqueKeyImpl <em>Unique Key</em>}' class.
+	 * The meta object id for the '{@link rmm.impl.AlternateKeyImpl <em>Alternate Key</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see rmm.impl.UniqueKeyImpl
-	 * @see rmm.impl.RmmPackageImpl#getUniqueKey()
+	 * @see rmm.impl.AlternateKeyImpl
+	 * @see rmm.impl.RmmPackageImpl#getAlternateKey()
 	 * @generated
 	 */
-	int UNIQUE_KEY = 8;
+	int ALTERNATE_KEY = 8;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -549,7 +567,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIQUE_KEY__ID = CONSTRAINT__ID;
+	int ALTERNATE_KEY__ID = CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -558,7 +576,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIQUE_KEY__NAME = CONSTRAINT__NAME;
+	int ALTERNATE_KEY__NAME = CONSTRAINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -567,7 +585,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIQUE_KEY__DESCRIPTION = CONSTRAINT__DESCRIPTION;
+	int ALTERNATE_KEY__DESCRIPTION = CONSTRAINT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
@@ -576,16 +594,16 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIQUE_KEY__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 0;
+	int ALTERNATE_KEY__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Unique Key</em>' class.
+	 * The number of structural features of the '<em>Alternate Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIQUE_KEY_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 1;
+	int ALTERNATE_KEY_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link rmm.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
@@ -735,31 +753,13 @@ public interface RmmPackage extends EPackage {
 	int TRIGGER__DESCRIPTION = CONSTRAINT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__BODY = CONSTRAINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__CONDITION = CONSTRAINT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Insert</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__INSERT = CONSTRAINT_FEATURE_COUNT + 2;
+	int TRIGGER__INSERT = CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Update</b></em>' attribute.
@@ -768,7 +768,7 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__UPDATE = CONSTRAINT_FEATURE_COUNT + 3;
+	int TRIGGER__UPDATE = CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Delete</b></em>' attribute.
@@ -777,16 +777,88 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__DELETE = CONSTRAINT_FEATURE_COUNT + 4;
+	int TRIGGER__DELETE = CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Execution</b></em>' attribute.
+	 * The feature id for the '<em><b>Action Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__EXECUTION = CONSTRAINT_FEATURE_COUNT + 5;
+	int TRIGGER__ACTION_TIME = CONSTRAINT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__CONDITION = CONSTRAINT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Statement SQL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__STATEMENT_SQL = CONSTRAINT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Action Granularity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__ACTION_GRANULARITY = CONSTRAINT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Old Row</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__OLD_ROW = CONSTRAINT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>New Row</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__NEW_ROW = CONSTRAINT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Old Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__OLD_TABLE = CONSTRAINT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>New Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__NEW_TABLE = CONSTRAINT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Trigger</em>' class.
@@ -795,17 +867,27 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 6;
+	int TRIGGER_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 12;
 
 	/**
-	 * The meta object id for the '{@link rmm.DataTypeExecution <em>Data Type Execution</em>}' enum.
+	 * The meta object id for the '{@link rmm.ActionTimeType <em>Action Time Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see rmm.DataTypeExecution
-	 * @see rmm.impl.RmmPackageImpl#getDataTypeExecution()
+	 * @see rmm.ActionTimeType
+	 * @see rmm.impl.RmmPackageImpl#getActionTimeType()
 	 * @generated
 	 */
-	int DATA_TYPE_EXECUTION = 12;
+	int ACTION_TIME_TYPE = 12;
+
+	/**
+	 * The meta object id for the '{@link rmm.ActionGranularityType <em>Action Granularity Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see rmm.ActionGranularityType
+	 * @see rmm.impl.RmmPackageImpl#getActionGranularityType()
+	 * @generated
+	 */
+	int ACTION_GRANULARITY_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link rmm.BaseType <em>Base Type</em>}' enum.
@@ -815,7 +897,7 @@ public interface RmmPackage extends EPackage {
 	 * @see rmm.impl.RmmPackageImpl#getBaseType()
 	 * @generated
 	 */
-	int BASE_TYPE = 13;
+	int BASE_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link rmm.OperationRestrictionIntegrity <em>Operation Restriction Integrity</em>}' enum.
@@ -825,7 +907,7 @@ public interface RmmPackage extends EPackage {
 	 * @see rmm.impl.RmmPackageImpl#getOperationRestrictionIntegrity()
 	 * @generated
 	 */
-	int OPERATION_RESTRICTION_INTEGRITY = 14;
+	int OPERATION_RESTRICTION_INTEGRITY = 15;
 
 
 	/**
@@ -837,6 +919,17 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSchema();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rmm.Schema#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see rmm.Schema#getName()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EAttribute getSchema_Name();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link rmm.Schema#getTable <em>Table</em>}'.
@@ -870,6 +963,17 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchema_Domain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link rmm.Schema#getRelationship <em>Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relationship</em>'.
+	 * @see rmm.Schema#getRelationship()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_Relationship();
 
 	/**
 	 * Returns the meta object for class '{@link rmm.Table <em>Table</em>}'.
@@ -1272,25 +1376,25 @@ public interface RmmPackage extends EPackage {
 	EReference getPrimaryKey_Attributes();
 
 	/**
-	 * Returns the meta object for class '{@link rmm.UniqueKey <em>Unique Key</em>}'.
+	 * Returns the meta object for class '{@link rmm.AlternateKey <em>Alternate Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unique Key</em>'.
-	 * @see rmm.UniqueKey
+	 * @return the meta object for class '<em>Alternate Key</em>'.
+	 * @see rmm.AlternateKey
 	 * @generated
 	 */
-	EClass getUniqueKey();
+	EClass getAlternateKey();
 
 	/**
-	 * Returns the meta object for the reference list '{@link rmm.UniqueKey#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the reference list '{@link rmm.AlternateKey#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Attributes</em>'.
-	 * @see rmm.UniqueKey#getAttributes()
-	 * @see #getUniqueKey()
+	 * @see rmm.AlternateKey#getAttributes()
+	 * @see #getAlternateKey()
 	 * @generated
 	 */
-	EReference getUniqueKey_Attributes();
+	EReference getAlternateKey_Attributes();
 
 	/**
 	 * Returns the meta object for class '{@link rmm.ForeignKey <em>Foreign Key</em>}'.
@@ -1345,26 +1449,59 @@ public interface RmmPackage extends EPackage {
 	EClass getTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link rmm.Trigger#getBody <em>Body</em>}'.
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getActionGranularity <em>Action Granularity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Body</em>'.
-	 * @see rmm.Trigger#getBody()
+	 * @return the meta object for the attribute '<em>Action Granularity</em>'.
+	 * @see rmm.Trigger#getActionGranularity()
 	 * @see #getTrigger()
 	 * @generated
 	 */
-	EAttribute getTrigger_Body();
+	EAttribute getTrigger_ActionGranularity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link rmm.Trigger#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getOldRow <em>Old Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Condition</em>'.
-	 * @see rmm.Trigger#getCondition()
+	 * @return the meta object for the attribute '<em>Old Row</em>'.
+	 * @see rmm.Trigger#getOldRow()
 	 * @see #getTrigger()
 	 * @generated
 	 */
-	EAttribute getTrigger_Condition();
+	EAttribute getTrigger_OldRow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getNewRow <em>New Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Row</em>'.
+	 * @see rmm.Trigger#getNewRow()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EAttribute getTrigger_NewRow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getOldTable <em>Old Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Table</em>'.
+	 * @see rmm.Trigger#getOldTable()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EAttribute getTrigger_OldTable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getNewTable <em>New Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Table</em>'.
+	 * @see rmm.Trigger#getNewTable()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EAttribute getTrigger_NewTable();
 
 	/**
 	 * Returns the meta object for the attribute '{@link rmm.Trigger#isInsert <em>Insert</em>}'.
@@ -1400,25 +1537,68 @@ public interface RmmPackage extends EPackage {
 	EAttribute getTrigger_Delete();
 
 	/**
-	 * Returns the meta object for the attribute '{@link rmm.Trigger#getExecution <em>Execution</em>}'.
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getActionTime <em>Action Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Execution</em>'.
-	 * @see rmm.Trigger#getExecution()
+	 * @return the meta object for the attribute '<em>Action Time</em>'.
+	 * @see rmm.Trigger#getActionTime()
 	 * @see #getTrigger()
 	 * @generated
 	 */
-	EAttribute getTrigger_Execution();
+	EAttribute getTrigger_ActionTime();
 
 	/**
-	 * Returns the meta object for enum '{@link rmm.DataTypeExecution <em>Data Type Execution</em>}'.
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Data Type Execution</em>'.
-	 * @see rmm.DataTypeExecution
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see rmm.Trigger#getCondition()
+	 * @see #getTrigger()
 	 * @generated
 	 */
-	EEnum getDataTypeExecution();
+	EAttribute getTrigger_Condition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rmm.Trigger#getStatementSQL <em>Statement SQL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Statement SQL</em>'.
+	 * @see rmm.Trigger#getStatementSQL()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EAttribute getTrigger_StatementSQL();
+
+	/**
+	 * Returns the meta object for the reference list '{@link rmm.Trigger#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Attributes</em>'.
+	 * @see rmm.Trigger#getAttributes()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EReference getTrigger_Attributes();
+
+	/**
+	 * Returns the meta object for enum '{@link rmm.ActionTimeType <em>Action Time Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Action Time Type</em>'.
+	 * @see rmm.ActionTimeType
+	 * @generated
+	 */
+	EEnum getActionTimeType();
+
+	/**
+	 * Returns the meta object for enum '{@link rmm.ActionGranularityType <em>Action Granularity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Action Granularity Type</em>'.
+	 * @see rmm.ActionGranularityType
+	 * @generated
+	 */
+	EEnum getActionGranularityType();
 
 	/**
 	 * Returns the meta object for enum '{@link rmm.BaseType <em>Base Type</em>}'.
@@ -1473,6 +1653,14 @@ public interface RmmPackage extends EPackage {
 		EClass SCHEMA = eINSTANCE.getSchema();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEMA__NAME = eINSTANCE.getSchema_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Table</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1495,6 +1683,14 @@ public interface RmmPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEMA__DOMAIN = eINSTANCE.getSchema_Domain();
+
+		/**
+		 * The meta object literal for the '<em><b>Relationship</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__RELATIONSHIP = eINSTANCE.getSchema_Relationship();
 
 		/**
 		 * The meta object literal for the '{@link rmm.impl.TableImpl <em>Table</em>}' class.
@@ -1807,14 +2003,14 @@ public interface RmmPackage extends EPackage {
 		EReference PRIMARY_KEY__ATTRIBUTES = eINSTANCE.getPrimaryKey_Attributes();
 
 		/**
-		 * The meta object literal for the '{@link rmm.impl.UniqueKeyImpl <em>Unique Key</em>}' class.
+		 * The meta object literal for the '{@link rmm.impl.AlternateKeyImpl <em>Alternate Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see rmm.impl.UniqueKeyImpl
-		 * @see rmm.impl.RmmPackageImpl#getUniqueKey()
+		 * @see rmm.impl.AlternateKeyImpl
+		 * @see rmm.impl.RmmPackageImpl#getAlternateKey()
 		 * @generated
 		 */
-		EClass UNIQUE_KEY = eINSTANCE.getUniqueKey();
+		EClass ALTERNATE_KEY = eINSTANCE.getAlternateKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
@@ -1822,7 +2018,7 @@ public interface RmmPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference UNIQUE_KEY__ATTRIBUTES = eINSTANCE.getUniqueKey_Attributes();
+		EReference ALTERNATE_KEY__ATTRIBUTES = eINSTANCE.getAlternateKey_Attributes();
 
 		/**
 		 * The meta object literal for the '{@link rmm.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
@@ -1871,20 +2067,44 @@ public interface RmmPackage extends EPackage {
 		EClass TRIGGER = eINSTANCE.getTrigger();
 
 		/**
-		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Action Granularity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRIGGER__BODY = eINSTANCE.getTrigger_Body();
+		EAttribute TRIGGER__ACTION_GRANULARITY = eINSTANCE.getTrigger_ActionGranularity();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Old Row</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRIGGER__CONDITION = eINSTANCE.getTrigger_Condition();
+		EAttribute TRIGGER__OLD_ROW = eINSTANCE.getTrigger_OldRow();
+
+		/**
+		 * The meta object literal for the '<em><b>New Row</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRIGGER__NEW_ROW = eINSTANCE.getTrigger_NewRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Old Table</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRIGGER__OLD_TABLE = eINSTANCE.getTrigger_OldTable();
+
+		/**
+		 * The meta object literal for the '<em><b>New Table</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRIGGER__NEW_TABLE = eINSTANCE.getTrigger_NewTable();
 
 		/**
 		 * The meta object literal for the '<em><b>Insert</b></em>' attribute feature.
@@ -1911,22 +2131,56 @@ public interface RmmPackage extends EPackage {
 		EAttribute TRIGGER__DELETE = eINSTANCE.getTrigger_Delete();
 
 		/**
-		 * The meta object literal for the '<em><b>Execution</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Action Time</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRIGGER__EXECUTION = eINSTANCE.getTrigger_Execution();
+		EAttribute TRIGGER__ACTION_TIME = eINSTANCE.getTrigger_ActionTime();
 
 		/**
-		 * The meta object literal for the '{@link rmm.DataTypeExecution <em>Data Type Execution</em>}' enum.
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see rmm.DataTypeExecution
-		 * @see rmm.impl.RmmPackageImpl#getDataTypeExecution()
 		 * @generated
 		 */
-		EEnum DATA_TYPE_EXECUTION = eINSTANCE.getDataTypeExecution();
+		EAttribute TRIGGER__CONDITION = eINSTANCE.getTrigger_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Statement SQL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRIGGER__STATEMENT_SQL = eINSTANCE.getTrigger_StatementSQL();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRIGGER__ATTRIBUTES = eINSTANCE.getTrigger_Attributes();
+
+		/**
+		 * The meta object literal for the '{@link rmm.ActionTimeType <em>Action Time Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see rmm.ActionTimeType
+		 * @see rmm.impl.RmmPackageImpl#getActionTimeType()
+		 * @generated
+		 */
+		EEnum ACTION_TIME_TYPE = eINSTANCE.getActionTimeType();
+
+		/**
+		 * The meta object literal for the '{@link rmm.ActionGranularityType <em>Action Granularity Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see rmm.ActionGranularityType
+		 * @see rmm.impl.RmmPackageImpl#getActionGranularityType()
+		 * @generated
+		 */
+		EEnum ACTION_GRANULARITY_TYPE = eINSTANCE.getActionGranularityType();
 
 		/**
 		 * The meta object literal for the '{@link rmm.BaseType <em>Base Type</em>}' enum.

@@ -320,7 +320,7 @@ public class TableEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(RmmVisualIDRegistry
 						.getType(TableTableConstraintsCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == RmmElementTypes.UniqueKey_3023) {
+			if (type == RmmElementTypes.AlternateKey_3027) {
 				return getChildBySemanticHint(RmmVisualIDRegistry
 						.getType(TableTableConstraintsCompartmentEditPart.VISUAL_ID));
 			}

@@ -64,7 +64,7 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 			case RmmPackage.ATTRIBUTE: return createAttribute();
 			case RmmPackage.RELATIONSHIP: return createRelationship();
 			case RmmPackage.PRIMARY_KEY: return createPrimaryKey();
-			case RmmPackage.UNIQUE_KEY: return createUniqueKey();
+			case RmmPackage.ALTERNATE_KEY: return createAlternateKey();
 			case RmmPackage.FOREIGN_KEY: return createForeignKey();
 			case RmmPackage.CHECK: return createCheck();
 			case RmmPackage.TRIGGER: return createTrigger();
@@ -81,8 +81,10 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case RmmPackage.DATA_TYPE_EXECUTION:
-				return createDataTypeExecutionFromString(eDataType, initialValue);
+			case RmmPackage.ACTION_TIME_TYPE:
+				return createActionTimeTypeFromString(eDataType, initialValue);
+			case RmmPackage.ACTION_GRANULARITY_TYPE:
+				return createActionGranularityTypeFromString(eDataType, initialValue);
 			case RmmPackage.BASE_TYPE:
 				return createBaseTypeFromString(eDataType, initialValue);
 			case RmmPackage.OPERATION_RESTRICTION_INTEGRITY:
@@ -100,8 +102,10 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case RmmPackage.DATA_TYPE_EXECUTION:
-				return convertDataTypeExecutionToString(eDataType, instanceValue);
+			case RmmPackage.ACTION_TIME_TYPE:
+				return convertActionTimeTypeToString(eDataType, instanceValue);
+			case RmmPackage.ACTION_GRANULARITY_TYPE:
+				return convertActionGranularityTypeToString(eDataType, instanceValue);
 			case RmmPackage.BASE_TYPE:
 				return convertBaseTypeToString(eDataType, instanceValue);
 			case RmmPackage.OPERATION_RESTRICTION_INTEGRITY:
@@ -186,9 +190,9 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UniqueKey createUniqueKey() {
-		UniqueKeyImpl uniqueKey = new UniqueKeyImpl();
-		return uniqueKey;
+	public AlternateKey createAlternateKey() {
+		AlternateKeyImpl alternateKey = new AlternateKeyImpl();
+		return alternateKey;
 	}
 
 	/**
@@ -226,8 +230,8 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataTypeExecution createDataTypeExecutionFromString(EDataType eDataType, String initialValue) {
-		DataTypeExecution result = DataTypeExecution.get(initialValue);
+	public ActionTimeType createActionTimeTypeFromString(EDataType eDataType, String initialValue) {
+		ActionTimeType result = ActionTimeType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -237,7 +241,27 @@ public class RmmFactoryImpl extends EFactoryImpl implements RmmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDataTypeExecutionToString(EDataType eDataType, Object instanceValue) {
+	public String convertActionTimeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionGranularityType createActionGranularityTypeFromString(EDataType eDataType, String initialValue) {
+		ActionGranularityType result = ActionGranularityType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertActionGranularityTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

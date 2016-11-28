@@ -246,92 +246,92 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Assertion1CreationTool_title;
+	public static String AlternateKey1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Assertion1CreationTool_desc;
+	public static String AlternateKey1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_title;
+	public static String Assertion2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Attribute2CreationTool_desc;
+	public static String Assertion2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Check3CreationTool_title;
+	public static String Attribute3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Check3CreationTool_desc;
+	public static String Attribute3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Domain4CreationTool_title;
+	public static String Check4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Domain4CreationTool_desc;
+	public static String Check4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ForeignKey5CreationTool_title;
+	public static String Domain5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ForeignKey5CreationTool_desc;
+	public static String Domain5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PrimaryKey6CreationTool_title;
+	public static String ForeignKey6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PrimaryKey6CreationTool_desc;
+	public static String ForeignKey6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table7CreationTool_title;
+	public static String PrimaryKey7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table7CreationTool_desc;
+	public static String PrimaryKey7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Trigger8CreationTool_title;
+	public static String Table8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Trigger8CreationTool_desc;
+	public static String Table8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String UniqueKey9CreationTool_title;
+	public static String Trigger9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String UniqueKey9CreationTool_desc;
+	public static String Trigger9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -387,6 +387,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Relationship_4002_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Relationship_4003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Relationship_4003_source;
 
 	/**
 	 * @generated

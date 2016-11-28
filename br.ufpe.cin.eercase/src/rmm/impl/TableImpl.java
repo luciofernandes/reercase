@@ -16,12 +16,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import rmm.Attribute;
 import rmm.Constraint;
 import rmm.RmmPackage;
 import rmm.Table;
+import rmm.Trigger;
 
 /**
  * <!-- begin-user-doc -->

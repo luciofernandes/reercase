@@ -55,13 +55,13 @@ import rmm.diagram.providers.RmmParserProvider;
 /**
  * @generated
  */
-public class UniqueKeyIDNameEditPart extends CompartmentEditPart implements
+public class AlternateKeyIDNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5031;
+	public static final int VISUAL_ID = 5035;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class UniqueKeyIDNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public UniqueKeyIDNameEditPart(View view) {
+	public AlternateKeyIDNameEditPart(View view) {
 		super(view);
 	}
 
@@ -307,10 +307,10 @@ public class UniqueKeyIDNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RmmParserProvider
 					.getParser(
-							RmmElementTypes.UniqueKey_3023,
+							RmmElementTypes.AlternateKey_3027,
 							getParserElement(),
 							RmmVisualIDRegistry
-									.getType(rmm.diagram.edit.parts.UniqueKeyIDNameEditPart.VISUAL_ID));
+									.getType(rmm.diagram.edit.parts.AlternateKeyIDNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

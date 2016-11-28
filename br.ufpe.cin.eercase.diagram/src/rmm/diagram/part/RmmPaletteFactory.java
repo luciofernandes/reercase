@@ -37,15 +37,15 @@ public class RmmPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createAssertion1CreationTool());
-		paletteContainer.add(createAttribute2CreationTool());
-		paletteContainer.add(createCheck3CreationTool());
-		paletteContainer.add(createDomain4CreationTool());
-		paletteContainer.add(createForeignKey5CreationTool());
-		paletteContainer.add(createPrimaryKey6CreationTool());
-		paletteContainer.add(createTable7CreationTool());
-		paletteContainer.add(createTrigger8CreationTool());
-		paletteContainer.add(createUniqueKey9CreationTool());
+		paletteContainer.add(createAlternateKey1CreationTool());
+		paletteContainer.add(createAssertion2CreationTool());
+		paletteContainer.add(createAttribute3CreationTool());
+		paletteContainer.add(createCheck4CreationTool());
+		paletteContainer.add(createDomain5CreationTool());
+		paletteContainer.add(createForeignKey6CreationTool());
+		paletteContainer.add(createPrimaryKey7CreationTool());
+		paletteContainer.add(createTable8CreationTool());
+		paletteContainer.add(createTrigger9CreationTool());
 		return paletteContainer;
 	}
 
@@ -64,12 +64,27 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAssertion1CreationTool() {
+	private ToolEntry createAlternateKey1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Assertion1CreationTool_title,
-				Messages.Assertion1CreationTool_desc,
+				Messages.AlternateKey1CreationTool_title,
+				Messages.AlternateKey1CreationTool_desc,
+				Collections.singletonList(RmmElementTypes.AlternateKey_3027));
+		entry.setId("createAlternateKey1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RmmElementTypes
+				.getImageDescriptor(RmmElementTypes.AlternateKey_3027));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAssertion2CreationTool() {
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.Assertion2CreationTool_title,
+				Messages.Assertion2CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.Assertion_2007));
-		entry.setId("createAssertion1CreationTool"); //$NON-NLS-1$
+		entry.setId("createAssertion2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Assertion_2007));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -79,12 +94,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAttribute2CreationTool() {
+	private ToolEntry createAttribute3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Attribute2CreationTool_title,
-				Messages.Attribute2CreationTool_desc,
+				Messages.Attribute3CreationTool_title,
+				Messages.Attribute3CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.Attribute_3006));
-		entry.setId("createAttribute2CreationTool"); //$NON-NLS-1$
+		entry.setId("createAttribute3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Attribute_3006));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -94,14 +109,14 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCheck3CreationTool() {
+	private ToolEntry createCheck4CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(RmmElementTypes.Check_3025);
 		types.add(RmmElementTypes.Check_3021);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Check3CreationTool_title,
-				Messages.Check3CreationTool_desc, types);
-		entry.setId("createCheck3CreationTool"); //$NON-NLS-1$
+				Messages.Check4CreationTool_title,
+				Messages.Check4CreationTool_desc, types);
+		entry.setId("createCheck4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Check_3025));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -111,12 +126,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDomain4CreationTool() {
+	private ToolEntry createDomain5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Domain4CreationTool_title,
-				Messages.Domain4CreationTool_desc,
+				Messages.Domain5CreationTool_title,
+				Messages.Domain5CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.Domain_2008));
-		entry.setId("createDomain4CreationTool"); //$NON-NLS-1$
+		entry.setId("createDomain5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Domain_2008));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -126,12 +141,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createForeignKey5CreationTool() {
+	private ToolEntry createForeignKey6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.ForeignKey5CreationTool_title,
-				Messages.ForeignKey5CreationTool_desc,
+				Messages.ForeignKey6CreationTool_title,
+				Messages.ForeignKey6CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.ForeignKey_3024));
-		entry.setId("createForeignKey5CreationTool"); //$NON-NLS-1$
+		entry.setId("createForeignKey6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.ForeignKey_3024));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -141,12 +156,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPrimaryKey6CreationTool() {
+	private ToolEntry createPrimaryKey7CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.PrimaryKey6CreationTool_title,
-				Messages.PrimaryKey6CreationTool_desc,
+				Messages.PrimaryKey7CreationTool_title,
+				Messages.PrimaryKey7CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.PrimaryKey_3022));
-		entry.setId("createPrimaryKey6CreationTool"); //$NON-NLS-1$
+		entry.setId("createPrimaryKey7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.PrimaryKey_3022));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -156,12 +171,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTable7CreationTool() {
+	private ToolEntry createTable8CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Table7CreationTool_title,
-				Messages.Table7CreationTool_desc,
+				Messages.Table8CreationTool_title,
+				Messages.Table8CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.Table_2004));
-		entry.setId("createTable7CreationTool"); //$NON-NLS-1$
+		entry.setId("createTable8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Table_2004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -171,12 +186,12 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTrigger8CreationTool() {
+	private ToolEntry createTrigger9CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Trigger8CreationTool_title,
-				Messages.Trigger8CreationTool_desc,
+				Messages.Trigger9CreationTool_title,
+				Messages.Trigger9CreationTool_desc,
 				Collections.singletonList(RmmElementTypes.Trigger_3026));
-		entry.setId("createTrigger8CreationTool"); //$NON-NLS-1$
+		entry.setId("createTrigger9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Trigger_3026));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -186,26 +201,13 @@ public class RmmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createUniqueKey9CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.UniqueKey9CreationTool_title,
-				Messages.UniqueKey9CreationTool_desc,
-				Collections.singletonList(RmmElementTypes.UniqueKey_3023));
-		entry.setId("createUniqueKey9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(RmmElementTypes
-				.getImageDescriptor(RmmElementTypes.UniqueKey_3023));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
 	private ToolEntry createRelationship1CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(RmmElementTypes.Relationship_4002);
+		types.add(RmmElementTypes.Relationship_4003);
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				Messages.Relationship1CreationTool_title,
-				Messages.Relationship1CreationTool_desc,
-				Collections.singletonList(RmmElementTypes.Relationship_4002));
+				Messages.Relationship1CreationTool_desc, types);
 		entry.setId("createRelationship1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Relationship_4002));

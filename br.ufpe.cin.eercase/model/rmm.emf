@@ -3,9 +3,11 @@ package rmm;
 
 @gmf.diagram(foo="bar", rcp="false", onefile="true", diagram.extension="rmm")
 class Schema {
+  attr String name;	
   val Table[*] table;
   val Assertion[*] assertion;
   val Domain[*] domain;
+  val Relationship[*] relationship;
 }
 
 @gmf.node(label="name", figure="rectangle")
@@ -18,7 +20,7 @@ class Table {
 
   @gmf.compartment(layout="list", collapsible="false", width="1", incoming="false")
   val Constraint[*] constraints;
- 
+  
 }
 
 @gmf.node(label="name")
@@ -46,7 +48,7 @@ class Domain {
 class Attribute {
   attr String name;
   attr BaseType dataType;
-  attr Float size;
+  attr Integer size;
   attr String defaultValue;
   attr boolean isNotNull = false;
   attr String description; 
@@ -76,12 +78,12 @@ class PrimaryKey extends Constraint {
   ref Attribute[*] attributes;
 }
 
-class UniqueKey extends Constraint {
+class AlternateKey extends Constraint {
  ref Attribute[*] attributes;
 }
 
+
 class ForeignKey extends Constraint {
-  
   ref Attribute[*] attributes;
 }
 
@@ -90,17 +92,30 @@ class Check extends Constraint {
 }
 
 class Trigger extends Constraint {
-  attr String  body;
-  attr String condition;
   attr boolean insert;
   attr boolean update;
-  attr boolean delete;
-  attr DataTypeExecution execution;
+  attr boolean delete; 
+  attr ActionTimeType actionTime;
+  attr String condition;
+  attr String statementSQL;
+  attr ActionGranularityType actionGranularity;
+  attr String oldRow;
+  attr String newRow;
+  attr String oldTable;
+  attr String newTable;
+  ref Attribute[*] attributes;    	
 }
 
-enum DataTypeExecution {
+
+enum ActionTimeType {
 	AFTER = 0;
 	BEFORE = 1;
+	INSTEADOF = 2;
+}
+
+enum ActionGranularityType{
+	STATEMENT = 0;
+	ROW   = 1;
 }
 
 enum BaseType {
@@ -109,13 +124,13 @@ enum BaseType {
   TIMESTAMP = 2;
   FLOAT = 3;
   INTEGER = 4;
-  CBLOB = 5;
+  CLOB = 5;
   BLOB = 6;
 }
 
 enum OperationRestrictionIntegrity {
-	CASCADE = 0;
-	RESTRICT =1;
+    RESTRICT = 0;
+	CASCADE = 1;
 	NULL = 2;
 	DEFAULT = 3;
 }

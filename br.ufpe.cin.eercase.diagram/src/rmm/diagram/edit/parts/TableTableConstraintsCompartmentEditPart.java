@@ -106,7 +106,7 @@ public class TableTableConstraintsCompartmentEditPart extends
 			if (type == RmmElementTypes.PrimaryKey_3022) {
 				return this;
 			}
-			if (type == RmmElementTypes.UniqueKey_3023) {
+			if (type == RmmElementTypes.AlternateKey_3027) {
 				return this;
 			}
 			if (type == RmmElementTypes.ForeignKey_3024) {
@@ -127,7 +127,9 @@ public class TableTableConstraintsCompartmentEditPart extends
 					if (type instanceof IElementType) {
 						IElementType elementType = (IElementType) type;
 						if (elementType
-								.equals(RmmElementTypes.Relationship_4002))
+								.equals(RmmElementTypes.Relationship_4002)
+								|| elementType
+										.equals(RmmElementTypes.Relationship_4003))
 							return super.getTargetEditPart(request);
 					}
 				}

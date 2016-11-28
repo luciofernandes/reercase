@@ -16,15 +16,16 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
 import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.TableTableAttributesCompartmentEditPart;
 import rmm.diagram.edit.parts.TableTableConstraintsCompartmentEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
 
@@ -101,6 +102,14 @@ public class TableItemSemanticEditPolicy extends RmmBaseItemSemanticEditPolicy {
 										outgoingLink));
 								continue;
 							}
+							if (RmmVisualIDRegistry.getVisualID(outgoingLink) == Relationship2EditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
 						}
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -108,7 +117,7 @@ public class TableItemSemanticEditPolicy extends RmmBaseItemSemanticEditPolicy {
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
-					case UniqueKeyEditPart.VISUAL_ID:
+					case AlternateKeyEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -120,6 +129,14 @@ public class TableItemSemanticEditPolicy extends RmmBaseItemSemanticEditPolicy {
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (RmmVisualIDRegistry.getVisualID(incomingLink) == RelationshipEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (RmmVisualIDRegistry.getVisualID(incomingLink) == Relationship2EditPart.VISUAL_ID) {
 								DestroyElementRequest r = new DestroyElementRequest(
 										incomingLink.getElement(), false);
 								cmd.add(new DestroyElementCommand(r));

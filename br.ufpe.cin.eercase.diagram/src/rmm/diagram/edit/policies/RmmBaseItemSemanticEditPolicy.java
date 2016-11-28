@@ -38,6 +38,7 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import rmm.ForeignKey;
 import rmm.PrimaryKey;
 import rmm.Relationship;
+import rmm.Schema;
 import rmm.diagram.part.RmmDiagramEditorPlugin;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
@@ -328,7 +329,7 @@ public class RmmBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRelationship_4002(PrimaryKey container,
+		public boolean canCreateRelationship_4002(Schema container,
 				PrimaryKey source, ForeignKey target) {
 			return canExistRelationship_4002(container, null, source, target);
 		}
@@ -336,7 +337,23 @@ public class RmmBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistRelationship_4002(PrimaryKey container,
+		public boolean canCreateRelationship_4003(PrimaryKey container,
+				PrimaryKey source, ForeignKey target) {
+			return canExistRelationship_4003(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRelationship_4002(Schema container,
+				Relationship linkInstance, PrimaryKey source, ForeignKey target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistRelationship_4003(PrimaryKey container,
 				Relationship linkInstance, PrimaryKey source, ForeignKey target) {
 			return true;
 		}

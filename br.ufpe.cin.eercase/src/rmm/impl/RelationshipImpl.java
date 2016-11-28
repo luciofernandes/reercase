@@ -62,7 +62,7 @@ public class RelationshipImpl extends EObjectImpl implements Relationship {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OperationRestrictionIntegrity UPDATE_EDEFAULT = OperationRestrictionIntegrity.CASCADE;
+	protected static final OperationRestrictionIntegrity UPDATE_EDEFAULT = OperationRestrictionIntegrity.RESTRICT;
 
 	/**
 	 * The cached value of the '{@link #getUpdate() <em>Update</em>}' attribute.
@@ -82,7 +82,7 @@ public class RelationshipImpl extends EObjectImpl implements Relationship {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OperationRestrictionIntegrity DELETE_EDEFAULT = OperationRestrictionIntegrity.CASCADE;
+	protected static final OperationRestrictionIntegrity DELETE_EDEFAULT = OperationRestrictionIntegrity.RESTRICT;
 
 	/**
 	 * The cached value of the '{@link #getDelete() <em>Delete</em>}' attribute.

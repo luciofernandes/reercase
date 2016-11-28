@@ -10,6 +10,10 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import rmm.ActionGranularityType;
+import rmm.ActionTime;
+import rmm.ActionTimeType;
+import rmm.AlternateKey;
 import rmm.Assertion;
 import rmm.Attribute;
 import rmm.BaseType;
@@ -96,7 +100,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uniqueKeyEClass = null;
+	private EClass alternateKeyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +128,14 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dataTypeExecutionEEnum = null;
+	private EEnum actionTimeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionGranularityTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,8 +226,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Table() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSchema_Name() {
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -224,7 +235,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Assertion() {
+	public EReference getSchema_Table() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -233,8 +244,26 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Domain() {
+	public EReference getSchema_Assertion() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_Domain() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_Relationship() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -575,8 +604,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUniqueKey() {
-		return uniqueKeyEClass;
+	public EClass getAlternateKey() {
+		return alternateKeyEClass;
 	}
 
 	/**
@@ -584,8 +613,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUniqueKey_Attributes() {
-		return (EReference)uniqueKeyEClass.getEStructuralFeatures().get(0);
+	public EReference getAlternateKey_Attributes() {
+		return (EReference)alternateKeyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -638,8 +667,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrigger_Body() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTrigger_ActionGranularity() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -647,8 +676,35 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrigger_Condition() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+	public EAttribute getTrigger_OldRow() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrigger_NewRow() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrigger_OldTable() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrigger_NewTable() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -657,7 +713,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * @generated
 	 */
 	public EAttribute getTrigger_Insert() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -666,7 +722,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * @generated
 	 */
 	public EAttribute getTrigger_Update() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -675,6 +731,24 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * @generated
 	 */
 	public EAttribute getTrigger_Delete() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrigger_ActionTime() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrigger_Condition() {
 		return (EAttribute)triggerEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -683,7 +757,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrigger_Execution() {
+	public EAttribute getTrigger_StatementSQL() {
 		return (EAttribute)triggerEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -692,8 +766,26 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDataTypeExecution() {
-		return dataTypeExecutionEEnum;
+	public EReference getTrigger_Attributes() {
+		return (EReference)triggerEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionTimeType() {
+		return actionTimeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionGranularityType() {
+		return actionGranularityTypeEEnum;
 	}
 
 	/**
@@ -743,9 +835,11 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 
 		// Create classes and their features
 		schemaEClass = createEClass(SCHEMA);
+		createEAttribute(schemaEClass, SCHEMA__NAME);
 		createEReference(schemaEClass, SCHEMA__TABLE);
 		createEReference(schemaEClass, SCHEMA__ASSERTION);
 		createEReference(schemaEClass, SCHEMA__DOMAIN);
+		createEReference(schemaEClass, SCHEMA__RELATIONSHIP);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__NAME);
@@ -791,8 +885,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEReference(primaryKeyEClass, PRIMARY_KEY__RELATIONSHIP);
 		createEReference(primaryKeyEClass, PRIMARY_KEY__ATTRIBUTES);
 
-		uniqueKeyEClass = createEClass(UNIQUE_KEY);
-		createEReference(uniqueKeyEClass, UNIQUE_KEY__ATTRIBUTES);
+		alternateKeyEClass = createEClass(ALTERNATE_KEY);
+		createEReference(alternateKeyEClass, ALTERNATE_KEY__ATTRIBUTES);
 
 		foreignKeyEClass = createEClass(FOREIGN_KEY);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__ATTRIBUTES);
@@ -801,15 +895,22 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEAttribute(checkEClass, CHECK__CONDITION);
 
 		triggerEClass = createEClass(TRIGGER);
-		createEAttribute(triggerEClass, TRIGGER__BODY);
-		createEAttribute(triggerEClass, TRIGGER__CONDITION);
 		createEAttribute(triggerEClass, TRIGGER__INSERT);
 		createEAttribute(triggerEClass, TRIGGER__UPDATE);
 		createEAttribute(triggerEClass, TRIGGER__DELETE);
-		createEAttribute(triggerEClass, TRIGGER__EXECUTION);
+		createEAttribute(triggerEClass, TRIGGER__ACTION_TIME);
+		createEAttribute(triggerEClass, TRIGGER__CONDITION);
+		createEAttribute(triggerEClass, TRIGGER__STATEMENT_SQL);
+		createEAttribute(triggerEClass, TRIGGER__ACTION_GRANULARITY);
+		createEAttribute(triggerEClass, TRIGGER__OLD_ROW);
+		createEAttribute(triggerEClass, TRIGGER__NEW_ROW);
+		createEAttribute(triggerEClass, TRIGGER__OLD_TABLE);
+		createEAttribute(triggerEClass, TRIGGER__NEW_TABLE);
+		createEReference(triggerEClass, TRIGGER__ATTRIBUTES);
 
 		// Create enums
-		dataTypeExecutionEEnum = createEEnum(DATA_TYPE_EXECUTION);
+		actionTimeTypeEEnum = createEEnum(ACTION_TIME_TYPE);
+		actionGranularityTypeEEnum = createEEnum(ACTION_GRANULARITY_TYPE);
 		baseTypeEEnum = createEEnum(BASE_TYPE);
 		operationRestrictionIntegrityEEnum = createEEnum(OPERATION_RESTRICTION_INTEGRITY);
 	}
@@ -843,16 +944,18 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 
 		// Add supertypes to classes
 		primaryKeyEClass.getESuperTypes().add(this.getConstraint());
-		uniqueKeyEClass.getESuperTypes().add(this.getConstraint());
+		alternateKeyEClass.getESuperTypes().add(this.getConstraint());
 		foreignKeyEClass.getESuperTypes().add(this.getConstraint());
 		checkEClass.getESuperTypes().add(this.getConstraint());
 		triggerEClass.getESuperTypes().add(this.getConstraint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Table(), this.getTable(), null, "table", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Assertion(), this.getAssertion(), null, "assertion", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Domain(), this.getDomain(), null, "domain", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_Relationship(), this.getRelationship(), null, "relationship", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -876,7 +979,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_DataType(), this.getBaseType(), "dataType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Size(), ecorePackage.getEFloatObject(), "size", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Size(), ecorePackage.getEIntegerObject(), "size", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_IsNotNull(), ecorePackage.getEBoolean(), "isNotNull", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Description(), ecorePackage.getEString(), "description", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -898,8 +1001,8 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEReference(getPrimaryKey_Relationship(), this.getRelationship(), null, "relationship", null, 0, -1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimaryKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(uniqueKeyEClass, UniqueKey.class, "UniqueKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUniqueKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, UniqueKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(alternateKeyEClass, AlternateKey.class, "AlternateKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAlternateKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, AlternateKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForeignKey_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -908,17 +1011,28 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEAttribute(getCheck_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Check.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTrigger_Body(), ecorePackage.getEString(), "body", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTrigger_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Insert(), ecorePackage.getEBoolean(), "insert", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Update(), ecorePackage.getEBoolean(), "update", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Delete(), ecorePackage.getEBoolean(), "delete", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTrigger_Execution(), this.getDataTypeExecution(), "execution", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_ActionTime(), this.getActionTimeType(), "actionTime", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_StatementSQL(), ecorePackage.getEString(), "statementSQL", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_ActionGranularity(), this.getActionGranularityType(), "actionGranularity", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_OldRow(), ecorePackage.getEString(), "oldRow", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_NewRow(), ecorePackage.getEString(), "newRow", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_OldTable(), ecorePackage.getEString(), "oldTable", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_NewTable(), ecorePackage.getEString(), "newTable", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrigger_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(dataTypeExecutionEEnum, DataTypeExecution.class, "DataTypeExecution");
-		addEEnumLiteral(dataTypeExecutionEEnum, DataTypeExecution.AFTER);
-		addEEnumLiteral(dataTypeExecutionEEnum, DataTypeExecution.BEFORE);
+		initEEnum(actionTimeTypeEEnum, ActionTimeType.class, "ActionTimeType");
+		addEEnumLiteral(actionTimeTypeEEnum, ActionTimeType.AFTER);
+		addEEnumLiteral(actionTimeTypeEEnum, ActionTimeType.BEFORE);
+		addEEnumLiteral(actionTimeTypeEEnum, ActionTimeType.INSTEADOF);
+
+		initEEnum(actionGranularityTypeEEnum, ActionGranularityType.class, "ActionGranularityType");
+		addEEnumLiteral(actionGranularityTypeEEnum, ActionGranularityType.STATEMENT);
+		addEEnumLiteral(actionGranularityTypeEEnum, ActionGranularityType.ROW);
 
 		initEEnum(baseTypeEEnum, BaseType.class, "BaseType");
 		addEEnumLiteral(baseTypeEEnum, BaseType.STRING);
@@ -926,12 +1040,12 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		addEEnumLiteral(baseTypeEEnum, BaseType.TIMESTAMP);
 		addEEnumLiteral(baseTypeEEnum, BaseType.FLOAT);
 		addEEnumLiteral(baseTypeEEnum, BaseType.INTEGER);
-		addEEnumLiteral(baseTypeEEnum, BaseType.CBLOB);
+		addEEnumLiteral(baseTypeEEnum, BaseType.CLOB);
 		addEEnumLiteral(baseTypeEEnum, BaseType.BLOB);
 
 		initEEnum(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.class, "OperationRestrictionIntegrity");
-		addEEnumLiteral(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.CASCADE);
 		addEEnumLiteral(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.RESTRICT);
+		addEEnumLiteral(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.CASCADE);
 		addEEnumLiteral(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.NULL);
 		addEEnumLiteral(operationRestrictionIntegrityEEnum, OperationRestrictionIntegrity.DEFAULT);
 

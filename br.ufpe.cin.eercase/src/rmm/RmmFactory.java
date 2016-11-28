@@ -85,13 +85,13 @@ public interface RmmFactory extends EFactory {
 	PrimaryKey createPrimaryKey();
 
 	/**
-	 * Returns a new object of class '<em>Unique Key</em>'.
+	 * Returns a new object of class '<em>Alternate Key</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unique Key</em>'.
+	 * @return a new object of class '<em>Alternate Key</em>'.
 	 * @generated
 	 */
-	UniqueKey createUniqueKey();
+	AlternateKey createAlternateKey();
 
 	/**
 	 * Returns a new object of class '<em>Foreign Key</em>'.

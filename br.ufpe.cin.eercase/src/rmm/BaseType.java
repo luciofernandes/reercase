@@ -69,16 +69,14 @@ public enum BaseType implements Enumerator {
 	INTEGER(4, "INTEGER", "INTEGER"),
 
 	/**
-	 * The '<em><b>CBLOB</b></em>' literal object.
+	 * The '<em><b>CLOB</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CBLOB_VALUE
+	 * @see #CLOB_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CBLOB(5, "CBLOB", "CBLOB"),
-
-	/**
+	CLOB(5, "CLOB", "CLOB"), /**
 	 * The '<em><b>BLOB</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,19 +162,19 @@ public enum BaseType implements Enumerator {
 	public static final int INTEGER_VALUE = 4;
 
 	/**
-	 * The '<em><b>CBLOB</b></em>' literal value.
+	 * The '<em><b>CLOB</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CBLOB</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>CLOB</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CBLOB
+	 * @see #CLOB
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CBLOB_VALUE = 5;
+	public static final int CLOB_VALUE = 5;
 
 	/**
 	 * The '<em><b>BLOB</b></em>' literal value.
@@ -206,7 +204,7 @@ public enum BaseType implements Enumerator {
 			TIMESTAMP,
 			FLOAT,
 			INTEGER,
-			CBLOB,
+			CLOB,
 			BLOB,
 		};
 
@@ -263,7 +261,7 @@ public enum BaseType implements Enumerator {
 			case TIMESTAMP_VALUE: return TIMESTAMP;
 			case FLOAT_VALUE: return FLOAT;
 			case INTEGER_VALUE: return INTEGER;
-			case CBLOB_VALUE: return CBLOB;
+			case CLOB_VALUE: return CLOB;
 			case BLOB_VALUE: return BLOB;
 		}
 		return null;

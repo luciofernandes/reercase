@@ -14,13 +14,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import rmm.ForeignKey;
 import rmm.PrimaryKey;
 import rmm.Relationship;
-import rmm.Schema;
 import rmm.diagram.edit.policies.RmmBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class RelationshipReorientCommand extends EditElementCommand {
+public class Relationship2ReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -40,7 +39,7 @@ public class RelationshipReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public RelationshipReorientCommand(ReorientRelationshipRequest request) {
+	public Relationship2ReorientCommand(ReorientRelationshipRequest request) {
 		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
 		oldEnd = request.getOldRelationshipEnd();
@@ -71,12 +70,12 @@ public class RelationshipReorientCommand extends EditElementCommand {
 			return false;
 		}
 		ForeignKey target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof Schema)) {
+		if (!(getLink().eContainer() instanceof PrimaryKey)) {
 			return false;
 		}
-		Schema container = (Schema) getLink().eContainer();
+		PrimaryKey container = (PrimaryKey) getLink().eContainer();
 		return RmmBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRelationship_4002(container, getLink(),
+				.canExistRelationship_4003(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -88,12 +87,12 @@ public class RelationshipReorientCommand extends EditElementCommand {
 			return false;
 		}
 		PrimaryKey source = getLink().getSource();
-		if (!(getLink().eContainer() instanceof Schema)) {
+		if (!(getLink().eContainer() instanceof PrimaryKey)) {
 			return false;
 		}
-		Schema container = (Schema) getLink().eContainer();
+		PrimaryKey container = (PrimaryKey) getLink().eContainer();
 		return RmmBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRelationship_4002(container, getLink(), source,
+				.canExistRelationship_4003(container, getLink(), source,
 						getNewTarget());
 	}
 

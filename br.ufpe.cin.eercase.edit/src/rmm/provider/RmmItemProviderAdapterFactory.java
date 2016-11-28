@@ -233,26 +233,26 @@ public class RmmItemProviderAdapterFactory extends RmmAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link rmm.UniqueKey} instances.
+	 * This keeps track of the one adapter used for all {@link rmm.AlternateKey} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UniqueKeyItemProvider uniqueKeyItemProvider;
+	protected AlternateKeyItemProvider alternateKeyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link rmm.UniqueKey}.
+	 * This creates an adapter for a {@link rmm.AlternateKey}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createUniqueKeyAdapter() {
-		if (uniqueKeyItemProvider == null) {
-			uniqueKeyItemProvider = new UniqueKeyItemProvider(this);
+	public Adapter createAlternateKeyAdapter() {
+		if (alternateKeyItemProvider == null) {
+			alternateKeyItemProvider = new AlternateKeyItemProvider(this);
 		}
 
-		return uniqueKeyItemProvider;
+		return alternateKeyItemProvider;
 	}
 
 	/**
@@ -430,7 +430,7 @@ public class RmmItemProviderAdapterFactory extends RmmAdapterFactory implements 
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (relationshipItemProvider != null) relationshipItemProvider.dispose();
 		if (primaryKeyItemProvider != null) primaryKeyItemProvider.dispose();
-		if (uniqueKeyItemProvider != null) uniqueKeyItemProvider.dispose();
+		if (alternateKeyItemProvider != null) alternateKeyItemProvider.dispose();
 		if (foreignKeyItemProvider != null) foreignKeyItemProvider.dispose();
 		if (checkItemProvider != null) checkItemProvider.dispose();
 		if (triggerItemProvider != null) triggerItemProvider.dispose();

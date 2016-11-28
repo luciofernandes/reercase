@@ -25,11 +25,12 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import rmm.RmmPackage;
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
 import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
+
 import rmm.diagram.part.RmmDiagramUpdater;
 import rmm.diagram.part.RmmNodeDescriptor;
 import rmm.diagram.part.RmmVisualIDRegistry;
@@ -90,7 +91,7 @@ public class TableTableConstraintsCompartmentCanonicalEditPolicy extends
 		int visualID = RmmVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case PrimaryKeyEditPart.VISUAL_ID:
-		case UniqueKeyEditPart.VISUAL_ID:
+		case AlternateKeyEditPart.VISUAL_ID:
 		case ForeignKeyEditPart.VISUAL_ID:
 		case CheckEditPart.VISUAL_ID:
 		case TriggerEditPart.VISUAL_ID:

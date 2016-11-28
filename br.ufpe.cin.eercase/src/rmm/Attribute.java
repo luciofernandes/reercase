@@ -91,12 +91,12 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
-	 * @see #setSize(Float)
+	 * @see #setSize(Integer)
 	 * @see rmm.RmmPackage#getAttribute_Size()
 	 * @model
 	 * @generated
 	 */
-	Float getSize();
+	Integer getSize();
 
 	/**
 	 * Sets the value of the '{@link rmm.Attribute#getSize <em>Size</em>}' attribute.
@@ -106,7 +106,7 @@ public interface Attribute extends EObject {
 	 * @see #getSize()
 	 * @generated
 	 */
-	void setSize(Float value);
+	void setSize(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.

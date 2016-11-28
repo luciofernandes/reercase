@@ -26,7 +26,7 @@ public class RmmModelingAssistantProviderOfTableEditPart extends
 		List<IElementType> types = new ArrayList<IElementType>(6);
 		types.add(RmmElementTypes.Attribute_3006);
 		types.add(RmmElementTypes.PrimaryKey_3022);
-		types.add(RmmElementTypes.UniqueKey_3023);
+		types.add(RmmElementTypes.AlternateKey_3027);
 		types.add(RmmElementTypes.ForeignKey_3024);
 		types.add(RmmElementTypes.Check_3025);
 		types.add(RmmElementTypes.Trigger_3026);

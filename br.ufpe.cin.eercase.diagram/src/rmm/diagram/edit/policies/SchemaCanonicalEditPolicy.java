@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import rmm.RmmPackage;
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
 import rmm.diagram.edit.parts.AssertionEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
 import rmm.diagram.edit.parts.Check2EditPart;
@@ -42,11 +43,11 @@ import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
 import rmm.diagram.part.RmmDiagramUpdater;
 import rmm.diagram.part.RmmLinkDescriptor;
 import rmm.diagram.part.RmmNodeDescriptor;
@@ -324,10 +325,10 @@ public class SchemaCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case UniqueKeyEditPart.VISUAL_ID: {
+		case AlternateKeyEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RmmDiagramUpdater
-						.getUniqueKey_3023ContainedLinks(view));
+						.getAlternateKey_3027ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -376,6 +377,14 @@ public class SchemaCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RmmDiagramUpdater
 						.getRelationship_4002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Relationship2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RmmDiagramUpdater
+						.getRelationship_4003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

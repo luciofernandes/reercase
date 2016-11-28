@@ -46,6 +46,8 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
+import rmm.diagram.edit.parts.AlternateKeyIDNameEditPart;
 import rmm.diagram.edit.parts.AssertionEditPart;
 import rmm.diagram.edit.parts.AssertionNameEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
@@ -61,6 +63,7 @@ import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.ForeignKeyIDNameEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyIDNameEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.RelationshipNameEditPart;
 import rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart;
@@ -71,8 +74,6 @@ import rmm.diagram.edit.parts.TableTableAttributesCompartmentEditPart;
 import rmm.diagram.edit.parts.TableTableConstraintsCompartmentEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
 import rmm.diagram.edit.parts.TriggerIDNameEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
-import rmm.diagram.edit.parts.UniqueKeyIDNameEditPart;
 import rmm.diagram.part.RmmVisualIDRegistry;
 
 /**
@@ -167,7 +168,7 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 				case AssertionEditPart.VISUAL_ID:
 				case DomainEditPart.VISUAL_ID:
 				case PrimaryKeyEditPart.VISUAL_ID:
-				case UniqueKeyEditPart.VISUAL_ID:
+				case AlternateKeyEditPart.VISUAL_ID:
 				case ForeignKeyEditPart.VISUAL_ID:
 				case CheckEditPart.VISUAL_ID:
 				case TriggerEditPart.VISUAL_ID:
@@ -188,7 +189,7 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 				|| AssertionEditPart.VISUAL_ID == visualID
 				|| DomainEditPart.VISUAL_ID == visualID
 				|| PrimaryKeyEditPart.VISUAL_ID == visualID
-				|| UniqueKeyEditPart.VISUAL_ID == visualID
+				|| AlternateKeyEditPart.VISUAL_ID == visualID
 				|| ForeignKeyEditPart.VISUAL_ID == visualID
 				|| CheckEditPart.VISUAL_ID == visualID
 				|| TriggerEditPart.VISUAL_ID == visualID
@@ -262,8 +263,8 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 		case PrimaryKeyEditPart.VISUAL_ID:
 			return createPrimaryKey_3022(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case UniqueKeyEditPart.VISUAL_ID:
-			return createUniqueKey_3023(domainElement, containerView, index,
+		case AlternateKeyEditPart.VISUAL_ID:
+			return createAlternateKey_3027(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ForeignKeyEditPart.VISUAL_ID:
 			return createForeignKey_3024(domainElement, containerView, index,
@@ -296,6 +297,9 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 		switch (RmmVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case RelationshipEditPart.VISUAL_ID:
 			return createRelationship_4002(getSemanticElement(semanticAdapter),
+					containerView, index, persisted, preferencesHint);
+		case Relationship2EditPart.VISUAL_ID:
+			return createRelationship_4003(getSemanticElement(semanticAdapter),
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -500,11 +504,13 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
-	public Node createUniqueKey_3023(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createAlternateKey_3027(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(RmmVisualIDRegistry.getType(UniqueKeyEditPart.VISUAL_ID));
+		node.setType(RmmVisualIDRegistry
+				.getType(AlternateKeyEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -535,8 +541,9 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5031 = createLabel(node,
-				RmmVisualIDRegistry.getType(UniqueKeyIDNameEditPart.VISUAL_ID));
+		Node label5035 = createLabel(node,
+				RmmVisualIDRegistry
+						.getType(AlternateKeyIDNameEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -807,15 +814,68 @@ public class RmmViewProvider extends AbstractProvider implements IViewProvider {
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6004 = createLabel(
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createRelationship_4003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
+				2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(RmmVisualIDRegistry
+				.getType(Relationship2EditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge,
+					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+					routing);
+		}
+		Node label6005 = createLabel(
 				edge,
 				RmmVisualIDRegistry
 						.getType(RelationshipNameUpdateDeleteEditPart.VISUAL_ID));
-		label6004.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6005.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6004 = (Location) label6004.getLayoutConstraint();
-		location6004.setX(0);
-		location6004.setY(40);
+		Location location6005 = (Location) label6005.getLayoutConstraint();
+		location6005.setX(0);
+		location6005.setY(40);
 		return edge;
 	}
 

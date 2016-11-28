@@ -13,12 +13,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -61,8 +63,31 @@ public class SchemaItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_name_feature", "_UI_Schema_type"),
+				 RmmPackage.Literals.SCHEMA__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,6 +105,7 @@ public class SchemaItemProvider
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__TABLE);
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__ASSERTION);
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__DOMAIN);
+			childrenFeatures.add(RmmPackage.Literals.SCHEMA__RELATIONSHIP);
 		}
 		return childrenFeatures;
 	}
@@ -116,7 +142,10 @@ public class SchemaItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Schema_type");
+		String label = ((Schema)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Schema_type") :
+			getString("_UI_Schema_type") + " " + label;
 	}
 	
 
@@ -132,9 +161,13 @@ public class SchemaItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Schema.class)) {
+			case RmmPackage.SCHEMA__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case RmmPackage.SCHEMA__TABLE:
 			case RmmPackage.SCHEMA__ASSERTION:
 			case RmmPackage.SCHEMA__DOMAIN:
+			case RmmPackage.SCHEMA__RELATIONSHIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,6 +199,11 @@ public class SchemaItemProvider
 			(createChildParameter
 				(RmmPackage.Literals.SCHEMA__DOMAIN,
 				 RmmFactory.eINSTANCE.createDomain()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RmmPackage.Literals.SCHEMA__RELATIONSHIP,
+				 RmmFactory.eINSTANCE.createRelationship()));
 	}
 
 	/**

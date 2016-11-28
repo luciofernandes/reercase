@@ -83,7 +83,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Float SIZE_EDEFAULT = null;
+	protected static final Integer SIZE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -93,7 +93,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 * @ordered
 	 */
-	protected Float size = SIZE_EDEFAULT;
+	protected Integer size = SIZE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
@@ -231,7 +231,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Float getSize() {
+	public Integer getSize() {
 		return size;
 	}
 
@@ -240,8 +240,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(Float newSize) {
-		Float oldSize = size;
+	public void setSize(Integer newSize) {
+		Integer oldSize = size;
 		size = newSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RmmPackage.ATTRIBUTE__SIZE, oldSize, size));
@@ -390,7 +390,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				setDataType((BaseType)newValue);
 				return;
 			case RmmPackage.ATTRIBUTE__SIZE:
-				setSize((Float)newValue);
+				setSize((Integer)newValue);
 				return;
 			case RmmPackage.ATTRIBUTE__DEFAULT_VALUE:
 				setDefaultValue((String)newValue);

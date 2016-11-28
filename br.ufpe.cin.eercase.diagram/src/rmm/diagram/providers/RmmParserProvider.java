@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import rmm.RmmPackage;
+import rmm.diagram.edit.parts.AlternateKeyIDNameEditPart;
 import rmm.diagram.edit.parts.AssertionNameEditPart;
 import rmm.diagram.edit.parts.AttributeNameDataTypeEditPart;
 import rmm.diagram.edit.parts.CheckIDName2EditPart;
@@ -28,7 +29,6 @@ import rmm.diagram.edit.parts.RelationshipNameEditPart;
 import rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart;
 import rmm.diagram.edit.parts.TableNameEditPart;
 import rmm.diagram.edit.parts.TriggerIDNameEditPart;
-import rmm.diagram.edit.parts.UniqueKeyIDNameEditPart;
 import rmm.diagram.parsers.MessageFormatParser;
 import rmm.diagram.part.RmmVisualIDRegistry;
 
@@ -117,13 +117,13 @@ public class RmmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser uniqueKeyIDName_5031Parser;
+	private IParser alternateKeyIDName_5035Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getUniqueKeyIDName_5031Parser() {
-		if (uniqueKeyIDName_5031Parser == null) {
+	private IParser getAlternateKeyIDName_5035Parser() {
+		if (alternateKeyIDName_5035Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RmmPackage.eINSTANCE.getConstraint_ID(),
 					RmmPackage.eINSTANCE.getConstraint_Name() };
@@ -131,9 +131,9 @@ public class RmmParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			uniqueKeyIDName_5031Parser = parser;
+			alternateKeyIDName_5035Parser = parser;
 		}
-		return uniqueKeyIDName_5031Parser;
+		return alternateKeyIDName_5035Parser;
 	}
 
 	/**
@@ -249,13 +249,13 @@ public class RmmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser relationshipNameUpdateDelete_6004Parser;
+	private IParser relationshipNameUpdateDelete_6005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRelationshipNameUpdateDelete_6004Parser() {
-		if (relationshipNameUpdateDelete_6004Parser == null) {
+	private IParser getRelationshipNameUpdateDelete_6005Parser() {
+		if (relationshipNameUpdateDelete_6005Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RmmPackage.eINSTANCE.getRelationship_Name(),
 					RmmPackage.eINSTANCE.getRelationship_Update(),
@@ -264,9 +264,9 @@ public class RmmParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
 			parser.setEditPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
-			relationshipNameUpdateDelete_6004Parser = parser;
+			relationshipNameUpdateDelete_6005Parser = parser;
 		}
-		return relationshipNameUpdateDelete_6004Parser;
+		return relationshipNameUpdateDelete_6005Parser;
 	}
 
 	/**
@@ -282,8 +282,8 @@ public class RmmParserProvider extends AbstractProvider implements
 			return getDomainName_5019Parser();
 		case PrimaryKeyIDNameEditPart.VISUAL_ID:
 			return getPrimaryKeyIDName_5030Parser();
-		case UniqueKeyIDNameEditPart.VISUAL_ID:
-			return getUniqueKeyIDName_5031Parser();
+		case AlternateKeyIDNameEditPart.VISUAL_ID:
+			return getAlternateKeyIDName_5035Parser();
 		case ForeignKeyIDNameEditPart.VISUAL_ID:
 			return getForeignKeyIDName_5032Parser();
 		case CheckIDNameEditPart.VISUAL_ID:
@@ -295,7 +295,7 @@ public class RmmParserProvider extends AbstractProvider implements
 		case CheckIDName2EditPart.VISUAL_ID:
 			return getCheckIDName_5029Parser();
 		case RelationshipNameUpdateDeleteEditPart.VISUAL_ID:
-			return getRelationshipNameUpdateDelete_6004Parser();
+			return getRelationshipNameUpdateDelete_6005Parser();
 		}
 		return null;
 	}

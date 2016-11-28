@@ -98,7 +98,6 @@ public class Check2EditPart extends ShapeNodeEditPart {
 		};
 		return lep;
 	}
-	
 
 	/**
 	 * @generated
@@ -256,7 +255,7 @@ public class Check2EditPart extends ShapeNodeEditPart {
 		return getChildBySemanticHint(RmmVisualIDRegistry
 				.getType(CheckIDName2EditPart.VISUAL_ID));
 	}
-	
+
 	/**
 	 * @generated
 	 */

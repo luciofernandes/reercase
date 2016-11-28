@@ -133,54 +133,52 @@ public class AttributeNameDataTypeEditPart extends CompartmentEditPart
 	 * @generated not
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
-		Attribute attribute = ((Attribute) ((Node) this
-				.getModel()).getElement());
+		Attribute attribute = ((Attribute) ((Node) this.getModel())
+				.getElement());
 		// Muda estilo para negrito em caso de NotNull
-		if (attribute.isIsNotNull()) { 
+		if (attribute.isIsNotNull()) {
 			figure.setFont(AttributeEditPart.FontBold);
 		} else {
 			figure.setFont(AttributeEditPart.FontNormal);
-		}		
+		}
 		String siglaConstraint = new String("");
-		Table table = ((Table) ((Node) this.getParent().getParent().getModel()).getElement());
+		Table table = ((Table) ((Node) this.getParent().getParent().getModel())
+				.getElement());
 		EList<Constraint> constraints = table.getConstraints();
 		for (Constraint constraint : constraints) {
 
-			if (constraint instanceof ForeignKey){
-				ForeignKey  foreignKey = (ForeignKey)constraint;
-				if (foreignKey.getAttributes().contains(attribute))
-				{
-					if (!siglaConstraint.isEmpty()){
+			if (constraint instanceof ForeignKey) {
+				ForeignKey foreignKey = (ForeignKey) constraint;
+				if (foreignKey.getAttributes().contains(attribute)) {
+					if (!siglaConstraint.isEmpty()) {
 						siglaConstraint += ",";
-					}					
+					}
 					siglaConstraint += foreignKey.getID();
 				}
 			}
-			if (constraint instanceof PrimaryKey){
-				PrimaryKey  foreignKey = (PrimaryKey)constraint;
-				if (foreignKey.getAttributes().contains(attribute))
-				{
-					if (!siglaConstraint.isEmpty()){
+			if (constraint instanceof PrimaryKey) {
+				PrimaryKey foreignKey = (PrimaryKey) constraint;
+				if (foreignKey.getAttributes().contains(attribute)) {
+					if (!siglaConstraint.isEmpty()) {
 						siglaConstraint += ",";
-					}					
+					}
 					siglaConstraint += foreignKey.getID();
 				}
-			}	
-			if (constraint instanceof UniqueKey){
-				UniqueKey  foreignKey = (UniqueKey)constraint;
-				if (foreignKey.getAttributes().contains(attribute))
-				{
-					if (!siglaConstraint.isEmpty()){
+			}
+			if (constraint instanceof UniqueKey) {
+				UniqueKey foreignKey = (UniqueKey) constraint;
+				if (foreignKey.getAttributes().contains(attribute)) {
+					if (!siglaConstraint.isEmpty()) {
 						siglaConstraint += ",";
-					}					
+					}
 					siglaConstraint += foreignKey.getID();
 				}
-			}			
+			}
 		}
-		if (!siglaConstraint.isEmpty()){
+		if (!siglaConstraint.isEmpty()) {
 			text = text + "(" + siglaConstraint + ")";
-			
-		}	
+
+		}
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
 		} else if (figure instanceof Label) {

@@ -15,19 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import rmm.AlternateKey;
 import rmm.RmmFactory;
 import rmm.Table;
-import rmm.UniqueKey;
 
 /**
  * @generated
  */
-public class UniqueKeyCreateCommand extends EditElementCommand {
+public class AlternateKeyCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public UniqueKeyCreateCommand(CreateElementRequest req) {
+	public AlternateKeyCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,7 @@ public class UniqueKeyCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		UniqueKey newElement = RmmFactory.eINSTANCE.createUniqueKey();
+		AlternateKey newElement = RmmFactory.eINSTANCE.createAlternateKey();
 
 		Table owner = (Table) getElementToEdit();
 		owner.getConstraints().add(newElement);
@@ -71,8 +71,9 @@ public class UniqueKeyCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(UniqueKey newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(AlternateKey newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

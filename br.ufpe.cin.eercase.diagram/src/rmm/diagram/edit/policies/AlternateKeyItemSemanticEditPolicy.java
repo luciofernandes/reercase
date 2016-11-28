@@ -16,14 +16,14 @@ import rmm.diagram.providers.RmmElementTypes;
 /**
  * @generated
  */
-public class UniqueKeyItemSemanticEditPolicy extends
+public class AlternateKeyItemSemanticEditPolicy extends
 		RmmBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public UniqueKeyItemSemanticEditPolicy() {
-		super(RmmElementTypes.UniqueKey_3023);
+	public AlternateKeyItemSemanticEditPolicy() {
+		super(RmmElementTypes.AlternateKey_3027);
 	}
 
 	/**

@@ -4,6 +4,7 @@ package rmm.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -18,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rmm.Assertion;
 import rmm.Domain;
+import rmm.Relationship;
 import rmm.RmmPackage;
 import rmm.Schema;
 import rmm.Table;
@@ -29,15 +32,37 @@ import rmm.Table;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link rmm.impl.SchemaImpl#getName <em>Name</em>}</li>
  *   <li>{@link rmm.impl.SchemaImpl#getTable <em>Table</em>}</li>
  *   <li>{@link rmm.impl.SchemaImpl#getAssertion <em>Assertion</em>}</li>
  *   <li>{@link rmm.impl.SchemaImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link rmm.impl.SchemaImpl#getRelationship <em>Relationship</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class SchemaImpl extends EObjectImpl implements Schema {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getTable() <em>Table</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -69,6 +94,16 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	protected EList<Domain> domain;
 
 	/**
+	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationship()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relationship> relationship;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -85,6 +120,27 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	@Override
 	protected EClass eStaticClass() {
 		return RmmPackage.Literals.SCHEMA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RmmPackage.SCHEMA__NAME, oldName, name));
 	}
 
 	/**
@@ -128,6 +184,18 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Relationship> getRelationship() {
+		if (relationship == null) {
+			relationship = new EObjectContainmentEList<Relationship>(Relationship.class, this, RmmPackage.SCHEMA__RELATIONSHIP);
+		}
+		return relationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -137,6 +205,8 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				return ((InternalEList<?>)getAssertion()).basicRemove(otherEnd, msgs);
 			case RmmPackage.SCHEMA__DOMAIN:
 				return ((InternalEList<?>)getDomain()).basicRemove(otherEnd, msgs);
+			case RmmPackage.SCHEMA__RELATIONSHIP:
+				return ((InternalEList<?>)getRelationship()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,12 +219,16 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RmmPackage.SCHEMA__NAME:
+				return getName();
 			case RmmPackage.SCHEMA__TABLE:
 				return getTable();
 			case RmmPackage.SCHEMA__ASSERTION:
 				return getAssertion();
 			case RmmPackage.SCHEMA__DOMAIN:
 				return getDomain();
+			case RmmPackage.SCHEMA__RELATIONSHIP:
+				return getRelationship();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +242,9 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RmmPackage.SCHEMA__NAME:
+				setName((String)newValue);
+				return;
 			case RmmPackage.SCHEMA__TABLE:
 				getTable().clear();
 				getTable().addAll((Collection<? extends Table>)newValue);
@@ -179,6 +256,10 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 			case RmmPackage.SCHEMA__DOMAIN:
 				getDomain().clear();
 				getDomain().addAll((Collection<? extends Domain>)newValue);
+				return;
+			case RmmPackage.SCHEMA__RELATIONSHIP:
+				getRelationship().clear();
+				getRelationship().addAll((Collection<? extends Relationship>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +273,9 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RmmPackage.SCHEMA__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case RmmPackage.SCHEMA__TABLE:
 				getTable().clear();
 				return;
@@ -200,6 +284,9 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				return;
 			case RmmPackage.SCHEMA__DOMAIN:
 				getDomain().clear();
+				return;
+			case RmmPackage.SCHEMA__RELATIONSHIP:
+				getRelationship().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,14 +300,34 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RmmPackage.SCHEMA__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RmmPackage.SCHEMA__TABLE:
 				return table != null && !table.isEmpty();
 			case RmmPackage.SCHEMA__ASSERTION:
 				return assertion != null && !assertion.isEmpty();
 			case RmmPackage.SCHEMA__DOMAIN:
 				return domain != null && !domain.isEmpty();
+			case RmmPackage.SCHEMA__RELATIONSHIP:
+				return relationship != null && !relationship.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SchemaImpl

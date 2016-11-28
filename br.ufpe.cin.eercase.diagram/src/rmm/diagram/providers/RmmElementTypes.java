@@ -18,6 +18,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import rmm.RmmPackage;
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
 import rmm.diagram.edit.parts.AssertionEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
 import rmm.diagram.edit.parts.Check2EditPart;
@@ -25,11 +26,11 @@ import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
 import rmm.diagram.part.RmmDiagramEditorPlugin;
 
 /**
@@ -83,7 +84,8 @@ public class RmmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType UniqueKey_3023 = getElementType("br.ufpe.cin.eercase.diagram.UniqueKey_3023"); //$NON-NLS-1$
+	public static final IElementType AlternateKey_3027 = getElementType("br.ufpe.cin.eercase.diagram.AlternateKey_3027"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -108,6 +110,11 @@ public class RmmElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Relationship_4002 = getElementType("br.ufpe.cin.eercase.diagram.Relationship_4002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Relationship_4003 = getElementType("br.ufpe.cin.eercase.diagram.Relationship_4003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -157,7 +164,8 @@ public class RmmElementTypes {
 
 			elements.put(PrimaryKey_3022, RmmPackage.eINSTANCE.getPrimaryKey());
 
-			elements.put(UniqueKey_3023, RmmPackage.eINSTANCE.getUniqueKey());
+			elements.put(AlternateKey_3027,
+					RmmPackage.eINSTANCE.getAlternateKey());
 
 			elements.put(ForeignKey_3024, RmmPackage.eINSTANCE.getForeignKey());
 
@@ -170,6 +178,9 @@ public class RmmElementTypes {
 			elements.put(Check_3021, RmmPackage.eINSTANCE.getCheck());
 
 			elements.put(Relationship_4002,
+					RmmPackage.eINSTANCE.getRelationship());
+
+			elements.put(Relationship_4003,
 					RmmPackage.eINSTANCE.getRelationship());
 		}
 		return (ENamedElement) elements.get(type);
@@ -193,13 +204,14 @@ public class RmmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Assertion_2007);
 			KNOWN_ELEMENT_TYPES.add(Domain_2008);
 			KNOWN_ELEMENT_TYPES.add(PrimaryKey_3022);
-			KNOWN_ELEMENT_TYPES.add(UniqueKey_3023);
+			KNOWN_ELEMENT_TYPES.add(AlternateKey_3027);
 			KNOWN_ELEMENT_TYPES.add(ForeignKey_3024);
 			KNOWN_ELEMENT_TYPES.add(Check_3025);
 			KNOWN_ELEMENT_TYPES.add(Trigger_3026);
 			KNOWN_ELEMENT_TYPES.add(Attribute_3006);
 			KNOWN_ELEMENT_TYPES.add(Check_3021);
 			KNOWN_ELEMENT_TYPES.add(Relationship_4002);
+			KNOWN_ELEMENT_TYPES.add(Relationship_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -219,8 +231,8 @@ public class RmmElementTypes {
 			return Domain_2008;
 		case PrimaryKeyEditPart.VISUAL_ID:
 			return PrimaryKey_3022;
-		case UniqueKeyEditPart.VISUAL_ID:
-			return UniqueKey_3023;
+		case AlternateKeyEditPart.VISUAL_ID:
+			return AlternateKey_3027;
 		case ForeignKeyEditPart.VISUAL_ID:
 			return ForeignKey_3024;
 		case CheckEditPart.VISUAL_ID:
@@ -233,6 +245,8 @@ public class RmmElementTypes {
 			return Check_3021;
 		case RelationshipEditPart.VISUAL_ID:
 			return Relationship_4002;
+		case Relationship2EditPart.VISUAL_ID:
+			return Relationship_4003;
 		}
 		return null;
 	}

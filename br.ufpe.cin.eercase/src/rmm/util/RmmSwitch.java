@@ -115,10 +115,10 @@ public class RmmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RmmPackage.UNIQUE_KEY: {
-				UniqueKey uniqueKey = (UniqueKey)theEObject;
-				T result = caseUniqueKey(uniqueKey);
-				if (result == null) result = caseConstraint(uniqueKey);
+			case RmmPackage.ALTERNATE_KEY: {
+				AlternateKey alternateKey = (AlternateKey)theEObject;
+				T result = caseAlternateKey(alternateKey);
+				if (result == null) result = caseConstraint(alternateKey);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -268,17 +268,17 @@ public class RmmSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unique Key</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Alternate Key</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unique Key</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Alternate Key</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUniqueKey(UniqueKey object) {
+	public T caseAlternateKey(AlternateKey object) {
 		return null;
 	}
 

@@ -19,13 +19,12 @@ import rmm.ForeignKey;
 import rmm.PrimaryKey;
 import rmm.Relationship;
 import rmm.RmmFactory;
-import rmm.Schema;
 import rmm.diagram.edit.policies.RmmBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class RelationshipCreateCommand extends EditElementCommand {
+public class Relationship2CreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -40,12 +39,12 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	private final Schema container;
+	private final PrimaryKey container;
 
 	/**
 	 * @generated
 	 */
-	public RelationshipCreateCommand(CreateRelationshipRequest request,
+	public Relationship2CreateCommand(CreateRelationshipRequest request,
 			EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -74,7 +73,7 @@ public class RelationshipCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return RmmBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateRelationship_4002(getContainer(), getSource(),
+				.canCreateRelationship_4003(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -146,7 +145,7 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public Schema getContainer() {
+	public PrimaryKey getContainer() {
 		return container;
 	}
 
@@ -155,14 +154,14 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	 * Modify with appropriate logic.
 	 * @generated
 	 */
-	private static Schema deduceContainer(EObject source, EObject target) {
+	private static PrimaryKey deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null; element = element
 				.eContainer()) {
-			if (element instanceof Schema) {
-				return (Schema) element;
+			if (element instanceof PrimaryKey) {
+				return (PrimaryKey) element;
 			}
 		}
 		return null;

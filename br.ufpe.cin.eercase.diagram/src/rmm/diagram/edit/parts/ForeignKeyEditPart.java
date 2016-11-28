@@ -264,18 +264,19 @@ public class ForeignKeyEditPart extends ShapeNodeEditPart {
 	 *        com que o atributo seja redesenhado.
 	 */
 	protected void handleNotificationEvent(Notification event) {
-		if ((event.getEventType() == Notification.ADD) ||
-				(event.getEventType() == Notification.REMOVE) ||
-				(event.getEventType() == Notification.REMOVE_MANY) ||
-				(event.getEventType() == Notification.ADD_MANY)){
-			TableTableAttributesCompartmentEditPart e = (TableTableAttributesCompartmentEditPart)this.getParent().getParent().getChildren().get(1);
+		if ((event.getEventType() == Notification.ADD)
+				|| (event.getEventType() == Notification.REMOVE)
+				|| (event.getEventType() == Notification.REMOVE_MANY)
+				|| (event.getEventType() == Notification.ADD_MANY)) {
+			TableTableAttributesCompartmentEditPart e = (TableTableAttributesCompartmentEditPart) this
+					.getParent().getParent().getChildren().get(1);
 			List<AttributeEditPart> att = e.getChildren();
 			for (AttributeEditPart attributeEditPart : att) {
 				attributeEditPart.addNotify();
 			}
 
 			getPrimaryShape().repaint();
-					
+
 		}
 		if (event.getNotifier() == getModel()
 				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
@@ -286,7 +287,6 @@ public class ForeignKeyEditPart extends ShapeNodeEditPart {
 		}
 	}
 
-	
 	/**
 	 * @generated
 	 */

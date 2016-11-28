@@ -30,20 +30,20 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import rmm.ForeignKey;
+import rmm.AlternateKey;
 import rmm.UniqueKey;
-import rmm.diagram.edit.policies.UniqueKeyItemSemanticEditPolicy;
+import rmm.diagram.edit.policies.AlternateKeyItemSemanticEditPolicy;
 import rmm.diagram.part.RmmVisualIDRegistry;
 
 /**
  * @generated
  */
-public class UniqueKeyEditPart extends ShapeNodeEditPart {
+public class AlternateKeyEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3023;
+	public static final int VISUAL_ID = 3027;
 
 	/**
 	 * @generated
@@ -58,7 +58,7 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public UniqueKeyEditPart(View view) {
+	public AlternateKeyEditPart(View view) {
 		super(view);
 	}
 
@@ -68,7 +68,7 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new UniqueKeyItemSemanticEditPolicy());
+				new AlternateKeyItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -104,23 +104,24 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new UniqueKeyFigure();
+		return primaryShape = new AlternateKeyFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public UniqueKeyFigure getPrimaryShape() {
-		return (UniqueKeyFigure) primaryShape;
+	public AlternateKeyFigure getPrimaryShape() {
+		return (AlternateKeyFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof UniqueKeyIDNameEditPart) {
-			((UniqueKeyIDNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureUniqueKeyLabelFigure());
+		if (childEditPart instanceof AlternateKeyIDNameEditPart) {
+			((AlternateKeyIDNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureAlternateKeyLabelFigure());
 			return true;
 		}
 		return false;
@@ -130,7 +131,7 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof UniqueKeyIDNameEditPart) {
+		if (childEditPart instanceof AlternateKeyIDNameEditPart) {
 			return true;
 		}
 		return false;
@@ -254,7 +255,7 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(RmmVisualIDRegistry
-				.getType(UniqueKeyIDNameEditPart.VISUAL_ID));
+				.getType(AlternateKeyIDNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -264,18 +265,19 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 	 *        com que o atributo seja redesenhado.
 	 */
 	protected void handleNotificationEvent(Notification event) {
-		if ((event.getEventType() == Notification.ADD) ||
-				(event.getEventType() == Notification.REMOVE) ||
-				(event.getEventType() == Notification.REMOVE_MANY) ||
-				(event.getEventType() == Notification.ADD_MANY)){
-			TableTableAttributesCompartmentEditPart e = (TableTableAttributesCompartmentEditPart)this.getParent().getParent().getChildren().get(1);
+		if ((event.getEventType() == Notification.ADD)
+				|| (event.getEventType() == Notification.REMOVE)
+				|| (event.getEventType() == Notification.REMOVE_MANY)
+				|| (event.getEventType() == Notification.ADD_MANY)) {
+			TableTableAttributesCompartmentEditPart e = (TableTableAttributesCompartmentEditPart) this
+					.getParent().getParent().getChildren().get(1);
 			List<AttributeEditPart> att = e.getChildren();
 			for (AttributeEditPart attributeEditPart : att) {
 				attributeEditPart.addNotify();
 			}
 
 			getPrimaryShape().repaint();
-					
+
 		}
 		if (event.getNotifier() == getModel()
 				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
@@ -286,21 +288,20 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 		}
 	}
 
-	
 	/**
 	 * @generated
 	 */
-	public class UniqueKeyFigure extends RectangleFigure {
+	public class AlternateKeyFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureUniqueKeyLabelFigure;
+		private WrappingLabel fFigureAlternateKeyLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public UniqueKeyFigure() {
+		public AlternateKeyFigure() {
 			this.setOutline(false);
 			this.setLineWidth(0);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(150),
@@ -313,22 +314,22 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			UniqueKey uniqueKey = ((UniqueKey) ((Node) UniqueKeyEditPart.this
+			AlternateKey uniqueKey = ((AlternateKey) ((Node) AlternateKeyEditPart.this
 					.getModel()).getElement());
 
-			if (fFigureUniqueKeyLabelFigure == null) {
+			if (fFigureAlternateKeyLabelFigure == null) {
 
 				Integer id = 1;
 
-				if (UniqueKeyEditPart.this.getParent() != null) {
+				if (AlternateKeyEditPart.this.getParent() != null) {
 
 					id = 0;
-					List<?> children = UniqueKeyEditPart.this.getParent()
+					List<?> children = AlternateKeyEditPart.this.getParent()
 							.getChildren();
 
 					if (children != null) {
 						for (Object object : children) {
-							if (object instanceof UniqueKeyEditPart) {
+							if (object instanceof AlternateKeyEditPart) {
 								id++;
 							}
 						}
@@ -338,7 +339,7 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 				String fk_name = uniqueKey.getName();
 
 				if (uniqueKey.getName() == null) {
-					fk_name = "UniqueKey";
+					fk_name = "AlternateKey";
 				}
 
 				if (uniqueKey.getID() == null) {
@@ -347,10 +348,10 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 					uniqueKey.eSetDeliver(true);
 				}
 
-				fFigureUniqueKeyLabelFigure = new WrappingLabel();
-				fFigureUniqueKeyLabelFigure.setText(uniqueKey.getID() + ":"
+				fFigureAlternateKeyLabelFigure = new WrappingLabel();
+				fFigureAlternateKeyLabelFigure.setText(uniqueKey.getID() + ":"
 						+ fk_name);
-				this.add(fFigureUniqueKeyLabelFigure);
+				this.add(fFigureAlternateKeyLabelFigure);
 			}
 
 		}
@@ -358,12 +359,11 @@ public class UniqueKeyEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureUniqueKeyLabelFigure() {
-			return fFigureUniqueKeyLabelFigure;
+		public WrappingLabel getFigureAlternateKeyLabelFigure() {
+			return fFigureAlternateKeyLabelFigure;
 		}
 
 	}
 
-	private static final String ACRONOMO = "UK";
-
+	private static final String ACRONOMO = "AK";
 }

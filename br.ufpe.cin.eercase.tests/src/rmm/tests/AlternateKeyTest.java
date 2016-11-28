@@ -4,16 +4,16 @@ package rmm.tests;
 
 import junit.textui.TestRunner;
 
+import rmm.AlternateKey;
 import rmm.RmmFactory;
-import rmm.UniqueKey;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Unique Key</b></em>'.
+ * A test case for the model object '<em><b>Alternate Key</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class UniqueKeyTest extends ConstraintTest {
+public class AlternateKeyTest extends ConstraintTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class UniqueKeyTest extends ConstraintTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(UniqueKeyTest.class);
+		TestRunner.run(AlternateKeyTest.class);
 	}
 
 	/**
-	 * Constructs a new Unique Key test case with the given name.
+	 * Constructs a new Alternate Key test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UniqueKeyTest(String name) {
+	public AlternateKeyTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Unique Key test case.
+	 * Returns the fixture for this Alternate Key test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected UniqueKey getFixture() {
-		return (UniqueKey)fixture;
+	protected AlternateKey getFixture() {
+		return (AlternateKey)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class UniqueKeyTest extends ConstraintTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RmmFactory.eINSTANCE.createUniqueKey());
+		setFixture(RmmFactory.eINSTANCE.createAlternateKey());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class UniqueKeyTest extends ConstraintTest {
 		setFixture(null);
 	}
 
-} //UniqueKeyTest
+} //AlternateKeyTest

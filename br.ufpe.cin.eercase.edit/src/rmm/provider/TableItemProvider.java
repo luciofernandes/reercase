@@ -218,7 +218,7 @@ public class TableItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RmmPackage.Literals.TABLE__CONSTRAINTS,
-				 RmmFactory.eINSTANCE.createUniqueKey()));
+				 RmmFactory.eINSTANCE.createAlternateKey()));
 
 		newChildDescriptors.add
 			(createChildParameter

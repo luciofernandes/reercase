@@ -10,143 +10,119 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Operation Restriction Integrity</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Action Time</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see rmm.RmmPackage#getOperationRestrictionIntegrity()
+ * @see rmm.RmmPackage#getActionTime()
  * @model
  * @generated
  */
-public enum OperationRestrictionIntegrity implements Enumerator {
+public enum ActionTime implements Enumerator {
 	/**
-	 * The '<em><b>RESTRICT</b></em>' literal object.
+	 * The '<em><b>AFTER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RESTRICT_VALUE
+	 * @see #AFTER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	RESTRICT(0, "RESTRICT", "RESTRICT"), /**
-	 * The '<em><b>CASCADE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #CASCADE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CASCADE(1, "CASCADE", "CASCADE"),
+	AFTER(0, "AFTER", "AFTER"),
 
 	/**
-	 * The '<em><b>NULL</b></em>' literal object.
+	 * The '<em><b>BEFORE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NULL_VALUE
+	 * @see #BEFORE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	NULL(2, "NULL", "NULL"),
+	BEFORE(1, "BEFORE", "BEFORE"),
 
 	/**
-	 * The '<em><b>DEFAULT</b></em>' literal object.
+	 * The '<em><b>INSTEADOF</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DEFAULT_VALUE
+	 * @see #INSTEADOF_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DEFAULT(3, "DEFAULT", "DEFAULT");
+	INSTEADOF(2, "INSTEADOF", "INSTEADOF");
 
 	/**
-	 * The '<em><b>RESTRICT</b></em>' literal value.
+	 * The '<em><b>AFTER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>RESTRICT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>AFTER</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #RESTRICT
+	 * @see #AFTER
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESTRICT_VALUE = 0;
+	public static final int AFTER_VALUE = 0;
 
 	/**
-	 * The '<em><b>CASCADE</b></em>' literal value.
+	 * The '<em><b>BEFORE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CASCADE</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>BEFORE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CASCADE
+	 * @see #BEFORE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CASCADE_VALUE = 1;
+	public static final int BEFORE_VALUE = 1;
 
 	/**
-	 * The '<em><b>NULL</b></em>' literal value.
+	 * The '<em><b>INSTEADOF</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>NULL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>INSTEADOF</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #NULL
+	 * @see #INSTEADOF
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NULL_VALUE = 2;
+	public static final int INSTEADOF_VALUE = 2;
 
 	/**
-	 * The '<em><b>DEFAULT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DEFAULT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #DEFAULT
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int DEFAULT_VALUE = 3;
-
-	/**
-	 * An array of all the '<em><b>Operation Restriction Integrity</b></em>' enumerators.
+	 * An array of all the '<em><b>Action Time</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final OperationRestrictionIntegrity[] VALUES_ARRAY =
-		new OperationRestrictionIntegrity[] {
-			RESTRICT,
-			CASCADE,
-			NULL,
-			DEFAULT,
+	private static final ActionTime[] VALUES_ARRAY =
+		new ActionTime[] {
+			AFTER,
+			BEFORE,
+			INSTEADOF,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Operation Restriction Integrity</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Action Time</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<OperationRestrictionIntegrity> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ActionTime> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Operation Restriction Integrity</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Action Time</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OperationRestrictionIntegrity get(String literal) {
+	public static ActionTime get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			OperationRestrictionIntegrity result = VALUES_ARRAY[i];
+			ActionTime result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -155,14 +131,14 @@ public enum OperationRestrictionIntegrity implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Operation Restriction Integrity</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Action Time</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OperationRestrictionIntegrity getByName(String name) {
+	public static ActionTime getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			OperationRestrictionIntegrity result = VALUES_ARRAY[i];
+			ActionTime result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -171,17 +147,16 @@ public enum OperationRestrictionIntegrity implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Operation Restriction Integrity</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Action Time</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OperationRestrictionIntegrity get(int value) {
+	public static ActionTime get(int value) {
 		switch (value) {
-			case RESTRICT_VALUE: return RESTRICT;
-			case CASCADE_VALUE: return CASCADE;
-			case NULL_VALUE: return NULL;
-			case DEFAULT_VALUE: return DEFAULT;
+			case AFTER_VALUE: return AFTER;
+			case BEFORE_VALUE: return BEFORE;
+			case INSTEADOF_VALUE: return INSTEADOF;
 		}
 		return null;
 	}
@@ -213,7 +188,7 @@ public enum OperationRestrictionIntegrity implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private OperationRestrictionIntegrity(int value, String name, String literal) {
+	private ActionTime(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -257,4 +232,4 @@ public enum OperationRestrictionIntegrity implements Enumerator {
 		return literal;
 	}
 	
-} //OperationRestrictionIntegrity
+} //ActionTime

@@ -52,11 +52,11 @@ public class RmmEditPartFactory implements EditPartFactory {
 			case PrimaryKeyIDNameEditPart.VISUAL_ID:
 				return new PrimaryKeyIDNameEditPart(view);
 
-			case UniqueKeyEditPart.VISUAL_ID:
-				return new UniqueKeyEditPart(view);
+			case AlternateKeyEditPart.VISUAL_ID:
+				return new AlternateKeyEditPart(view);
 
-			case UniqueKeyIDNameEditPart.VISUAL_ID:
-				return new UniqueKeyIDNameEditPart(view);
+			case AlternateKeyIDNameEditPart.VISUAL_ID:
+				return new AlternateKeyIDNameEditPart(view);
 
 			case ForeignKeyEditPart.VISUAL_ID:
 				return new ForeignKeyEditPart(view);
@@ -100,6 +100,9 @@ public class RmmEditPartFactory implements EditPartFactory {
 
 			case RelationshipEditPart.VISUAL_ID:
 				return new RelationshipEditPart(view);
+
+			case Relationship2EditPart.VISUAL_ID:
+				return new Relationship2EditPart(view);
 
 			case RelationshipNameUpdateDeleteEditPart.VISUAL_ID:
 				return new RelationshipNameUpdateDeleteEditPart(view);

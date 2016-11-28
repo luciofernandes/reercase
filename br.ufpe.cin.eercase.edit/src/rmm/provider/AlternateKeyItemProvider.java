@@ -15,26 +15,27 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
+import rmm.AlternateKey;
 import rmm.Attribute;
-import rmm.PrimaryKey;
 import rmm.RmmPackage;
 import rmm.Table;
+import rmm.Trigger;
 import rmm.UniqueKey;
 
 /**
- * This is the item provider adapter for a {@link rmm.UniqueKey} object.
+ * This is the item provider adapter for a {@link rmm.AlternateKey} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UniqueKeyItemProvider extends ConstraintItemProvider {
+public class AlternateKeyItemProvider extends ConstraintItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UniqueKeyItemProvider(AdapterFactory adapterFactory) {
+	public AlternateKeyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,59 +63,60 @@ public class UniqueKeyItemProvider extends ConstraintItemProvider {
 	 */
 	protected void addAttributesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+		(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_UniqueKey_attributes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_UniqueKey_attributes_feature", "_UI_UniqueKey_type"),
-				 RmmPackage.Literals.UNIQUE_KEY__ATTRIBUTES,
+				 getString("_UI_AlternateKey_attributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AlternateKey_attributes_feature", "_UI_AlternateKey_type"),
+				 RmmPackage.Literals.ALTERNATE_KEY__ATTRIBUTES,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
-				 null) {
-				@Override
-				public Collection<?> getChoiceOfValues(Object object) {
-					UniqueKey uniqueKey = (UniqueKey) object;												
-					Table table = (Table) uniqueKey.eContainer(); // Retrieve the classroom students					
-					List<Attribute> attributes = new ArrayList<Attribute>(); // Copy the students to a temporary list
-					attributes.addAll(table.getAttributes());
-					attributes.remove(object); // Removes the student himself from the available friends
-					// Sorts the result
-					Collections.sort(attributes, new Comparator<Attribute>() {
-						@Override
-						public int compare(Attribute s1, Attribute s2) {
-							String s1Name = s1.getName();
-							String s2Name = s2.getName();
-							if (s1Name == null && s2Name == null) {
-								return 0;
-							}
-							else if (s1Name == null) {
-								return 1;
-							}
-							else if (s2Name == null) {
-								return -1;
-							}
-							else {
-								return s1Name.compareTo(s2Name);
-							}
+				 null) { 
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				AlternateKey uniqueKey = (AlternateKey) object;												
+				Table table = (Table) uniqueKey.eContainer(); // Retrieve the classroom students					
+				List<Attribute> attributes = new ArrayList<Attribute>(); // Copy the students to a temporary list
+				attributes.addAll(table.getAttributes());
+				attributes.remove(object); // Removes the student himself from the available friends
+				// Sorts the result
+				Collections.sort(attributes, new Comparator<Attribute>() {
+					@Override
+					public int compare(Attribute s1, Attribute s2) {
+						String s1Name = s1.getName();
+						String s2Name = s2.getName();
+						if (s1Name == null && s2Name == null) {
+							return 0;
 						}
-					});
-					return attributes;
-				}
-			} );
+						else if (s1Name == null) {
+							return 1;
+						}
+						else if (s2Name == null) {
+							return -1;
+						}
+						else {
+							return s1Name.compareTo(s2Name);
+						}
+					}
+				});
+				return attributes;
+			}
+		} );
+
 	}
 
 	/**
-	 * This returns UniqueKey.gif.
+	 * This returns AlternateKey.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UniqueKey"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AlternateKey"));
 	}
 
 	/**
@@ -125,10 +127,10 @@ public class UniqueKeyItemProvider extends ConstraintItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((UniqueKey)object).getName();
+		String label = ((AlternateKey)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_UniqueKey_type") :
-			getString("_UI_UniqueKey_type") + " " + label;
+			getString("_UI_AlternateKey_type") :
+			getString("_UI_AlternateKey_type") + " " + label;
 	}
 	
 

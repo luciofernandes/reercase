@@ -15,7 +15,7 @@ var tableConstraintCompartmentFigure = GmfGraph!Rectangle.all.
     selectOne(r|r.name = 'TableConstraintsCompartmentFigure');
 tableConstraintCompartmentFigure.layout = new GmfGraph!StackLayout;
 removeBorder('PrimaryKeyFigure');
-removeBorder('UniqueKeyFigure');
+removeBorder('AlternateKeyFigure');
 removeBorder('ForeignKeyFigure');
 removeBorder('CheckFigure');
 removeBorder('TriggerFigure');

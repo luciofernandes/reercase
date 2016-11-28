@@ -8,12 +8,15 @@
       <details key="onefile" value="true"/>
       <details key="diagram.extension" value="rmm"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" upperBound="-1"
         eType="#//Table" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assertion" upperBound="-1"
         eType="#//Assertion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domain" upperBound="-1"
         eType="#//Domain" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationship" upperBound="-1"
+        eType="#//Relationship" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
     <eAnnotations source="gmf.node">
@@ -78,7 +81,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//BaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNotNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -120,7 +123,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UniqueKey" eSuperTypes="#//Constraint">
+  <eClassifiers xsi:type="ecore:EClass" name="AlternateKey" eSuperTypes="#//Constraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute"/>
   </eClassifiers>
@@ -132,16 +135,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="#//Constraint">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="insert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="update" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="delete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution" eType="#//DataTypeExecution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionTime" eType="#//ActionTimeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementSQL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionGranularity" eType="#//ActionGranularityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldTable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newTable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataTypeExecution">
+  <eClassifiers xsi:type="ecore:EEnum" name="ActionTimeType">
     <eLiterals name="AFTER"/>
     <eLiterals name="BEFORE" value="1"/>
+    <eLiterals name="INSTEADOF" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActionGranularityType">
+    <eLiterals name="STATEMENT"/>
+    <eLiterals name="ROW" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BaseType">
     <eLiterals name="STRING"/>
@@ -149,12 +164,12 @@
     <eLiterals name="TIMESTAMP" value="2"/>
     <eLiterals name="FLOAT" value="3"/>
     <eLiterals name="INTEGER" value="4"/>
-    <eLiterals name="CBLOB" value="5"/>
+    <eLiterals name="CLOB" value="5"/>
     <eLiterals name="BLOB" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperationRestrictionIntegrity">
-    <eLiterals name="CASCADE"/>
-    <eLiterals name="RESTRICT" value="1"/>
+    <eLiterals name="RESTRICT"/>
+    <eLiterals name="CASCADE" value="1"/>
     <eLiterals name="NULL" value="2"/>
     <eLiterals name="DEFAULT" value="3"/>
   </eClassifiers>

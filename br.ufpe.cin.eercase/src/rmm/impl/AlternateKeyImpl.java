@@ -10,24 +10,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import rmm.AlternateKey;
 import rmm.Attribute;
 import rmm.RmmPackage;
-import rmm.UniqueKey;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unique Key</b></em>'.
+ * An implementation of the model object '<em><b>Alternate Key</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link rmm.impl.UniqueKeyImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link rmm.impl.AlternateKeyImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
+public class AlternateKeyImpl extends ConstraintImpl implements AlternateKey {
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UniqueKeyImpl() {
+	protected AlternateKeyImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RmmPackage.Literals.UNIQUE_KEY;
+		return RmmPackage.Literals.ALTERNATE_KEY;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	 */
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
-			attributes = new EObjectResolvingEList<Attribute>(Attribute.class, this, RmmPackage.UNIQUE_KEY__ATTRIBUTES);
+			attributes = new EObjectResolvingEList<Attribute>(Attribute.class, this, RmmPackage.ALTERNATE_KEY__ATTRIBUTES);
 		}
 		return attributes;
 	}
@@ -77,7 +77,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RmmPackage.UNIQUE_KEY__ATTRIBUTES:
+			case RmmPackage.ALTERNATE_KEY__ATTRIBUTES:
 				return getAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -92,7 +92,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RmmPackage.UNIQUE_KEY__ATTRIBUTES:
+			case RmmPackage.ALTERNATE_KEY__ATTRIBUTES:
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
@@ -108,7 +108,7 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RmmPackage.UNIQUE_KEY__ATTRIBUTES:
+			case RmmPackage.ALTERNATE_KEY__ATTRIBUTES:
 				getAttributes().clear();
 				return;
 		}
@@ -123,10 +123,10 @@ public class UniqueKeyImpl extends ConstraintImpl implements UniqueKey {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RmmPackage.UNIQUE_KEY__ATTRIBUTES:
+			case RmmPackage.ALTERNATE_KEY__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //UniqueKeyImpl
+} //AlternateKeyImpl

@@ -6,11 +6,11 @@ package rmm.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
+import rmm.diagram.edit.commands.AlternateKeyCreateCommand;
 import rmm.diagram.edit.commands.CheckCreateCommand;
 import rmm.diagram.edit.commands.ForeignKeyCreateCommand;
 import rmm.diagram.edit.commands.PrimaryKeyCreateCommand;
 import rmm.diagram.edit.commands.TriggerCreateCommand;
-import rmm.diagram.edit.commands.UniqueKeyCreateCommand;
 import rmm.diagram.providers.RmmElementTypes;
 
 /**
@@ -33,8 +33,8 @@ public class TableTableConstraintsCompartmentItemSemanticEditPolicy extends
 		if (RmmElementTypes.PrimaryKey_3022 == req.getElementType()) {
 			return getGEFWrapper(new PrimaryKeyCreateCommand(req));
 		}
-		if (RmmElementTypes.UniqueKey_3023 == req.getElementType()) {
-			return getGEFWrapper(new UniqueKeyCreateCommand(req));
+		if (RmmElementTypes.AlternateKey_3027 == req.getElementType()) {
+			return getGEFWrapper(new AlternateKeyCreateCommand(req));
 		}
 		if (RmmElementTypes.ForeignKey_3024 == req.getElementType()) {
 			return getGEFWrapper(new ForeignKeyCreateCommand(req));

@@ -100,8 +100,8 @@ public class RmmAdapterFactory extends AdapterFactoryImpl {
 				return createPrimaryKeyAdapter();
 			}
 			@Override
-			public Adapter caseUniqueKey(UniqueKey object) {
-				return createUniqueKeyAdapter();
+			public Adapter caseAlternateKey(AlternateKey object) {
+				return createAlternateKeyAdapter();
 			}
 			@Override
 			public Adapter caseForeignKey(ForeignKey object) {
@@ -248,16 +248,16 @@ public class RmmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link rmm.UniqueKey <em>Unique Key</em>}'.
+	 * Creates a new adapter for an object of class '{@link rmm.AlternateKey <em>Alternate Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see rmm.UniqueKey
+	 * @see rmm.AlternateKey
 	 * @generated
 	 */
-	public Adapter createUniqueKeyAdapter() {
+	public Adapter createAlternateKeyAdapter() {
 		return null;
 	}
 

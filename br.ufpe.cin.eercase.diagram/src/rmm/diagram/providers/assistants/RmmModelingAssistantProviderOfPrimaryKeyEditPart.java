@@ -36,8 +36,9 @@ public class RmmModelingAssistantProviderOfPrimaryKeyEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnSource(PrimaryKeyEditPart source) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
+		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(RmmElementTypes.Relationship_4002);
+		types.add(RmmElementTypes.Relationship_4003);
 		return types;
 	}
 
@@ -64,6 +65,9 @@ public class RmmModelingAssistantProviderOfPrimaryKeyEditPart extends
 		if (targetEditPart instanceof ForeignKeyEditPart) {
 			types.add(RmmElementTypes.Relationship_4002);
 		}
+		if (targetEditPart instanceof ForeignKeyEditPart) {
+			types.add(RmmElementTypes.Relationship_4003);
+		}
 		return types;
 	}
 
@@ -86,6 +90,8 @@ public class RmmModelingAssistantProviderOfPrimaryKeyEditPart extends
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == RmmElementTypes.Relationship_4002) {
+			types.add(RmmElementTypes.ForeignKey_3024);
+		} else if (relationshipType == RmmElementTypes.Relationship_4003) {
 			types.add(RmmElementTypes.ForeignKey_3024);
 		}
 		return types;

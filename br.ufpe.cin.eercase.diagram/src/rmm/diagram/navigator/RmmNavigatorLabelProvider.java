@@ -20,6 +20,10 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
+import rmm.Relationship;
+import rmm.Schema;
+import rmm.diagram.edit.parts.AlternateKeyEditPart;
+import rmm.diagram.edit.parts.AlternateKeyIDNameEditPart;
 import rmm.diagram.edit.parts.AssertionEditPart;
 import rmm.diagram.edit.parts.AssertionNameEditPart;
 import rmm.diagram.edit.parts.AttributeEditPart;
@@ -34,6 +38,7 @@ import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.ForeignKeyIDNameEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyIDNameEditPart;
+import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.RelationshipNameEditPart;
 import rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart;
@@ -42,8 +47,6 @@ import rmm.diagram.edit.parts.TableEditPart;
 import rmm.diagram.edit.parts.TableNameEditPart;
 import rmm.diagram.edit.parts.TriggerEditPart;
 import rmm.diagram.edit.parts.TriggerIDNameEditPart;
-import rmm.diagram.edit.parts.UniqueKeyEditPart;
-import rmm.diagram.edit.parts.UniqueKeyIDNameEditPart;
 import rmm.diagram.part.RmmDiagramEditorPlugin;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
@@ -137,9 +140,6 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 		case PrimaryKeyEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?rmm?PrimaryKey", RmmElementTypes.PrimaryKey_3022); //$NON-NLS-1$
-		case UniqueKeyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?rmm?UniqueKey", RmmElementTypes.UniqueKey_3023); //$NON-NLS-1$
 		case ForeignKeyEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?rmm?ForeignKey", RmmElementTypes.ForeignKey_3024); //$NON-NLS-1$
@@ -149,9 +149,15 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 		case TriggerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?rmm?Trigger", RmmElementTypes.Trigger_3026); //$NON-NLS-1$
+		case AlternateKeyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?rmm?AlternateKey", RmmElementTypes.AlternateKey_3027); //$NON-NLS-1$
 		case RelationshipEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?rmm?Relationship", RmmElementTypes.Relationship_4002); //$NON-NLS-1$
+		case Relationship2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?rmm?Relationship", RmmElementTypes.Relationship_4003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -226,16 +232,18 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 			return getCheck_3021Text(view);
 		case PrimaryKeyEditPart.VISUAL_ID:
 			return getPrimaryKey_3022Text(view);
-		case UniqueKeyEditPart.VISUAL_ID:
-			return getUniqueKey_3023Text(view);
 		case ForeignKeyEditPart.VISUAL_ID:
 			return getForeignKey_3024Text(view);
 		case CheckEditPart.VISUAL_ID:
 			return getCheck_3025Text(view);
 		case TriggerEditPart.VISUAL_ID:
 			return getTrigger_3026Text(view);
+		case AlternateKeyEditPart.VISUAL_ID:
+			return getAlternateKey_3027Text(view);
 		case RelationshipEditPart.VISUAL_ID:
 			return getRelationship_4002Text(view);
+		case Relationship2EditPart.VISUAL_ID:
+			return getRelationship_4003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -244,7 +252,14 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getSchema_1000Text(View view) {
-		return ""; //$NON-NLS-1$
+		Schema domainModelElement = (Schema) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
+		} else {
+			RmmDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -366,25 +381,6 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getUniqueKey_3023Text(View view) {
-		IParser parser = RmmParserProvider.getParser(
-				RmmElementTypes.UniqueKey_3023,
-				view.getElement() != null ? view.getElement() : view,
-				RmmVisualIDRegistry.getType(UniqueKeyIDNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RmmDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5031); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getForeignKey_3024Text(View view) {
 		IParser parser = RmmParserProvider
 				.getParser(RmmElementTypes.ForeignKey_3024,
@@ -443,10 +439,44 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getAlternateKey_3027Text(View view) {
+		IParser parser = RmmParserProvider.getParser(
+				RmmElementTypes.AlternateKey_3027,
+				view.getElement() != null ? view.getElement() : view,
+				RmmVisualIDRegistry
+						.getType(AlternateKeyIDNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RmmDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5035); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getRelationship_4002Text(View view) {
+		Relationship domainModelElement = (Relationship) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
+		} else {
+			RmmDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 4002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRelationship_4003Text(View view) {
 		IParser parser = RmmParserProvider
 				.getParser(
-						RmmElementTypes.Relationship_4002,
+						RmmElementTypes.Relationship_4003,
 						view.getElement() != null ? view.getElement() : view,
 						RmmVisualIDRegistry
 								.getType(RelationshipNameUpdateDeleteEditPart.VISUAL_ID));
@@ -456,7 +486,7 @@ public class RmmNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			RmmDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6004); //$NON-NLS-1$
+					"Parser was not found for label " + 6005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

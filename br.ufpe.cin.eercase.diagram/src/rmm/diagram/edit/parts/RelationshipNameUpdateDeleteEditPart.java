@@ -64,7 +64,7 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6004;
+	public static final int VISUAL_ID = 6005;
 
 	/**
 	 * @generated
@@ -145,7 +145,8 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 	 * @generated not
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
-		ForeignKey foreignKey = (ForeignKey) ((Node)(( org.eclipse.gmf.runtime.notation.Edge) ( (RelationshipEditPart)this.getParent()).getModel()).getTarget()).getElement();
+		ForeignKey foreignKey = (ForeignKey) ((Node) ((org.eclipse.gmf.runtime.notation.Edge) ((RelationshipEditPart) this
+				.getParent()).getModel()).getTarget()).getElement();
 		String array[] = text.split("[(]");
 		String textoAuxiliar = array[1];
 		textoAuxiliar = textoAuxiliar.replaceAll("CASCADE", "C");
@@ -335,7 +336,7 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 		if (parser == null) {
 			parser = RmmParserProvider
 					.getParser(
-							RmmElementTypes.Relationship_4002,
+							RmmElementTypes.Relationship_4003,
 							getParserElement(),
 							RmmVisualIDRegistry
 									.getType(rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart.VISUAL_ID));
