@@ -331,9 +331,9 @@ public class AttributeEditPart extends ShapeNodeEditPart {
 			}
 
 			//TODO: quando atulizar lembar que pode ter constraint relacionada e deve ser acrescido o acronomo no label
-			if (attribute.getDomain() != null) {
+			if (attribute.getDomainType() != null) {
 				fFigureAttributeLabelFigure.setText(attribute.getName() + ":"
-						+ attribute.getDomain().getName());
+						+ attribute.getDomainType().getName());
 			} else {
 				fFigureAttributeLabelFigure.setText(attribute.getName() + ":"
 						+ attribute.getDataType().toString());

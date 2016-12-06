@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rmm.Attribute#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link rmm.Attribute#isIsNotNull <em>Is Not Null</em>}</li>
  *   <li>{@link rmm.Attribute#getDescription <em>Description</em>}</li>
- *   <li>{@link rmm.Attribute#getDomain <em>Domain</em>}</li>
+ *   <li>{@link rmm.Attribute#getDomainType <em>Domain Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -188,29 +188,29 @@ public interface Attribute extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Domain</b></em>' reference.
+	 * Returns the value of the '<em><b>Domain Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Domain</em>' reference isn't clear,
+	 * If the meaning of the '<em>Domain Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain</em>' reference.
-	 * @see #setDomain(Domain)
-	 * @see rmm.RmmPackage#getAttribute_Domain()
+	 * @return the value of the '<em>Domain Type</em>' reference.
+	 * @see #setDomainType(Domain)
+	 * @see rmm.RmmPackage#getAttribute_DomainType()
 	 * @model
 	 * @generated
 	 */
-	Domain getDomain();
+	Domain getDomainType();
 
 	/**
-	 * Sets the value of the '{@link rmm.Attribute#getDomain <em>Domain</em>}' reference.
+	 * Sets the value of the '{@link rmm.Attribute#getDomainType <em>Domain Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Domain</em>' reference.
-	 * @see #getDomain()
+	 * @param value the new value of the '<em>Domain Type</em>' reference.
+	 * @see #getDomainType()
 	 * @generated
 	 */
-	void setDomain(Domain value);
+	void setDomainType(Domain value);
 
 } // Attribute

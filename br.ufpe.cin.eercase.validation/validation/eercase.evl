@@ -4,27 +4,28 @@ context Table {
 
       check : self.name.isDefined()
 
-      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+      message : 'Name not defined in the ' + self.eClass().name
    }
 
   constraint HasAttributes {
 
       check :  not self.attributes.isEmpty()
 
-      message : 'Unattributes ' + self.eClass().name + ' not allowed'
+      message : 'Attributes not defined in the ' + self.eClass().name
    }
 
   constraint HasConstraint {
 
-      check : not self.constraints.isEmpty() 
+      /*check : not self.constraints.isEmpty()*/
+      check: (self.constraints->select(x | x.isKindOf(PrimaryKey) ).size() > 0)  
 
-      message : 'Unconstraints ' + self.eClass().name + ' not allowed'
+      message : 'Primary key not defined in the ' + self.name
    }
       
    constraint NoTableWithSameName {
 		guard : self.satisfies('HasName')
 		check : not (Table.allInstances.select(t|t.name = self.name)->size() <> 1)
-		message : '(RG03) An table must have a  unique name in the diagram,\n because tables with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
+		message : 'An table must have a  unique name in the diagram,\n because tables with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
 		fix {
 			title : 'Change the name of the Table.'
 			do {
@@ -35,3 +36,80 @@ context Table {
 		}
 	}
 }
+
+context Domain {
+
+  constraint HasName {
+
+      check : self.name.isDefined()
+
+      message : 'Name not defined in the ' + self.eClass().name
+   }
+   
+   constraint NoDomainWithSameName {
+		guard : self.satisfies('HasName')
+		check : not (Domain.allInstances.select(t|t.name = self.name)->size() <> 1)
+		message : 'An domain must have a  unique name in the diagram,\n because domains with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
+		fix {
+			title : 'Change the name of the Domain.'
+			do {
+				var nome : String;
+				nome = UserInput.prompt('Enter the new name:');
+				if (nome.isDefined()) self.name := nome;
+			}
+		}
+	}
+
+}
+
+
+context Assertion {
+
+  constraint HasName {
+
+      check : self.name.isDefined()
+
+      message : 'Name not defined in the ' + self.eClass().name
+   }
+   
+   constraint NoDomainWithSameName {
+		guard : self.satisfies('HasName')
+		check : not (Assertion.allInstances.select(t|t.name = self.name)->size() <> 1)
+		message : 'An assertion must have a  unique name in the diagram,\n because assertions with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
+		fix {
+			title : 'Change the name of the Assertion.'
+			do {
+				var nome : String;
+				nome = UserInput.prompt('Enter the new name:');
+				if (nome.isDefined()) self.name := nome;
+			}
+		}
+	}
+
+}
+
+
+context Trigger {
+   
+  constraint HasName {
+
+      check : self.name.isDefined()
+
+      message : 'Name not defined in the ' + self.eClass().name
+   }
+
+   constraint NoDomainWithSameName {
+		guard : self.satisfies('HasName')
+		check : not (Trigger.allInstances.select(t|t.name = self.name)->size() <> 1)
+		message : 'An trigger must have a  unique name in the diagram,\n because trigger with duplicate names in the same\n diagram results in a "well-formed" problem since it is\n not possible to identify them.'
+		fix {
+			title : 'Change the name of the Trigger.'
+			do {
+				var nome : String;
+				nome = UserInput.prompt('Enter the new name:');
+				if (nome.isDefined()) self.name := nome;
+			}
+		}
+	}
+
+}		

@@ -28,7 +28,7 @@ import rmm.RmmPackage;
  *   <li>{@link rmm.impl.AttributeImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link rmm.impl.AttributeImpl#isIsNotNull <em>Is Not Null</em>}</li>
  *   <li>{@link rmm.impl.AttributeImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rmm.impl.AttributeImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link rmm.impl.AttributeImpl#getDomainType <em>Domain Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,14 +156,14 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' reference.
+	 * The cached value of the '{@link #getDomainType() <em>Domain Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomain()
+	 * @see #getDomainType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Domain domain;
+	protected Domain domainType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,16 +315,16 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Domain getDomain() {
-		if (domain != null && domain.eIsProxy()) {
-			InternalEObject oldDomain = (InternalEObject)domain;
-			domain = (Domain)eResolveProxy(oldDomain);
-			if (domain != oldDomain) {
+	public Domain getDomainType() {
+		if (domainType != null && domainType.eIsProxy()) {
+			InternalEObject oldDomainType = (InternalEObject)domainType;
+			domainType = (Domain)eResolveProxy(oldDomainType);
+			if (domainType != oldDomainType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RmmPackage.ATTRIBUTE__DOMAIN, oldDomain, domain));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RmmPackage.ATTRIBUTE__DOMAIN_TYPE, oldDomainType, domainType));
 			}
 		}
-		return domain;
+		return domainType;
 	}
 
 	/**
@@ -332,8 +332,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Domain basicGetDomain() {
-		return domain;
+	public Domain basicGetDomainType() {
+		return domainType;
 	}
 
 	/**
@@ -341,11 +341,11 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDomain(Domain newDomain) {
-		Domain oldDomain = domain;
-		domain = newDomain;
+	public void setDomainType(Domain newDomainType) {
+		Domain oldDomainType = domainType;
+		domainType = newDomainType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RmmPackage.ATTRIBUTE__DOMAIN, oldDomain, domain));
+			eNotify(new ENotificationImpl(this, Notification.SET, RmmPackage.ATTRIBUTE__DOMAIN_TYPE, oldDomainType, domainType));
 	}
 
 	/**
@@ -368,9 +368,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return isIsNotNull();
 			case RmmPackage.ATTRIBUTE__DESCRIPTION:
 				return getDescription();
-			case RmmPackage.ATTRIBUTE__DOMAIN:
-				if (resolve) return getDomain();
-				return basicGetDomain();
+			case RmmPackage.ATTRIBUTE__DOMAIN_TYPE:
+				if (resolve) return getDomainType();
+				return basicGetDomainType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,8 +401,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case RmmPackage.ATTRIBUTE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case RmmPackage.ATTRIBUTE__DOMAIN:
-				setDomain((Domain)newValue);
+			case RmmPackage.ATTRIBUTE__DOMAIN_TYPE:
+				setDomainType((Domain)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -434,8 +434,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case RmmPackage.ATTRIBUTE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case RmmPackage.ATTRIBUTE__DOMAIN:
-				setDomain((Domain)null);
+			case RmmPackage.ATTRIBUTE__DOMAIN_TYPE:
+				setDomainType((Domain)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -461,8 +461,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return isNotNull != IS_NOT_NULL_EDEFAULT;
 			case RmmPackage.ATTRIBUTE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case RmmPackage.ATTRIBUTE__DOMAIN:
-				return domain != null;
+			case RmmPackage.ATTRIBUTE__DOMAIN_TYPE:
+				return domainType != null;
 		}
 		return super.eIsSet(featureID);
 	}

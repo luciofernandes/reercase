@@ -66,7 +66,7 @@ public class AttributeItemProvider
 			addDefaultValuePropertyDescriptor(object);
 			addIsNotNullPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addDomainPropertyDescriptor(object);
+			addDomainTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -204,19 +204,19 @@ public class AttributeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Domain feature.
+	 * This adds a property descriptor for the Domain Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDomainPropertyDescriptor(Object object) {
+	protected void addDomainTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_domain_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_domain_feature", "_UI_Attribute_type"),
-				 RmmPackage.Literals.ATTRIBUTE__DOMAIN,
+				 getString("_UI_Attribute_domainType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_domainType_feature", "_UI_Attribute_type"),
+				 RmmPackage.Literals.ATTRIBUTE__DOMAIN_TYPE,
 				 true,
 				 false,
 				 true,

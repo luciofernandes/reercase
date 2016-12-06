@@ -71,13 +71,13 @@ public class Relationship2EditPart extends ConnectionNodeEditPart implements
 		 */
 		public RelationshipFigure() {
 
-			setSourceDecoration(createSourceDecoration());
+			setTargetDecoration(createTargetDecoration());
 		}
 
 		/**
 		 * @generated
 		 */
-		private RotatableDecoration createSourceDecoration() {
+		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
 			return df;
 		}

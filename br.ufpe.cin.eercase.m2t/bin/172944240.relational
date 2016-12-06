@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relational="relational">
+  <relational:DataType name="STRING" typedElement="/22 /15"/>
+  <relational:Domain name="sexo" description="" typedElement="/17" defaultValue="M" nullable="true" constraint="/2" referencedType="/0"/>
+  <relational:CheckConstraint name="ck_sexo" searchCondition="VALUE in ('M','S')"/>
+  <relational:Assertion name="valida_existencia_filme" description="so poderam existir cliente com filmes cadastrados" searchCondition="EXISTS( select * from filmes)"/>
+  <relational:BaseTable name="Locacao" schema="/11" triggers="/31" columns="/6 /9 /26 /27 /29" constraints="/5 /8 /32"/>
+  <relational:ForeignKey name="fk_cliente" baseTable="/4" members="/6" referencedTable="/10" uniqueConstraint="/14" onUpdate="CASCADE" onDelete="SET_NULL"/>
+  <relational:Column name="cliente" dataType="/7" table="/4" referenceConstraint="/5 /32"/>
+  <relational:DataType name="INTEGER" typedElement="/16 /21 /6 /9"/>
+  <relational:ForeignKey name="fk_filme" baseTable="/4" members="/9" referencedTable="/12" uniqueConstraint="/13" onUpdate="RESTRICT" onDelete="SET_DEFAULT"/>
+  <relational:Column name="filme" dataType="/7" table="/4" referenceConstraint="/8 /32"/>
+  <relational:BaseTable name="Cliente" schema="/11" columns="/15 /16 /17 /19" referencingForeignKeys="/5" constraints="/14"/>
+  <relational:Schema name="fromRMM" tables="/10 /12 /4"/>
+  <relational:BaseTable name="Filme" schema="/11" columns="/21 /22 /23" referencingForeignKeys="/8" constraints="/25 /13"/>
+  <relational:PrimaryKey name="pk_filme" description="" baseTable="/12" members="/21" foreignKey="/8"/>
+  <relational:PrimaryKey name="pk_codigo" description="" baseTable="/10" members="/16" foreignKey="/5"/>
+  <relational:Column name="nome" description="" dataType="/0" defaultValue="" length="50" table="/10"/>
+  <relational:Column name="codigo" dataType="/7" defaultValue="" table="/10" referenceConstraint="/14"/>
+  <relational:Column name="sexo" description="" dataType="/1" nullable="true" defaultValue="" table="/10"/>
+  <relational:DataType name="BOOLEAN" typedElement="/26"/>
+  <relational:Column name="contratro" dataType="/20" nullable="true" table="/10"/>
+  <relational:DataType name="CLOB" typedElement="/19"/>
+  <relational:Column name="codigo" description="" dataType="/7" table="/12" referenceConstraint="/13"/>
+  <relational:Column name="nome" dataType="/0" table="/12" referenceConstraint="/25"/>
+  <relational:Column name="trailler" dataType="/24" nullable="true" table="/12"/>
+  <relational:DataType name="BLOB" typedElement="/23"/>
+  <relational:UniqueConstraint name="AK_nome" baseTable="/12" members="/22"/>
+  <relational:Column name="devolvido" dataType="/18" defaultValue="false" table="/4"/>
+  <relational:Column name="data_devolucao" description="" dataType="/28" nullable="true" table="/4"/>
+  <relational:DataType name="TIMESTAMP" typedElement="/27"/>
+  <relational:Column name="valor" dataType="/30" nullable="true" defaultValue="0" table="/4"/>
+  <relational:DataType name="FLOAT" typedElement="/29"/>
+  <relational:Trigger name="valida_filme" actionTime="BEFORE" table="/4"/>
+  <relational:PrimaryKey name="pk_locacao" baseTable="/4" members="/6 /9"/>
+</xmi:XMI>

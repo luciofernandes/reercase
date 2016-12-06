@@ -359,13 +359,13 @@ public interface RmmPackage extends EPackage {
 	int ATTRIBUTE__DESCRIPTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * The feature id for the '<em><b>Domain Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__DOMAIN = 6;
+	int ATTRIBUTE__DOMAIN_TYPE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -1225,15 +1225,15 @@ public interface RmmPackage extends EPackage {
 	EAttribute getAttribute_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link rmm.Attribute#getDomain <em>Domain</em>}'.
+	 * Returns the meta object for the reference '{@link rmm.Attribute#getDomainType <em>Domain Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Domain</em>'.
-	 * @see rmm.Attribute#getDomain()
+	 * @return the meta object for the reference '<em>Domain Type</em>'.
+	 * @see rmm.Attribute#getDomainType()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EReference getAttribute_Domain();
+	EReference getAttribute_DomainType();
 
 	/**
 	 * Returns the meta object for class '{@link rmm.Relationship <em>Relationship</em>}'.
@@ -1885,12 +1885,12 @@ public interface RmmPackage extends EPackage {
 		EAttribute ATTRIBUTE__DESCRIPTION = eINSTANCE.getAttribute_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Domain Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__DOMAIN = eINSTANCE.getAttribute_Domain();
+		EReference ATTRIBUTE__DOMAIN_TYPE = eINSTANCE.getAttribute_DomainType();
 
 		/**
 		 * The meta object literal for the '{@link rmm.impl.RelationshipImpl <em>Relationship</em>}' class.

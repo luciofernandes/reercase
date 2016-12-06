@@ -52,11 +52,11 @@ class Attribute {
   attr String defaultValue;
   attr boolean isNotNull = false;
   attr String description; 
-  ref Domain domain; 
+  ref Domain domainType; 
 }
 
 
-@gmf.link(label="name,update,delete", label.pattern="{0}(U:{1}/D:{2})", source="source", target="target", source.decoration="arrow", style="solid", width="1", incoming="true")
+@gmf.link(label="name,update,delete", label.pattern="{0}(U:{1}/D:{2})", source="source", target="target", target.decoration="arrow", style="solid", width="1", incoming="true")
 class Relationship {
   attr String name;
   attr OperationRestrictionIntegrity update;

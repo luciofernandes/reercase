@@ -5,6 +5,14 @@
 -->
 <plugin>
 
+<extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="flase"?>
+      <command
+            defaultHandler="rmm.diagram.custom.part.transformation.TransformationHandler"
+            id="rmm.diagram.custom.part.transformation.TransformationHandler"
+            name="Generate SQL DDL">
+      </command>
+   </extension>
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
       <fileTypes type="text" extension="rmm"/>
@@ -684,12 +692,12 @@
    </extension>
 
    <extension point="org.eclipse.ui.menus" id="context-menus">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
       </menuContribution>
       <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
       </menuContribution -->
-      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+      <!--<menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
          <command commandId="br.ufpe.cin.eercase.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
@@ -700,18 +708,33 @@
                </and>
             </visibleWhen>
          </command>
+      </menuContribution> -->
+     <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar id="br.ufpe.cin.eercase.diagram.toolbar1"
+               label="Workbench Wizards">
+                       
+
+            <command
+                  commandId="rmm.diagram.custom.part.transformation.TransformationHandler"
+                  icon="icons/transformation.png"
+                  id="rmm.diagram.custom.part.transformation.TransformationHandler.command"
+                  style="push"
+                  tooltip="Generate SQL DDL">
+            </command>
+            
+            <command
+               commandId="org.eclipse.ui.help.aboutAction"
+               style="push">
+            </command>
+            
+         </toolbar>
       </menuContribution>
+      
    </extension>
 
-   <extension point="org.eclipse.ui.commands" id="menu-commands">
-      <?gmfgen generated="true"?>
-      <category id="rmm.diagram.part.RmmDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
-      <command id="br.ufpe.cin.eercase.diagram.LoadResourceAction"
-         name="Load Resource"
-         categoryId="rmm.diagram.part.RmmDiagramEditorID"
-         defaultHandler="rmm.diagram.part.LoadResourceAction"/>
-   </extension>
-
+   
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>

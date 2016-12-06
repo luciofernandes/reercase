@@ -478,7 +478,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttribute_Domain() {
+	public EReference getAttribute_DomainType() {
 		return (EReference)attributeEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -867,7 +867,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEAttribute(attributeEClass, ATTRIBUTE__DEFAULT_VALUE);
 		createEAttribute(attributeEClass, ATTRIBUTE__IS_NOT_NULL);
 		createEAttribute(attributeEClass, ATTRIBUTE__DESCRIPTION);
-		createEReference(attributeEClass, ATTRIBUTE__DOMAIN);
+		createEReference(attributeEClass, ATTRIBUTE__DOMAIN_TYPE);
 
 		relationshipEClass = createEClass(RELATIONSHIP);
 		createEAttribute(relationshipEClass, RELATIONSHIP__NAME);
@@ -983,7 +983,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEAttribute(getAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_IsNotNull(), ecorePackage.getEBoolean(), "isNotNull", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Description(), ecorePackage.getEString(), "description", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_Domain(), this.getDomain(), null, "domain", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_DomainType(), this.getDomain(), null, "domainType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelationship_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1183,7 +1183,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 			 "label.pattern", "{0}(U:{1}/D:{2})",
 			 "source", "source",
 			 "target", "target",
-			 "source.decoration", "arrow",
+			 "target.decoration", "arrow",
 			 "style", "solid",
 			 "width", "1",
 			 "incoming", "true"

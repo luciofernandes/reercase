@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see rmm.RmmPackage#getRelationship()
- * @model annotation="gmf.link label='name,update,delete' label.pattern='{0}(U:{1}/D:{2})' source='source' target='target' source.decoration='arrow' style='solid' width='1' incoming='true'"
+ * @model annotation="gmf.link label='name,update,delete' label.pattern='{0}(U:{1}/D:{2})' source='source' target='target' target.decoration='arrow' style='solid' width='1' incoming='true'"
  * @generated
  */
 public interface Relationship extends EObject {
