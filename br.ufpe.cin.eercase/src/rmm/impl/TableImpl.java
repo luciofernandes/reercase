@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,6 +37,8 @@ import rmm.Trigger;
  *   <li>{@link rmm.impl.TableImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rmm.impl.TableImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link rmm.impl.TableImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link rmm.impl.TableImpl#getTriggers <em>Triggers</em>}</li>
+ *   <li>{@link rmm.impl.TableImpl#getTriggersConstrainted <em>Triggers Constrainted</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +104,26 @@ public class TableImpl extends EObjectImpl implements Table {
 	 * @ordered
 	 */
 	protected EList<Constraint> constraints;
+
+	/**
+	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Trigger> triggers;
+
+	/**
+	 * The cached value of the '{@link #getTriggersConstrainted() <em>Triggers Constrainted</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggersConstrainted()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Trigger> triggersConstrainted;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +215,30 @@ public class TableImpl extends EObjectImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Trigger> getTriggers() {
+		if (triggers == null) {
+			triggers = new EObjectResolvingEList<Trigger>(Trigger.class, this, RmmPackage.TABLE__TRIGGERS);
+		}
+		return triggers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Trigger> getTriggersConstrainted() {
+		if (triggersConstrainted == null) {
+			triggersConstrainted = new EObjectResolvingEList<Trigger>(Trigger.class, this, RmmPackage.TABLE__TRIGGERS_CONSTRAINTED);
+		}
+		return triggersConstrainted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -219,6 +266,10 @@ public class TableImpl extends EObjectImpl implements Table {
 				return getAttributes();
 			case RmmPackage.TABLE__CONSTRAINTS:
 				return getConstraints();
+			case RmmPackage.TABLE__TRIGGERS:
+				return getTriggers();
+			case RmmPackage.TABLE__TRIGGERS_CONSTRAINTED:
+				return getTriggersConstrainted();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,6 +297,14 @@ public class TableImpl extends EObjectImpl implements Table {
 				getConstraints().clear();
 				getConstraints().addAll((Collection<? extends Constraint>)newValue);
 				return;
+			case RmmPackage.TABLE__TRIGGERS:
+				getTriggers().clear();
+				getTriggers().addAll((Collection<? extends Trigger>)newValue);
+				return;
+			case RmmPackage.TABLE__TRIGGERS_CONSTRAINTED:
+				getTriggersConstrainted().clear();
+				getTriggersConstrainted().addAll((Collection<? extends Trigger>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -270,6 +329,12 @@ public class TableImpl extends EObjectImpl implements Table {
 			case RmmPackage.TABLE__CONSTRAINTS:
 				getConstraints().clear();
 				return;
+			case RmmPackage.TABLE__TRIGGERS:
+				getTriggers().clear();
+				return;
+			case RmmPackage.TABLE__TRIGGERS_CONSTRAINTED:
+				getTriggersConstrainted().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,6 +355,10 @@ public class TableImpl extends EObjectImpl implements Table {
 				return attributes != null && !attributes.isEmpty();
 			case RmmPackage.TABLE__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
+			case RmmPackage.TABLE__TRIGGERS:
+				return triggers != null && !triggers.isEmpty();
+			case RmmPackage.TABLE__TRIGGERS_CONSTRAINTED:
+				return triggersConstrainted != null && !triggersConstrainted.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

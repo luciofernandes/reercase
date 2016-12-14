@@ -329,7 +329,7 @@ public class RmmBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRelationship_4002(Schema container,
+		public boolean canCreateRelationship_4002(PrimaryKey container,
 				PrimaryKey source, ForeignKey target) {
 			return canExistRelationship_4002(container, null, source, target);
 		}
@@ -337,23 +337,7 @@ public class RmmBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateRelationship_4003(PrimaryKey container,
-				PrimaryKey source, ForeignKey target) {
-			return canExistRelationship_4003(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRelationship_4002(Schema container,
-				Relationship linkInstance, PrimaryKey source, ForeignKey target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistRelationship_4003(PrimaryKey container,
+		public boolean canExistRelationship_4002(PrimaryKey container,
 				Relationship linkInstance, PrimaryKey source, ForeignKey target) {
 			return true;
 		}

@@ -16,11 +16,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import rmm.diagram.edit.commands.Relationship2CreateCommand;
-import rmm.diagram.edit.commands.Relationship2ReorientCommand;
 import rmm.diagram.edit.commands.RelationshipCreateCommand;
 import rmm.diagram.edit.commands.RelationshipReorientCommand;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
@@ -49,13 +46,6 @@ public class PrimaryKeyItemSemanticEditPolicy extends
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (RmmVisualIDRegistry.getVisualID(outgoingLink) == RelationshipEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (RmmVisualIDRegistry.getVisualID(outgoingLink) == Relationship2EditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -94,10 +84,6 @@ public class PrimaryKeyItemSemanticEditPolicy extends
 			return getGEFWrapper(new RelationshipCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (RmmElementTypes.Relationship_4003 == req.getElementType()) {
-			return getGEFWrapper(new Relationship2CreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -109,9 +95,6 @@ public class PrimaryKeyItemSemanticEditPolicy extends
 		if (RmmElementTypes.Relationship_4002 == req.getElementType()) {
 			return getGEFWrapper(new RelationshipCreateCommand(req,
 					req.getTarget(), req.getSource()));
-		}
-		if (RmmElementTypes.Relationship_4003 == req.getElementType()) {
-			return null;
 		}
 		return null;
 	}
@@ -127,8 +110,6 @@ public class PrimaryKeyItemSemanticEditPolicy extends
 		switch (getVisualID(req)) {
 		case RelationshipEditPart.VISUAL_ID:
 			return getGEFWrapper(new RelationshipReorientCommand(req));
-		case Relationship2EditPart.VISUAL_ID:
-			return getGEFWrapper(new Relationship2ReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

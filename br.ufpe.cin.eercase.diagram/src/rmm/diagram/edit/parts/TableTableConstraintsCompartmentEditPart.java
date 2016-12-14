@@ -127,9 +127,7 @@ public class TableTableConstraintsCompartmentEditPart extends
 					if (type instanceof IElementType) {
 						IElementType elementType = (IElementType) type;
 						if (elementType
-								.equals(RmmElementTypes.Relationship_4002)
-								|| elementType
-										.equals(RmmElementTypes.Relationship_4003))
+								.equals(RmmElementTypes.Relationship_4002))
 							return super.getTargetEditPart(request);
 					}
 				}

@@ -249,13 +249,13 @@ public class RmmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser relationshipNameUpdateDelete_6005Parser;
+	private IParser relationshipNameUpdateDelete_6006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRelationshipNameUpdateDelete_6005Parser() {
-		if (relationshipNameUpdateDelete_6005Parser == null) {
+	private IParser getRelationshipNameUpdateDelete_6006Parser() {
+		if (relationshipNameUpdateDelete_6006Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RmmPackage.eINSTANCE.getRelationship_Name(),
 					RmmPackage.eINSTANCE.getRelationship_Update(),
@@ -264,9 +264,9 @@ public class RmmParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
 			parser.setEditPattern("{0}(U:{1}/D:{2})"); //$NON-NLS-1$
-			relationshipNameUpdateDelete_6005Parser = parser;
+			relationshipNameUpdateDelete_6006Parser = parser;
 		}
-		return relationshipNameUpdateDelete_6005Parser;
+		return relationshipNameUpdateDelete_6006Parser;
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class RmmParserProvider extends AbstractProvider implements
 		case CheckIDName2EditPart.VISUAL_ID:
 			return getCheckIDName_5029Parser();
 		case RelationshipNameUpdateDeleteEditPart.VISUAL_ID:
-			return getRelationshipNameUpdateDelete_6005Parser();
+			return getRelationshipNameUpdateDelete_6006Parser();
 		}
 		return null;
 	}

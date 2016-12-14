@@ -208,24 +208,12 @@
       <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RelationshipFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RelationshipFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RelationshipFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass href="rmm.genmodel#//rmm/Relationship"/>
-        <containmentMetaFeature href="rmm.genmodel#//rmm/Schema/relationship"/>
-        <childMetaFeature href="rmm.genmodel#//rmm/Schema/relationship"/>
-        <sourceMetaFeature href="rmm.genmodel#//rmm/Relationship/source"/>
-        <targetMetaFeature href="rmm.genmodel#//rmm/Relationship/target"/>
-      </modelFacet>
-    </links>
-    <links visualID="4003" editPartClassName="Relationship2EditPart" itemSemanticEditPolicyClassName="Relationship2ItemSemanticEditPolicy" createCommandClassName="Relationship2CreateCommand" reorientCommandClassName="Relationship2ReorientCommand">
-      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
-      <elementType xsi:type="gmfgen:SpecializationType" metamodelType="//@diagram/@links.0/@elementType"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RelationshipFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RelationshipFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RelationshipFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet xsi:type="gmfgen:TypeLinkModelFacet">
-        <metaClass href="rmm.genmodel#//rmm/Relationship"/>
         <containmentMetaFeature href="rmm.genmodel#//rmm/PrimaryKey/relationship"/>
         <childMetaFeature href="rmm.genmodel#//rmm/PrimaryKey/relationship"/>
         <sourceMetaFeature href="rmm.genmodel#//rmm/Relationship/source"/>
         <targetMetaFeature href="rmm.genmodel#//rmm/Relationship/target"/>
       </modelFacet>
-      <labels visualID="6005" editPartClassName="RelationshipNameUpdateDeleteEditPart" itemSemanticEditPolicyClassName="RelationshipNameUpdateDeleteItemSemanticEditPolicy">
+      <labels visualID="6006" editPartClassName="RelationshipNameUpdateDeleteEditPart" itemSemanticEditPolicyClassName="RelationshipNameUpdateDeleteItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RelationshipLabelFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RelationshipLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RelationshipLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Relationship&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes xsi:type="gmfgen:LabelOffsetAttributes" y="40"/>
@@ -262,7 +250,7 @@
         <entries xsi:type="gmfgen:ToolEntry" title="Trigger" description="Create new Trigger" genNodes="//@diagram/@childNodes.4"/>
       </groups>
       <groups title="Connections" collapse="true">
-        <entries xsi:type="gmfgen:ToolEntry" title="Relationship" description="Create new Relationship" genLinks="//@diagram/@links.0 //@diagram/@links.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Relationship" description="Create new Relationship" genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="br.ufpe.cin.eercase.diagram.general" name="Rmm Diagram">
@@ -295,11 +283,6 @@
     <childReferences parent="//@diagram/@childNodes.2" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@links.0" child="//@diagram/@childNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@childNodes.0" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@links.1" child="//@diagram/@childNodes.2" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@childNodes.2" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@links.1" child="//@diagram/@childNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@childNodes.0" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -315,7 +298,7 @@
   </propertySheet>
   <domainGenModel href="rmm.genmodel#/"/>
   <labelParsers extensibleViaService="true">
-    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet"/>
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus context="//@diagram">
     <items xsi:type="gmfgen:LoadResourceAction"/>

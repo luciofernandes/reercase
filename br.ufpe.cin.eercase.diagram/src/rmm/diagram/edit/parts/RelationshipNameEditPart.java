@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
@@ -50,6 +51,7 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
+import rmm.ForeignKey;
 import rmm.diagram.edit.policies.RmmTextSelectionEditPolicy;
 import rmm.diagram.part.RmmVisualIDRegistry;
 import rmm.diagram.providers.RmmElementTypes;
@@ -145,6 +147,15 @@ public class RelationshipNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
+		ForeignKey foreignKey = (ForeignKey) ((Node) ((org.eclipse.gmf.runtime.notation.Edge) ((RelationshipEditPart) this
+				.getParent()).getModel()).getTarget()).getElement();
+		String array[] = text.split("[(]");
+		String textoAuxiliar = array[1];
+		textoAuxiliar = textoAuxiliar.replaceAll("CASCADE", "C");
+		textoAuxiliar = textoAuxiliar.replaceAll("RESTRICT", "R");
+		textoAuxiliar = textoAuxiliar.replaceAll("NULL", "N");
+		textoAuxiliar = textoAuxiliar.replaceAll("DEFAULT", "D");
+		text = foreignKey.getID() + "(" + textoAuxiliar;		
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
 		} else if (figure instanceof Label) {

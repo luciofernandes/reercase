@@ -43,7 +43,6 @@ import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
@@ -377,14 +376,6 @@ public class SchemaCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RmmDiagramUpdater
 						.getRelationship_4002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case Relationship2EditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(RmmDiagramUpdater
-						.getRelationship_4003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

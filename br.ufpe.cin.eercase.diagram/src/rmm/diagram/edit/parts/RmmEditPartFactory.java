@@ -101,9 +101,6 @@ public class RmmEditPartFactory implements EditPartFactory {
 			case RelationshipEditPart.VISUAL_ID:
 				return new RelationshipEditPart(view);
 
-			case Relationship2EditPart.VISUAL_ID:
-				return new Relationship2EditPart(view);
-
 			case RelationshipNameUpdateDeleteEditPart.VISUAL_ID:
 				return new RelationshipNameUpdateDeleteEditPart(view);
 

@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rmm.Table#getDescription <em>Description</em>}</li>
  *   <li>{@link rmm.Table#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link rmm.Table#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link rmm.Table#getTriggers <em>Triggers</em>}</li>
+ *   <li>{@link rmm.Table#getTriggersConstrainted <em>Triggers Constrainted</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,5 +113,37 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	EList<Constraint> getConstraints();
+
+	/**
+	 * Returns the value of the '<em><b>Triggers</b></em>' reference list.
+	 * The list contents are of type {@link rmm.Trigger}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Triggers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Triggers</em>' reference list.
+	 * @see rmm.RmmPackage#getTable_Triggers()
+	 * @model
+	 * @generated
+	 */
+	EList<Trigger> getTriggers();
+
+	/**
+	 * Returns the value of the '<em><b>Triggers Constrainted</b></em>' reference list.
+	 * The list contents are of type {@link rmm.Trigger}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Triggers Constrainted</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Triggers Constrainted</em>' reference list.
+	 * @see rmm.RmmPackage#getTable_TriggersConstrainted()
+	 * @model
+	 * @generated
+	 */
+	EList<Trigger> getTriggersConstrainted();
 
 } // Table

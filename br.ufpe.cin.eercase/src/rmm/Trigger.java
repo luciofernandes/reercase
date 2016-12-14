@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link rmm.Trigger#getOldTable <em>Old Table</em>}</li>
  *   <li>{@link rmm.Trigger#getNewTable <em>New Table</em>}</li>
  *   <li>{@link rmm.Trigger#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link rmm.Trigger#getTriggerTables <em>Trigger Tables</em>}</li>
  * </ul>
  * </p>
  *
@@ -340,5 +341,21 @@ public interface Trigger extends Constraint {
 	 * @generated
 	 */
 	EList<Attribute> getAttributes();
+
+	/**
+	 * Returns the value of the '<em><b>Trigger Tables</b></em>' reference list.
+	 * The list contents are of type {@link rmm.Table}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Trigger Tables</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trigger Tables</em>' reference list.
+	 * @see rmm.RmmPackage#getTrigger_TriggerTables()
+	 * @model
+	 * @generated
+	 */
+	EList<Table> getTriggerTables();
 
 } // Trigger

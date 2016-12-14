@@ -103,22 +103,13 @@ public interface RmmPackage extends EPackage {
 	int SCHEMA__DOMAIN = 3;
 
 	/**
-	 * The feature id for the '<em><b>Relationship</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__RELATIONSHIP = 4;
-
-	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = 5;
+	int SCHEMA_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link rmm.impl.TableImpl <em>Table</em>}' class.
@@ -167,13 +158,31 @@ public interface RmmPackage extends EPackage {
 	int TABLE__CONSTRAINTS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Triggers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TRIGGERS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Triggers Constrainted</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TRIGGERS_CONSTRAINTED = 5;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 4;
+	int TABLE_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link rmm.impl.AssertionImpl <em>Assertion</em>}' class.
@@ -861,13 +870,22 @@ public interface RmmPackage extends EPackage {
 	int TRIGGER__ATTRIBUTES = CONSTRAINT_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Trigger Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__TRIGGER_TABLES = CONSTRAINT_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 12;
+	int TRIGGER_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link rmm.ActionTimeType <em>Action Time Type</em>}' enum.
@@ -965,17 +983,6 @@ public interface RmmPackage extends EPackage {
 	EReference getSchema_Domain();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link rmm.Schema#getRelationship <em>Relationship</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Relationship</em>'.
-	 * @see rmm.Schema#getRelationship()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EReference getSchema_Relationship();
-
-	/**
 	 * Returns the meta object for class '{@link rmm.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1028,6 +1035,28 @@ public interface RmmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_Constraints();
+
+	/**
+	 * Returns the meta object for the reference list '{@link rmm.Table#getTriggers <em>Triggers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Triggers</em>'.
+	 * @see rmm.Table#getTriggers()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Triggers();
+
+	/**
+	 * Returns the meta object for the reference list '{@link rmm.Table#getTriggersConstrainted <em>Triggers Constrainted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Triggers Constrainted</em>'.
+	 * @see rmm.Table#getTriggersConstrainted()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_TriggersConstrainted();
 
 	/**
 	 * Returns the meta object for class '{@link rmm.Assertion <em>Assertion</em>}'.
@@ -1581,6 +1610,17 @@ public interface RmmPackage extends EPackage {
 	EReference getTrigger_Attributes();
 
 	/**
+	 * Returns the meta object for the reference list '{@link rmm.Trigger#getTriggerTables <em>Trigger Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Trigger Tables</em>'.
+	 * @see rmm.Trigger#getTriggerTables()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EReference getTrigger_TriggerTables();
+
+	/**
 	 * Returns the meta object for enum '{@link rmm.ActionTimeType <em>Action Time Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1685,14 +1725,6 @@ public interface RmmPackage extends EPackage {
 		EReference SCHEMA__DOMAIN = eINSTANCE.getSchema_Domain();
 
 		/**
-		 * The meta object literal for the '<em><b>Relationship</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEMA__RELATIONSHIP = eINSTANCE.getSchema_Relationship();
-
-		/**
 		 * The meta object literal for the '{@link rmm.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1733,6 +1765,22 @@ public interface RmmPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__CONSTRAINTS = eINSTANCE.getTable_Constraints();
+
+		/**
+		 * The meta object literal for the '<em><b>Triggers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__TRIGGERS = eINSTANCE.getTable_Triggers();
+
+		/**
+		 * The meta object literal for the '<em><b>Triggers Constrainted</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__TRIGGERS_CONSTRAINTED = eINSTANCE.getTable_TriggersConstrainted();
 
 		/**
 		 * The meta object literal for the '{@link rmm.impl.AssertionImpl <em>Assertion</em>}' class.
@@ -2161,6 +2209,14 @@ public interface RmmPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRIGGER__ATTRIBUTES = eINSTANCE.getTrigger_Attributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger Tables</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRIGGER__TRIGGER_TABLES = eINSTANCE.getTrigger_TriggerTables();
 
 		/**
 		 * The meta object literal for the '{@link rmm.ActionTimeType <em>Action Time Type</em>}' enum.

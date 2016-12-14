@@ -21,7 +21,6 @@ import rmm.diagram.edit.parts.AttributeEditPart;
 import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.TableTableAttributesCompartmentEditPart;
 import rmm.diagram.edit.parts.TableTableConstraintsCompartmentEditPart;
@@ -102,14 +101,6 @@ public class TableItemSemanticEditPolicy extends RmmBaseItemSemanticEditPolicy {
 										outgoingLink));
 								continue;
 							}
-							if (RmmVisualIDRegistry.getVisualID(outgoingLink) == Relationship2EditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(
-										outgoingLink.getElement(), false);
-								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										outgoingLink));
-								continue;
-							}
 						}
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
@@ -129,14 +120,6 @@ public class TableItemSemanticEditPolicy extends RmmBaseItemSemanticEditPolicy {
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (RmmVisualIDRegistry.getVisualID(incomingLink) == RelationshipEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(
-										incomingLink.getElement(), false);
-								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										incomingLink));
-								continue;
-							}
-							if (RmmVisualIDRegistry.getVisualID(incomingLink) == Relationship2EditPart.VISUAL_ID) {
 								DestroyElementRequest r = new DestroyElementRequest(
 										incomingLink.getElement(), false);
 								cmd.add(new DestroyElementCommand(r));

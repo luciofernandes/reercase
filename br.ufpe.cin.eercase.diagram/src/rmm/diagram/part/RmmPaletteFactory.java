@@ -202,12 +202,10 @@ public class RmmPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRelationship1CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(RmmElementTypes.Relationship_4002);
-		types.add(RmmElementTypes.Relationship_4003);
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				Messages.Relationship1CreationTool_title,
-				Messages.Relationship1CreationTool_desc, types);
+				Messages.Relationship1CreationTool_desc,
+				Collections.singletonList(RmmElementTypes.Relationship_4002));
 		entry.setId("createRelationship1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RmmElementTypes
 				.getImageDescriptor(RmmElementTypes.Relationship_4002));

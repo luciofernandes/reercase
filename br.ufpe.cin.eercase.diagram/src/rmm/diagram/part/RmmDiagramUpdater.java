@@ -36,7 +36,6 @@ import rmm.diagram.edit.parts.DomainDomainConstraintCheckDomainCompartmentEditPa
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
@@ -243,8 +242,6 @@ public class RmmDiagramUpdater {
 			return getCheck_3021ContainedLinks(view);
 		case RelationshipEditPart.VISUAL_ID:
 			return getRelationship_4002ContainedLinks(view);
-		case Relationship2EditPart.VISUAL_ID:
-			return getRelationship_4003ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -276,8 +273,6 @@ public class RmmDiagramUpdater {
 			return getCheck_3021IncomingLinks(view);
 		case RelationshipEditPart.VISUAL_ID:
 			return getRelationship_4002IncomingLinks(view);
-		case Relationship2EditPart.VISUAL_ID:
-			return getRelationship_4003IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -309,8 +304,6 @@ public class RmmDiagramUpdater {
 			return getCheck_3021OutgoingLinks(view);
 		case RelationshipEditPart.VISUAL_ID:
 			return getRelationship_4002OutgoingLinks(view);
-		case Relationship2EditPart.VISUAL_ID:
-			return getRelationship_4003OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -319,10 +312,7 @@ public class RmmDiagramUpdater {
 	 * @generated
 	 */
 	public static List<RmmLinkDescriptor> getSchema_1000ContainedLinks(View view) {
-		Schema modelElement = (Schema) view.getElement();
-		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_Relationship_4002(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -354,7 +344,7 @@ public class RmmDiagramUpdater {
 			View view) {
 		PrimaryKey modelElement = (PrimaryKey) view.getElement();
 		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_Relationship_4003(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Relationship_4002(modelElement));
 		return result;
 	}
 
@@ -415,14 +405,6 @@ public class RmmDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RmmLinkDescriptor> getRelationship_4003ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<RmmLinkDescriptor> getTable_2004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -469,8 +451,6 @@ public class RmmDiagramUpdater {
 		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
 		result.addAll(getIncomingTypeModelFacetLinks_Relationship_4002(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Relationship_4003(
-				modelElement, crossReferences));
 		return result;
 	}
 
@@ -514,14 +494,6 @@ public class RmmDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RmmLinkDescriptor> getRelationship_4003IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<RmmLinkDescriptor> getTable_2004OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -549,7 +521,6 @@ public class RmmDiagramUpdater {
 		PrimaryKey modelElement = (PrimaryKey) view.getElement();
 		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Relationship_4002(modelElement));
-		result.addAll(getOutgoingTypeModelFacetLinks_Relationship_4003(modelElement));
 		return result;
 	}
 
@@ -609,16 +580,8 @@ public class RmmDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RmmLinkDescriptor> getRelationship_4003OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection<RmmLinkDescriptor> getContainedTypeModelFacetLinks_Relationship_4002(
-			Schema container) {
+			PrimaryKey container) {
 		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
 		for (Iterator<?> links = container.getRelationship().iterator(); links
 				.hasNext();) {
@@ -636,32 +599,6 @@ public class RmmDiagramUpdater {
 			result.add(new RmmLinkDescriptor(src, dst, link,
 					RmmElementTypes.Relationship_4002,
 					RelationshipEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<RmmLinkDescriptor> getContainedTypeModelFacetLinks_Relationship_4003(
-			PrimaryKey container) {
-		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
-		for (Iterator<?> links = container.getRelationship().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof Relationship) {
-				continue;
-			}
-			Relationship link = (Relationship) linkObject;
-			if (Relationship2EditPart.VISUAL_ID != RmmVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			ForeignKey dst = link.getTarget();
-			PrimaryKey src = link.getSource();
-			result.add(new RmmLinkDescriptor(src, dst, link,
-					RmmElementTypes.Relationship_4003,
-					Relationship2EditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -697,44 +634,16 @@ public class RmmDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<RmmLinkDescriptor> getIncomingTypeModelFacetLinks_Relationship_4003(
-			ForeignKey target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != RmmPackage.eINSTANCE
-					.getRelationship_Target()
-					|| false == setting.getEObject() instanceof Relationship) {
-				continue;
-			}
-			Relationship link = (Relationship) setting.getEObject();
-			if (Relationship2EditPart.VISUAL_ID != RmmVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			PrimaryKey src = link.getSource();
-			result.add(new RmmLinkDescriptor(src, target, link,
-					RmmElementTypes.Relationship_4003,
-					Relationship2EditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection<RmmLinkDescriptor> getOutgoingTypeModelFacetLinks_Relationship_4002(
 			PrimaryKey source) {
-		Schema container = null;
+		PrimaryKey container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null && container == null; element = element
 				.eContainer()) {
-			if (element instanceof Schema) {
-				container = (Schema) element;
+			if (element instanceof PrimaryKey) {
+				container = (PrimaryKey) element;
 			}
 		}
 		if (container == null) {
@@ -760,48 +669,6 @@ public class RmmDiagramUpdater {
 			result.add(new RmmLinkDescriptor(src, dst, link,
 					RmmElementTypes.Relationship_4002,
 					RelationshipEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<RmmLinkDescriptor> getOutgoingTypeModelFacetLinks_Relationship_4003(
-			PrimaryKey source) {
-		PrimaryKey container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof PrimaryKey) {
-				container = (PrimaryKey) element;
-			}
-		}
-		if (container == null) {
-			return Collections.emptyList();
-		}
-		LinkedList<RmmLinkDescriptor> result = new LinkedList<RmmLinkDescriptor>();
-		for (Iterator<?> links = container.getRelationship().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof Relationship) {
-				continue;
-			}
-			Relationship link = (Relationship) linkObject;
-			if (Relationship2EditPart.VISUAL_ID != RmmVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			ForeignKey dst = link.getTarget();
-			PrimaryKey src = link.getSource();
-			if (src != source) {
-				continue;
-			}
-			result.add(new RmmLinkDescriptor(src, dst, link,
-					RmmElementTypes.Relationship_4003,
-					Relationship2EditPart.VISUAL_ID));
 		}
 		return result;
 	}

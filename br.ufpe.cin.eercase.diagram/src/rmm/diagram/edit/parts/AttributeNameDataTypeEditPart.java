@@ -141,9 +141,9 @@ public class AttributeNameDataTypeEditPart extends CompartmentEditPart
 		} else {
 			figure.setFont(AttributeEditPart.FontNormal);
 		}
-		String array[] = text.split(":");	
+		String array[] = text.split(":");
 		if (attribute.getDomainType() != null) {
-			text = array[0] + ":" + attribute.getDomainType().getName();			
+			text = array[0] + ":" + attribute.getDomainType().getName();
 		}
 		String siglaConstraint = new String("");
 		Table table = ((Table) ((Node) this.getParent().getParent().getModel())

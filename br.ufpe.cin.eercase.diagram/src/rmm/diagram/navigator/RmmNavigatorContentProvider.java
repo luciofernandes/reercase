@@ -37,7 +37,6 @@ import rmm.diagram.edit.parts.DomainDomainConstraintCheckDomainCompartmentEditPa
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
@@ -272,10 +271,6 @@ public class RmmNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					RmmVisualIDRegistry.getType(RelationshipEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					RmmVisualIDRegistry
-							.getType(Relationship2EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
@@ -363,11 +358,6 @@ public class RmmNavigatorContentProvider implements ICommonContentProvider {
 					RmmVisualIDRegistry.getType(RelationshipEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					RmmVisualIDRegistry
-							.getType(Relationship2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
 			}
@@ -385,11 +375,6 @@ public class RmmNavigatorContentProvider implements ICommonContentProvider {
 					RmmVisualIDRegistry.getType(RelationshipEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					RmmVisualIDRegistry
-							.getType(Relationship2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
 			}
@@ -404,33 +389,6 @@ public class RmmNavigatorContentProvider implements ICommonContentProvider {
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			RmmNavigatorGroup source = new RmmNavigatorGroup(
 					Messages.NavigatorGroupName_Relationship_4002_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					RmmVisualIDRegistry.getType(ForeignKeyEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					RmmVisualIDRegistry.getType(PrimaryKeyEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case Relationship2EditPart.VISUAL_ID: {
-			LinkedList<RmmAbstractNavigatorItem> result = new LinkedList<RmmAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			RmmNavigatorGroup target = new RmmNavigatorGroup(
-					Messages.NavigatorGroupName_Relationship_4003_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			RmmNavigatorGroup source = new RmmNavigatorGroup(
-					Messages.NavigatorGroupName_Relationship_4003_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),

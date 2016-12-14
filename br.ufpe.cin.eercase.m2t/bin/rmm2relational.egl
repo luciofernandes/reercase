@@ -1,10 +1,4 @@
 [%
-out.print("-- #######################################################\n");
-out.print("--  Feature in construction, not completely ready to use  \n");
-out.print("--  Compatible with PostgreSQL                            \n");
-out.print("--  Edson Alves - eas4@cin.ufpe.br - 15/06/2016           \n");
-out.print("-- #######################################################\n");
-//out.print("-- DDL/SQL for PostgreSQL 9.3, released in 18/08/2014. \n\n");
 var columnCount : Integer;
 var constraintCount : Integer;
 var constraintCountTotal : Integer;

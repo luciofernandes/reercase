@@ -71,7 +71,7 @@ public class ConstraintItemProvider
 	 * This adds a property descriptor for the ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -81,7 +81,7 @@ public class ConstraintItemProvider
 				 getString("_UI_Constraint_ID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Constraint_ID_feature", "_UI_Constraint_type"),
 				 RmmPackage.Literals.CONSTRAINT__ID,
-				 true,
+				 false, //não permite alteração
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

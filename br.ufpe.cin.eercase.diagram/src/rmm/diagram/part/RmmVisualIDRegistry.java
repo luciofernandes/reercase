@@ -29,7 +29,6 @@ import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.ForeignKeyIDNameEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyIDNameEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.RelationshipNameEditPart;
 import rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart;
@@ -319,7 +318,7 @@ public class RmmVisualIDRegistry {
 				return true;
 			}
 			break;
-		case Relationship2EditPart.VISUAL_ID:
+		case RelationshipEditPart.VISUAL_ID:
 			if (RelationshipNameUpdateDeleteEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -338,10 +337,6 @@ public class RmmVisualIDRegistry {
 		if (RmmPackage.eINSTANCE.getRelationship().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RelationshipEditPart.VISUAL_ID;
-		}
-		if (RmmPackage.eINSTANCE.getRelationship().isSuperTypeOf(
-				domainElement.eClass())) {
-			return Relationship2EditPart.VISUAL_ID;
 		}
 		return -1;
 	}

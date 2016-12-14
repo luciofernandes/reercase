@@ -7,7 +7,7 @@ class Schema {
   val Table[*] table;
   val Assertion[*] assertion;
   val Domain[*] domain;
-  val Relationship[*] relationship;
+  //val Relationship[*] relationship;
 }
 
 @gmf.node(label="name", figure="rectangle")
@@ -20,6 +20,9 @@ class Table {
 
   @gmf.compartment(layout="list", collapsible="false", width="1", incoming="false")
   val Constraint[*] constraints;
+  
+  ref Trigger[*] triggers;
+  ref Trigger[*] triggersConstrainted;
   
 }
 
@@ -103,7 +106,8 @@ class Trigger extends Constraint {
   attr String newRow;
   attr String oldTable;
   attr String newTable;
-  ref Attribute[*] attributes;    	
+  ref Attribute[*] attributes;
+  ref Table[*] triggerTables;    	
 }
 
 

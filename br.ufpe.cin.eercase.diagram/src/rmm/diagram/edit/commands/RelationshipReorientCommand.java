@@ -71,10 +71,10 @@ public class RelationshipReorientCommand extends EditElementCommand {
 			return false;
 		}
 		ForeignKey target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof Schema)) {
+		if (!(getLink().eContainer() instanceof PrimaryKey)) {
 			return false;
 		}
-		Schema container = (Schema) getLink().eContainer();
+		PrimaryKey container = (PrimaryKey) getLink().eContainer();
 		return RmmBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistRelationship_4002(container, getLink(),
 						getNewSource(), target);
@@ -88,10 +88,10 @@ public class RelationshipReorientCommand extends EditElementCommand {
 			return false;
 		}
 		PrimaryKey source = getLink().getSource();
-		if (!(getLink().eContainer() instanceof Schema)) {
+		if (!(getLink().eContainer() instanceof PrimaryKey)) {
 			return false;
 		}
-		Schema container = (Schema) getLink().eContainer();
+		PrimaryKey container = (PrimaryKey) getLink().eContainer();
 		return RmmBaseItemSemanticEditPolicy.getLinkConstraints()
 				.canExistRelationship_4002(container, getLink(), source,
 						getNewTarget());

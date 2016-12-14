@@ -105,7 +105,6 @@ public class SchemaItemProvider
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__TABLE);
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__ASSERTION);
 			childrenFeatures.add(RmmPackage.Literals.SCHEMA__DOMAIN);
-			childrenFeatures.add(RmmPackage.Literals.SCHEMA__RELATIONSHIP);
 		}
 		return childrenFeatures;
 	}
@@ -167,7 +166,6 @@ public class SchemaItemProvider
 			case RmmPackage.SCHEMA__TABLE:
 			case RmmPackage.SCHEMA__ASSERTION:
 			case RmmPackage.SCHEMA__DOMAIN:
-			case RmmPackage.SCHEMA__RELATIONSHIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -199,11 +197,6 @@ public class SchemaItemProvider
 			(createChildParameter
 				(RmmPackage.Literals.SCHEMA__DOMAIN,
 				 RmmFactory.eINSTANCE.createDomain()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RmmPackage.Literals.SCHEMA__RELATIONSHIP,
-				 RmmFactory.eINSTANCE.createRelationship()));
 	}
 
 	/**

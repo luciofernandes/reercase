@@ -43,6 +43,7 @@ import rmm.Trigger;
  *   <li>{@link rmm.impl.TriggerImpl#getOldTable <em>Old Table</em>}</li>
  *   <li>{@link rmm.impl.TriggerImpl#getNewTable <em>New Table</em>}</li>
  *   <li>{@link rmm.impl.TriggerImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link rmm.impl.TriggerImpl#getTriggerTables <em>Trigger Tables</em>}</li>
  * </ul>
  * </p>
  *
@@ -278,6 +279,16 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 	 * @ordered
 	 */
 	protected EList<Attribute> attributes;
+
+	/**
+	 * The cached value of the '{@link #getTriggerTables() <em>Trigger Tables</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggerTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Table> triggerTables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -546,6 +557,18 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Table> getTriggerTables() {
+		if (triggerTables == null) {
+			triggerTables = new EObjectResolvingEList<Table>(Table.class, this, RmmPackage.TRIGGER__TRIGGER_TABLES);
+		}
+		return triggerTables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -573,6 +596,8 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 				return getNewTable();
 			case RmmPackage.TRIGGER__ATTRIBUTES:
 				return getAttributes();
+			case RmmPackage.TRIGGER__TRIGGER_TABLES:
+				return getTriggerTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -623,6 +648,10 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
+			case RmmPackage.TRIGGER__TRIGGER_TABLES:
+				getTriggerTables().clear();
+				getTriggerTables().addAll((Collection<? extends Table>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -671,6 +700,9 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 			case RmmPackage.TRIGGER__ATTRIBUTES:
 				getAttributes().clear();
 				return;
+			case RmmPackage.TRIGGER__TRIGGER_TABLES:
+				getTriggerTables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -707,6 +739,8 @@ public class TriggerImpl extends ConstraintImpl implements Trigger {
 				return NEW_TABLE_EDEFAULT == null ? newTable != null : !NEW_TABLE_EDEFAULT.equals(newTable);
 			case RmmPackage.TRIGGER__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
+			case RmmPackage.TRIGGER__TRIGGER_TABLES:
+				return triggerTables != null && !triggerTables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

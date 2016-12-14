@@ -262,15 +262,6 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Relationship() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -309,6 +300,24 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 */
 	public EReference getTable_Constraints() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_Triggers() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_TriggersConstrainted() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -775,6 +784,15 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTrigger_TriggerTables() {
+		return (EReference)triggerEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getActionTimeType() {
 		return actionTimeTypeEEnum;
 	}
@@ -839,13 +857,14 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEReference(schemaEClass, SCHEMA__TABLE);
 		createEReference(schemaEClass, SCHEMA__ASSERTION);
 		createEReference(schemaEClass, SCHEMA__DOMAIN);
-		createEReference(schemaEClass, SCHEMA__RELATIONSHIP);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__NAME);
 		createEAttribute(tableEClass, TABLE__DESCRIPTION);
 		createEReference(tableEClass, TABLE__ATTRIBUTES);
 		createEReference(tableEClass, TABLE__CONSTRAINTS);
+		createEReference(tableEClass, TABLE__TRIGGERS);
+		createEReference(tableEClass, TABLE__TRIGGERS_CONSTRAINTED);
 
 		assertionEClass = createEClass(ASSERTION);
 		createEAttribute(assertionEClass, ASSERTION__NAME);
@@ -907,6 +926,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		createEAttribute(triggerEClass, TRIGGER__OLD_TABLE);
 		createEAttribute(triggerEClass, TRIGGER__NEW_TABLE);
 		createEReference(triggerEClass, TRIGGER__ATTRIBUTES);
+		createEReference(triggerEClass, TRIGGER__TRIGGER_TABLES);
 
 		// Create enums
 		actionTimeTypeEEnum = createEEnum(ACTION_TIME_TYPE);
@@ -955,13 +975,14 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEReference(getSchema_Table(), this.getTable(), null, "table", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Assertion(), this.getAssertion(), null, "assertion", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Domain(), this.getDomain(), null, "domain", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Relationship(), this.getRelationship(), null, "relationship", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_Description(), ecorePackage.getEString(), "description", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Triggers(), this.getTrigger(), null, "triggers", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_TriggersConstrainted(), this.getTrigger(), null, "triggersConstrainted", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(assertionEClass, Assertion.class, "Assertion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssertion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assertion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1023,6 +1044,7 @@ public class RmmPackageImpl extends EPackageImpl implements RmmPackage {
 		initEAttribute(getTrigger_OldTable(), ecorePackage.getEString(), "oldTable", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_NewTable(), ecorePackage.getEString(), "newTable", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrigger_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrigger_TriggerTables(), this.getTable(), null, "triggerTables", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(actionTimeTypeEEnum, ActionTimeType.class, "ActionTimeType");

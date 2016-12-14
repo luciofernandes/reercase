@@ -64,7 +64,7 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6005;
+	public static final int VISUAL_ID = 6006;
 
 	/**
 	 * @generated
@@ -336,7 +336,7 @@ public class RelationshipNameUpdateDeleteEditPart extends LabelEditPart
 		if (parser == null) {
 			parser = RmmParserProvider
 					.getParser(
-							RmmElementTypes.Relationship_4003,
+							RmmElementTypes.Relationship_4002,
 							getParserElement(),
 							RmmVisualIDRegistry
 									.getType(rmm.diagram.edit.parts.RelationshipNameUpdateDeleteEditPart.VISUAL_ID));

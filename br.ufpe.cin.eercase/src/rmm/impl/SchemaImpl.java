@@ -36,7 +36,6 @@ import rmm.Table;
  *   <li>{@link rmm.impl.SchemaImpl#getTable <em>Table</em>}</li>
  *   <li>{@link rmm.impl.SchemaImpl#getAssertion <em>Assertion</em>}</li>
  *   <li>{@link rmm.impl.SchemaImpl#getDomain <em>Domain</em>}</li>
- *   <li>{@link rmm.impl.SchemaImpl#getRelationship <em>Relationship</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,16 +91,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	 * @ordered
 	 */
 	protected EList<Domain> domain;
-
-	/**
-	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationship()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Relationship> relationship;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,18 +173,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Relationship> getRelationship() {
-		if (relationship == null) {
-			relationship = new EObjectContainmentEList<Relationship>(Relationship.class, this, RmmPackage.SCHEMA__RELATIONSHIP);
-		}
-		return relationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -205,8 +182,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				return ((InternalEList<?>)getAssertion()).basicRemove(otherEnd, msgs);
 			case RmmPackage.SCHEMA__DOMAIN:
 				return ((InternalEList<?>)getDomain()).basicRemove(otherEnd, msgs);
-			case RmmPackage.SCHEMA__RELATIONSHIP:
-				return ((InternalEList<?>)getRelationship()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -227,8 +202,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				return getAssertion();
 			case RmmPackage.SCHEMA__DOMAIN:
 				return getDomain();
-			case RmmPackage.SCHEMA__RELATIONSHIP:
-				return getRelationship();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,10 +230,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				getDomain().clear();
 				getDomain().addAll((Collection<? extends Domain>)newValue);
 				return;
-			case RmmPackage.SCHEMA__RELATIONSHIP:
-				getRelationship().clear();
-				getRelationship().addAll((Collection<? extends Relationship>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,9 +254,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 			case RmmPackage.SCHEMA__DOMAIN:
 				getDomain().clear();
 				return;
-			case RmmPackage.SCHEMA__RELATIONSHIP:
-				getRelationship().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -308,8 +274,6 @@ public class SchemaImpl extends EObjectImpl implements Schema {
 				return assertion != null && !assertion.isEmpty();
 			case RmmPackage.SCHEMA__DOMAIN:
 				return domain != null && !domain.isEmpty();
-			case RmmPackage.SCHEMA__RELATIONSHIP:
-				return relationship != null && !relationship.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

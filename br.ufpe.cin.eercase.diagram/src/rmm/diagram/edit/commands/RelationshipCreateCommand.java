@@ -40,7 +40,7 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	private final Schema container;
+	private final PrimaryKey container;
 
 	/**
 	 * @generated
@@ -146,7 +146,7 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public Schema getContainer() {
+	public PrimaryKey getContainer() {
 		return container;
 	}
 
@@ -155,14 +155,14 @@ public class RelationshipCreateCommand extends EditElementCommand {
 	 * Modify with appropriate logic.
 	 * @generated
 	 */
-	private static Schema deduceContainer(EObject source, EObject target) {
+	private static PrimaryKey deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null; element = element
 				.eContainer()) {
-			if (element instanceof Schema) {
-				return (Schema) element;
+			if (element instanceof PrimaryKey) {
+				return (PrimaryKey) element;
 			}
 		}
 		return null;

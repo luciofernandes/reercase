@@ -65,6 +65,8 @@ public class TableItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addTriggersPropertyDescriptor(object);
+			addTriggersConstraintedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +111,50 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Triggers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTriggersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_triggers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_triggers_feature", "_UI_Table_type"),
+				 RmmPackage.Literals.TABLE__TRIGGERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Triggers Constrainted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTriggersConstraintedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_triggersConstrainted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_triggersConstrainted_feature", "_UI_Table_type"),
+				 RmmPackage.Literals.TABLE__TRIGGERS_CONSTRAINTED,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

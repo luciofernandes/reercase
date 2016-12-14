@@ -26,7 +26,6 @@ import rmm.diagram.edit.parts.CheckEditPart;
 import rmm.diagram.edit.parts.DomainEditPart;
 import rmm.diagram.edit.parts.ForeignKeyEditPart;
 import rmm.diagram.edit.parts.PrimaryKeyEditPart;
-import rmm.diagram.edit.parts.Relationship2EditPart;
 import rmm.diagram.edit.parts.RelationshipEditPart;
 import rmm.diagram.edit.parts.SchemaEditPart;
 import rmm.diagram.edit.parts.TableEditPart;
@@ -114,11 +113,6 @@ public class RmmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Relationship_4003 = getElementType("br.ufpe.cin.eercase.diagram.Relationship_4003"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
@@ -179,9 +173,6 @@ public class RmmElementTypes {
 
 			elements.put(Relationship_4002,
 					RmmPackage.eINSTANCE.getRelationship());
-
-			elements.put(Relationship_4003,
-					RmmPackage.eINSTANCE.getRelationship());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -211,7 +202,6 @@ public class RmmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Attribute_3006);
 			KNOWN_ELEMENT_TYPES.add(Check_3021);
 			KNOWN_ELEMENT_TYPES.add(Relationship_4002);
-			KNOWN_ELEMENT_TYPES.add(Relationship_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -245,8 +235,6 @@ public class RmmElementTypes {
 			return Check_3021;
 		case RelationshipEditPart.VISUAL_ID:
 			return Relationship_4002;
-		case Relationship2EditPart.VISUAL_ID:
-			return Relationship_4003;
 		}
 		return null;
 	}
